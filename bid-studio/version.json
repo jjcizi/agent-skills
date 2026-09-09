@@ -1,0 +1,36 @@
+{
+  "version": "2.4.0",
+  "updatedAt": "2026-09-09",
+  "name": "bid-studio",
+  "displayName": "标书超级工坊",
+  "upgradedFrom": "tender-master@1.0.0",
+  "mergedFrom": [
+    "tender-analysis@1.0.1",
+    "technical-solution-writing@1.0.1",
+    "tender-writing@2.2.1",
+    "投标文件撰写@3.4",
+    "tender-technical-refine@1.2.2",
+    "tender-technical-mermaid@1.0.1",
+    "tender-technical-finalize@1.1.1",
+    "tender-bid-review@1.0.1",
+    "kami（排版审美选择性融入）"
+  ],
+  "changelog": [
+    "新增废标项全面检查技术（P2.3 十二大类分类框架 + P10.5 专项门禁）：法定否决情形 7 种（招标投标法实施条例第51条）+ 12 大类实务分类双重排查，输出文件与废标项一一对应检查，并在标书同目录输出《废标项检查报告.pdf》",
+    "图表绘制能力升级：6.9 纳入 kami SVG 14 种全量清单（结构/关系 7 + 战略/时间 2 + 统计/数据 5）、自动选型决策树（首匹配胜出）与防 AI-slop 使用约束，并明确 kami SVG 与 Mermaid 的分工",
+    "新增表格对齐规则：表头行/第一列上下左右居中、其余单元格上下居中（水平按语义），并同步到 python-docx/Word COM/HTML 三种落地方式",
+    "重构 PDF 输出路径：必须复用 kami HTML + CSS 排版管线（long-doc.html + tokens.json）经 WeasyPrint/Chromium 渲染 PDF，不再从 Word/pandoc 朴素路径转，追平 kami 直接输出的审美",
+    "新增「Word 落地映射」并重构「融入边界」：Word 用 python-docx 把 kami 设计令牌逐项映射为样式属性，明确 Word 审美上限低于 PDF、须如实告知",
+    "新增 P0.0 知识库模式选择门禁：进入 P1 前必须让用户选择是否启用知识库模式、勾选甲/乙知识库及实际路径，并录入乙方公司名称",
+    "新增 P6.9 图表自动规划与生成：写正文时自动判断是否配图；数据类内容融入 kami 数据图（柱状/折线/环形/象限/瀑布 SVG），流程/因果/逻辑/层次/循环/结构类内容融入 Mermaid（flowchart/sequenceDiagram/gantt/stateDiagram/classDiagram/erDiagram）",
+    "P8 升级为「图表校验与规范化」：纳入 kami 数据图校验，补充 Mermaid 类型映射，并明确与 P6.9 的生成→校验关系",
+    "新增 11.6 表格格式规范：解决 Word 表格无边框/表头无样式问题，规定边框、表头底纹、跨页重复表头、实现方式（python-docx/pandoc/Word COM/HTML）与交付前校验",
+    "重命名为 bid-studio（标书超级工坊）",
+    "新增 P3 响应范围选择门禁（商务/技术/报价响应文件）",
+    "新增 P6 字数设置门禁（以万字为单位）",
+    "新增 P11 输出格式确认（Word/PDF）",
+    "选择性融入 kami 排版审美体系，全面提升 Word/PDF 排版与审美",
+    "内置 kami 所需字体到 assets/fonts/（仓耳今楷 02 两套 + 思源宋体 SC 两字重 + JetBrains Mono），导出 Word/PDF 无需联网下载",
+    "P11 新增字体嵌入规范：生成 Word/PDF 时默认嵌入字体（Word COM EmbedTrueTypeFonts / PDF 子集嵌入），并增加交付前字体嵌入校验，防止跨机丢字体"
+  ]
+}
