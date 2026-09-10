@@ -60,6 +60,7 @@ license: Proprietary. LICENSE.txt has complete terms
 
 - 不得编造客户信息、指标、预算、报价、参数。
 - 缺失信息用 `【待用户补充：xxx】` 或 `[待用户补: xxx]` 标记，并集中输出「待确认清单 / 用户待补清单」。
+- **占位符高亮（导出必做）**：交付的 Word/PDF 中，所有占位符（`【待用户补充：xxx】`、`【待补】`、`[待用户补: xxx]` 等）必须加**蛋黄色底色 `#FFF3CD`** 标记，便于肉眼一眼识别待补内容；用户补全后去除底色。
 - 无法确定的条目必须进入 `漏项清单.md`，不得静默跳过。
 
 ## 阶段总览（P0 → P11）
@@ -696,6 +697,10 @@ P6 生成图表后不即时校验语法；**P8 统一校验/转换/规范化**�
 
 > 本规范解决「Word 表格无边框、表头无样式」问题，P11 导出时**必须应用**，未应用不得交付。
 
+**表格整体对齐（硬性）**
+
+- 所有交付表格在页面内**水平居中**：Word 用表格属性「居中」或 `table.alignment = WD_TABLE_ALIGNMENT.CENTER`；HTML→PDF 用 `table { margin-left: auto; margin-right: auto; }`。无论表格宽窄均须居中，不得默认左对齐。
+
 **表格边框（硬性）**
 
 - 所有交付表格必须有**可见边框**：外框用墨蓝/暖灰实线，内线（行分隔）用浅暖灰实线；**禁止无边框表格**（`.md` 转 `.docx` 后默认网格边框消失是常见事故，必须回补）。
@@ -719,10 +724,10 @@ P6 生成图表后不即时校验语法；**P8 统一校验/转换/规范化**�
 
 **实现方式（按导出工具选择）**
 
-- **python-docx（推荐）**：用 `style='Table Grid'` 保证网格边框，再逐表设置表头底纹（`w:shd` 墨蓝填充 + 白字）、行重复表头（`tblHeader`）、单元格边距；**对齐**——表头行与第一列 `cell.vertical_alignment = CENTER` + `paragraph.alignment = CENTER`，其余单元格 `cell.vertical_alignment = CENTER`（水平：数字右对齐、文本左对齐）；写一个统一的表格样式函数复用，禁止逐表手工遗漏。
+- **python-docx（推荐）**：用 `style='Table Grid'` 保证网格边框、`table.alignment = WD_TABLE_ALIGNMENT.CENTER` 保证表格页面居中，再逐表设置表头底纹（`w:shd` 墨蓝填充 + 白字）、行重复表头（`tblHeader`）、单元格边距；**对齐**——表头行与第一列 `cell.vertical_alignment = CENTER` + `paragraph.alignment = CENTER`，其余单元格 `cell.vertical_alignment = CENTER`（水平：数字右对齐、文本左对齐）；写一个统一的表格样式函数复用，禁止逐表手工遗漏。
 - **pandoc**：生成 `.docx` 后用 python-docx 或 Word COM 补表格样式（pandoc 默认表格无样式）；或提供 `reference.docx` 定义带边框 + 表头底纹的 `Table` 样式。
 - **Word COM**：打开文档后遍历 `doc.Tables`，设置 `Table.Borders.Enable = true`、`Table.Rows(1).Shading.BackgroundPatternColor = RGB(27,54,93)`、表头文字白色，并 `Rows(1).HeadingFormat = true`；对齐用 `Cell.VerticalAlignment = wdCellAlignVerticalCenter`、`Range.ParagraphFormat.Alignment`（表头行/第一列居中，其余数字右对齐、文本左对齐）。
-- **HTML→PDF（kami 方式）**：CSS 给 `table` 设 `border-collapse: collapse`、`th` 墨蓝底 + 白字、`th/td` 边框暖灰实线，表头跨页重复由 `thead` 自动处理；对齐用 `th, td:first-child { text-align:center; vertical-align:middle }`、其余 `td { vertical-align:middle }`（数字右对齐、文本左对齐）。
+- **HTML→PDF（kami 方式）**：CSS 给 `table` 设 `border-collapse: collapse`、`margin-left: auto; margin-right: auto`（表格页面居中）、`th` 墨蓝底 + 白字、`th/td` 边框暖灰实线，表头跨页重复由 `thead` 自动处理；对齐用 `th, td:first-child { text-align:center; vertical-align:middle }`、其余 `td { vertical-align:middle }`（数字右对齐、文本左对齐）。
 
 **交付前表格校验（必做）**
 
