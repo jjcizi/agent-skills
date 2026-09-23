@@ -8,6 +8,7 @@
 |------|------|----------|
 | [university-lecture](university-lecture/) | 模拟顶尖大学优秀教师，6步逻辑闭环课堂精讲，输出自包含 HTML 讲义（含 SVG 可视化） | `.agents/skills/university-lecture/` |
 | [bid-studio](bid-studio/) | 标书超级工坊——投标全生命周期一站式技能，融合招标解析、条款级响应、废标项检查、kami 排版审美与图表绘制，支持 Word/PDF 交付 | `.agents/skills/bid-studio/` |
+| [person-investigation](person-investigation/) | 人物背景尽调——消歧锚定、8 维度调研、并行子 Agent、来源可信度分级与结构化尽调报告 | `.agents/skills/person-investigation/` |
 
 ## 安装方法
 
