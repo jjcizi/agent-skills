@@ -12,12 +12,15 @@ description: 把一段文字内容套进 141 页专业逻辑图模板（孔雀�
 ## 资产
 
 - `assets/template.pptx` —— 141 页纯净模板（已去页眉水印、已剥离 23MB 嵌入字体，2.1 MB）
+- `assets/fonts/` —— 随包字体 `Noto Sans SC`（Regular/Bold，SIL OFL 1.1）与 `OFL.txt` 许可原文；首次出图自动装入用户字体目录
 - `assets/index.json` —— 逐页索引，141 条
 - `assets/thumbs/pNNN.jpg` —— 逐页缩略图（520×292，快速看图用）
 - `references/SCHEMA.md` —— 索引字段定义
 - `scripts/match.py` —— 内容特征 → 候选页排序
 - `scripts/layout.py` —— 侦察某页的槽位、形状清单与阅读顺序
 - `scripts/build.py` —— 填内容 → 出 PPTX/PDF/PNG
+- `scripts/fonts.py` —— 字体与 LibreOffice 定位（`ensure_fonts()` / `find_soffice()`）
+- `scripts/setup_fonts.py` —— 字体安装 / 检查 / 卸载 CLI
 
 ## ⚠️ 先读这条：模板分两类
 
@@ -71,22 +74,41 @@ description: 把一段文字内容套进 141 页专业逻辑图模板（孔雀�
 顺序是：**定逻辑 → 选模板 → 按槽位重裁内容 → 出图 → 看图核对**。
 反过来（先写内容再找地方塞）必返工。
 
-## 字体：模板字体本机没装，出图前必须显式钉死
+## 字体：随包自带 Noto Sans SC，首次出图自动安装
 
-模板用的是「阿里巴巴普惠体」和「思源宋体 CN Heavy」，**本机都没装**。
-LibreOffice 碰到不存在的字体名会按 fontconfig **各自乱回退**，同一页里
-主标题、卡片标题、卡片正文、编号可能变成几款互不相干的字体
-（实测出现过手札体、华文仿宋、魏碑体混排）。
+模板用的是「阿里巴巴普惠体」和「思源宋体 CN Heavy」，**两者都不可自由
+分发，绝大多数机器上也没装**。LibreOffice 碰到不存在的字体名会按
+fontconfig **各自乱回退**，同一页里主标题、卡片标题、卡片正文、编号可能
+变成几款互不相干的字体（实测出现过手札体、华文仿宋、魏碑体混排）。
 
-`build.py` 的 `normalise_fonts()` 在出图前把全页每个 run 的
-`a:latin` / `a:ea` / `a:cs` **无条件钉到** `FONT_TARGET`（默认 `PingFang SC`），
-字号、字重、颜色、对齐一律保留。这是**默认行为**，不需要额外参数。
+本 skill **随包携带 `Noto Sans SC`**（思源黑体的 Google 发行版，
+SIL OFL 1.1，明确允许随包再分发），放在 `assets/fonts/`：
 
-> 注意：不要试图“还原模板原字体”——写一个字体名到一个未装字体的
-> 映射表里，结果仍然不可控（带字重的名字如 `Source Han Serif SC Medium`
-> LibreOffice 认不出，仍会乱回退）。钉死到确定存在的字体最可靠。
-> 若将来把模板原字体装齐、想恢复原设计，把 `main()` 里
-> `normalise_fonts(slide)` 那一行去掉即可。
+- `NotoSansSC-Regular.otf`（正文）
+- `NotoSansSC-Bold.otf`（标题）
+- `OFL.txt`（许可原文）
+
+出图前 `build.py` 自动做两件事：
+
+1. **`ensure_fonts()`** —— 检查系统里有没有 `Noto Sans SC`，没有就把
+   `assets/fonts/*.otf` 装进**用户级**字体目录（无需 sudo）并刷新缓存：
+   macOS `~/Library/Fonts`、Linux `~/.local/share/fonts`、
+   Windows `%LOCALAPPDATA%\Microsoft\Windows\Fonts`。
+   也可手动跑 `python3 scripts/setup_fonts.py`（`--check` 只检查、
+   `--uninstall` 卸载、`--where` 看路径与状态）。
+
+2. **`normalise_fonts()`** —— 把全页每个 run 的 `a:latin` / `a:ea` /
+   `a:cs` / `a:sym` **无条件钉到** `FONT_TARGET`（默认 `Noto Sans SC`），
+   字号、字重、颜色、对齐一律保留；若某个 run 连 `a:latin` 都没有（模板里
+   6 个编号 01–06 就只定义了 `a:sym`），会补一个 `a:latin`——否则拉丁
+   字符会落到主题默认字体，再被 fontconfig 回退成 `Liberation Mono` 之类。
+   这一步是**默认行为**，不需要额外参数。
+
+> 想换字体：`export FONT_TARGET='思源宋体'`（该字体需系统已装）。
+> 想恢复模板原设计：把 `main()` 里 `normalise_fonts(slide)` 那一行去掉。
+> 不要试图“还原模板原字体”——写一个装不上的字体名，结果仍不可控
+> （带字重的名字如 `Source Han Serif SC Medium` LibreOffice 认不出，
+> 照样乱回退）。钉死到确定存在的字体才可靠。
 
 **排查方法：渲染后在 PDF 里查实际字体，不要靠肉眼猜** -
 
@@ -217,7 +239,7 @@ python3 scripts/build.py --page 43 --map map.json --outdir ./输出
 
 **槽位数 ≠ 内容条数**：不要靠增删凑数，先换页。槽位分布：3 槽 30 页、4 槽 46 页、5 槽 32 页、2 槽 8 页、6 槽 10 页、7 槽 6 页、8/9 槽各 4 页、10 槽仅 1 页（p007）。
 
-**字体**：模板用「阿里巴巴普惠体」（阿里免费商用）。本机未装时 LibreOffice 回退到丽黑 Pro，**渲染仍正常**；`build.py` 会让主标题沿用模板字体名以保持统一。要精确还原设计意图需自行安装该字体。
+**字体**：随包 `Noto Sans SC` 会在首次出图时自动装入用户字体目录（见上节），无需手工下载。若 PDF 里出现 `Noto Sans SC` 之外的字体名（`PingFangTC`、`ArialUnicodeMS`、`LiberationMono`……），说明有 run 逃过了重钉——最常见的元凶是模板里只写了 `a:sym`、没有 `a:latin` 的元素。
 
 ## 索引口径
 
@@ -227,6 +249,26 @@ python3 scripts/build.py --page 43 --map map.json --outdir ./输出
 
 ## 依赖
 
-`python-pptx`、`PyMuPDF(fitz)`、`Pillow`；渲染需 `/opt/homebrew/bin/soffice`。
+**Python 包（自行安装）**
+
+```bash
+pip install python-pptx pymupdf pillow
+```
+
+- `python-pptx` —— 读写 PPTX、替换文字
+- `PyMuPDF`（`import fitz`）—— PPTX→PDF→PNG 以及**查实际字体**
+- `Pillow` —— 图片处理
+
+**渲染器（自行安装）：LibreOffice**，它提供 `soffice`。
+`build.py` 会**自动探测**：环境变量 `SOFFICE` > `PATH` 里的
+`soffice`/`libreoffice` > 常见安装路径（macOS 的
+`/Applications/LibreOffice.app/...`、Linux 的 `/usr/bin/soffice` 等）。
+
+- macOS：`brew install --cask libreoffice`
+- Ubuntu：`sudo apt install libreoffice`
+- 其他：<https://www.libreoffice.org/download/>
+- 装在非标准路径时：`export SOFFICE=/path/to/soffice`
+
+**字体已随包**（`assets/fonts/`，SIL OFL 1.1），首次运行自动安装，无需下载。
 
 - **`inspect.py` 是禁区**：早期版本用过这个文件名，会撞 Python 标准库 `inspect` 导致 argparse 崩溃。已改名 `layout.py`，不要改回去。

@@ -28,20 +28,25 @@ from pptx.util import Inches, Pt
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from layout import analyse, set_text, get_shape, walk_shapes, TPL      # noqa: E402
+from fonts import (FONT_FAMILY, ensure_fonts, find_soffice,            # noqa: E402
+                   soffice_hint)
 
-SOFFICE = '/opt/homebrew/bin/soffice'
-HEADING_FALLBACK_FONT = 'PingFang SC'
+# LibreOffice 自动探测（环境变量 SOFFICE > PATH > 常见安装路径）。
+# 原来硬编码 /opt/homebrew/bin/soffice，换台机器就找不到。
+SOFFICE = find_soffice()
+HEADING_FALLBACK_FONT = FONT_FAMILY
 HEADING_COLOR = RGBColor(0x1F, 0x6F, 0xC4)
 
 # 全页统一字体。
-# 模板原用「阿里巴巴普惠体」「思源宋体 CN Heavy」，本机都没装。
-# LibreOffice 碰到不存在的字体名会按 fontconfig 各自乱回退，
-# 同一页里主标题/卡片标题/卡片正文/编号可能变成四款字体
+# 模板原用「阿里巴巴普惠体」「思源宋体 CN Heavy」，两者都不可自由分发，
+# 绝大多数机器上也没装。LibreOffice 碰到不存在的字体名会按 fontconfig
+# 各自乱回退，同一页里主标题/卡片标题/卡片正文/编号可能变成四款字体
 # （实测出现过手札体、华文仿宋、魏碑体混排）。
-# 与其猜字体名再映射，不如出图前把全页字体无条件钉死到
-# 一个确定可用的字体：字号、字重、颜色一律保留，只换字体名。
-# 若将来模板字体装齐，把 normalise_fonts() 的调用去掉即可。
-FONT_TARGET = 'PingFang SC'
+# 与其猜字体名再映射，不如出图前把全页字体无条件钉死到**随包携带**的
+# Noto Sans SC（思源黑体 Google 版，SIL OFL 1.1，允许再分发）：字号、
+# 字重、颜色一律保留，只换字体名。ensure_fonts() 会保证它已装进系统。
+# 若想改用本机其它字体：设环境变量 FONT_TARGET 覆盖即可。
+FONT_TARGET = os.environ.get('FONT_TARGET') or FONT_FAMILY
 
 
 def normalise_fonts(slide, target=FONT_TARGET):
@@ -59,12 +64,20 @@ def normalise_fonts(slide, target=FONT_TARGET):
             for r in p.runs:
                 rPr = r._r.find(qn('a:rPr'))
                 if rPr is None:
-                    continue
-                for tag in ('a:latin', 'a:ea', 'a:cs'):
+                    rPr = r._r.get_or_add_rPr()
+                # 已存在的字体槽全部改掉。除 latin/ea/cs 外还要管 a:sym：
+                # 模板里的编号 01-06 只定义了一个 a:sym（=「阿里巴巴普惠体」
+                # 这个装不上的字体），不管它就会回退成 Liberation Mono Italic。
+                for tag in ('a:latin', 'a:ea', 'a:cs', 'a:sym'):
                     el = rPr.find(qn(tag))
                     if el is not None:
                         el.set('typeface', target)
                         changed += 1
+                # 完全没有 latin 定义时补一个：否则拉丁字符（编号、英文单词）
+                # 会落到主题默认字体，再被 fontconfig 碰运气回退。
+                if rPr.find(qn('a:latin')) is None:
+                    rPr.get_or_add_latin().set('typeface', target)
+                    changed += 1
     return changed
 
 
@@ -157,6 +170,11 @@ def main():
     ap.add_argument('--name', help='输出文件名（不含扩展名）')
     ap.add_argument('--no-heading', action='store_true', help='不加顶部主标题')
     args = ap.parse_args()
+
+    if not ensure_fonts():
+        sys.exit('✗ 随包字体不可用。请先运行：python3 scripts/setup_fonts.py')
+    if not SOFFICE:
+        sys.exit(soffice_hint())
 
     if bool(args.spec) == bool(args.mapfile):
         sys.exit('✗ 必须且只能指定一个：--spec（自动配对）或 --map（显式映射）')

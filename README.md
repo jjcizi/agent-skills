@@ -37,6 +37,28 @@ cp -r agent-skills/university-lecture ~/.agents/skills/
 | MiMoCode | `.agents/skills/`、`.codex/skills/`、`.opencode/skill(s)/` |
 | Claude Code | `.claude/skills/` |
 
+## 外部依赖
+
+技能本体只是 Markdown + Python 脚本，但部分技能需要额外的运行时组件——**请自行安装**。
+
+**logic-diagram（逻辑图）**
+
+```bash
+pip install python-pptx pymupdf pillow
+```
+
+- `python-pptx` —— 读写 PPTX
+- `PyMuPDF`（`import fitz`）—— PPTX→PDF→PNG 与字体排查
+- `Pillow` —— 图片处理
+- **LibreOffice**（提供 `soffice`）—— 负责 PPTX→PDF 渲染
+  - macOS：`brew install --cask libreoffice`
+  - Ubuntu：`sudo apt install libreoffice`
+  - 其他：<https://www.libreoffice.org/download/>
+  - 装在非标准路径时：`export SOFFICE=/path/to/soffice`
+
+字体已随包放在 `logic-diagram/assets/fonts/`（**Noto Sans SC**，SIL OFL 1.1，
+可自由再分发），首次出图会自动装入用户字体目录，无需手动下载。
+
 ## 添加新技能
 
 ```bash
