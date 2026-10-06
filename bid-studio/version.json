@@ -1,5 +1,5 @@
 {
-  "version": "2.6.0",
+  "version": "2.7.0",
   "updatedAt": "2026-10-06",
   "name": "bid-studio",
   "displayName": "标书超级工坊",
@@ -17,6 +17,9 @@
     "logic-diagram（v2.6.0 起替代 Mermaid 承担逻辑图绘制，141 页模板库）"
   ],
   "changelog": [
+    "**内嵌依赖打包（v2.7.0）**：把 `logic-diagram`（141 页逻辑图模板库，含脚本/索引/141 张缩略图/PPTX 模板/字体）与 `kami`（排版审美体系，含数据图模板/设计令牌/渲染脚本/长文档模板）**完整打包进 `vendor/` 目录**——bid-studio 自此自包含，无需另行安装这两个 skill",
+    "引用路径统一内嵌化：6.9 逻辑图调用改为 `cd vendor/logic-diagram` 后执行脚本；kami 数据图模板、`tokens.json`、`long-doc.html` 模板均写明 `vendor/kami/...` 路径；6.9 标题与来源表新增「内嵌依赖」说明段",
+    "分工固化为：**逻辑图（层次/流程/结构/循环/时序等）→ vendor/logic-diagram**；**有数据的数据图表 → 保留 kami SVG**；两者都不命中则保留文字/表格",
     "图表能力升级：**逻辑图绘制改由 logic-diagram skill 承担**（141 页孔雀蓝专业模板库——按逻辑关系选页、候选多于一个随机抽、改写内容适配模板、一份内容只出一页、填满全部槽位）；6.9 的 kami SVG 收敛为统计/数据类 5 种；Mermaid 不再作为本技能的绘图路径",
     "6.9 新增「绘图能力分工」（逻辑图→logic-diagram / 数据图→kami SVG / 其余不强行配图）与「四条铁律」（按逻辑关系选图、一份内容只出一页、填满每一个槽位、候选多于一个随机选）",
     "P8 升级为「逻辑图 + 数据图」校验：新增 read_media 读图核对（文字不越出背景框、四边留白等宽、槽位全部填满、无模板示例文字残留）与映射 JSON 语义一致性检查；导出落地硬性禁止 Mermaid/SVG/JSON 源码文本出现在交付文档中",
@@ -45,5 +48,10 @@
     "选择性融入 kami 排版审美体系，全面提升 Word/PDF 排版与审美",
     "内置 kami 所需字体到 assets/fonts/（仓耳今楷 02 两套 + 思源宋体 SC 两字重 + JetBrains Mono），导出 Word/PDF 无需联网下载",
     "P11 新增字体嵌入规范：生成 Word/PDF 时默认嵌入字体（Word COM EmbedTrueTypeFonts / PDF 子集嵌入），并增加交付前字体嵌入校验，防止跨机丢字体"
-  ]
+  ],
+  "bundled": {
+    "vendor/logic-diagram": "141 页逻辑图模板库（SKILL.md + scripts/ + references/SCHEMA.md + assets/{index.json,template.pptx,thumbs×141,fonts}）",
+    "vendor/kami": "排版审美体系（SKILL.md + references/ 含 tokens.json/diagrams.md + scripts/ + assets/{diagrams,templates,fonts,images}）",
+    "说明": "两个依赖已完整内嵌，使用 bid-studio 无需另行安装 logic-diagram / kami；调用路径统一为 vendor/<name>/"
+  }
 }

@@ -24,6 +24,8 @@ license: Proprietary. LICENSE.txt has complete terms
 | 投标文件审查（tender-bid-review） | 只读合规审查、否决项/评分覆盖报告 | P10 |
 | **kami（选择性融入）** | 排版审美体系：配色、字体、字号层级、间距栅格、版式节奏 | P11 + 排版审美规范 |
 
+> **内嵌依赖（v2.7.0 起）**：本技能已把 `logic-diagram`（141 页逻辑图模板库：脚本 / 索引 / 141 张缩略图 / PPTX 模板 / 字体）与 `kami`（排版审美体系：数据图模板 / 设计令牌 / 渲染脚本 / 长文档模板）**完整内嵌于 `vendor/` 目录**，使用本技能即自带这两个能力，**无需另行安装**；调用与资产路径统一为 `vendor/logic-diagram/` 与 `vendor/kami/`。
+
 **核心原则（贯穿全程）：**
 
 - **先锁定、再覆盖**：多包项目先锁定到最小投标单元（叶子节点），再进入条款级/章节级工作。
@@ -370,12 +372,13 @@ license: Proprietary. LICENSE.txt has complete terms
 - 命中「流程、因果、逻辑、层次、循环、状态、结构、时序、职责、依赖」→ 调用 **`logic-diagram` skill 生成逻辑图**（见「二」）。
 - 约每 2000 字配 1 张图；技术标每章至少 1 张；关键节（高权重/高复杂度）至少 1 张逻辑图 + 1 张数据图。
 
-**二、逻辑图：调用 `logic-diagram` skill（按逻辑关系选模板、一页装完）**
+**二、逻辑图：调用内嵌的 `logic-diagram`（按逻辑关系选模板、一页装完）**
 
-逻辑类内容一律走 `logic-diagram`。若该 skill 未安装，**提示用户先安装 `logic-diagram` 再重试，不得退化为手写 Mermaid 充数**。
+逻辑类内容一律走 `logic-diagram`（**已内嵌于 `vendor/logic-diagram/`，无需另行安装**）；**不得退化为手写 Mermaid 充数**。
 
 ```bash
-# 先切到 logic-diagram 技能的实际安装目录，再执行（脚本路径相对技能根目录）：
+# logic-diagram 已内嵌在本技能 vendor/ 下，切到该目录后执行：
+cd vendor/logic-diagram
 python3 scripts/match.py --items <项数> --logic <逻辑类型> --chars-per-item <每项字数> --pick random
 python3 scripts/build.py --page <页号> --map <映射.json> --outdir <输出目录>
 ```
@@ -415,7 +418,7 @@ python3 scripts/build.py --page <页号> --map <映射.json> --outdir <输出目
 
 **三、数据图：kami SVG（统计/数据类 5 种）**
 
-统计/数据类内容继续走 kami 的内联 SVG 数据图，存放在 `assets/diagrams/`，统一走羊皮纸底 `#f5f4ed` + 墨蓝强调 `#1B365D` + 衬线标签体系，靠 `references/diagrams.md` 的选择指南与 token 映射驱动抽取 `<svg>` 嵌入长文档 `<figure>`。**共 5 种**：
+统计/数据类内容继续走 kami 的内联 SVG 数据图，存放在 `vendor/kami/assets/diagrams/`，统一走羊皮纸底 `#f5f4ed` + 墨蓝强调 `#1B365D` + 衬线标签体系，靠 `vendor/kami/references/diagrams.md` 的选择指南与 token 映射驱动抽取 `<svg>` 嵌入长文档 `<figure>`。**共 5 种**：
 
 | 图表 | 适用语义 | 模板 |
 |---|---|---|
@@ -439,7 +442,7 @@ python3 scripts/build.py --page <页号> --map <映射.json> --outdir <输出目
 
 - 画图前先问：**「一段写得好的文字会不会比这张图教得更少？」**——否就不画。
 - kami 数据图必须嵌在 `<figure>` 里，`<figcaption>` 写**洞察**（如「Q3 收入环比 +18%，主要由华东区拉动」）而非数据范围。
-- 数据图不引入外部 JS 图表库，**纯手写 SVG**，跟随 tokens.json 的墨蓝 `#1B365D` / 羊皮纸 `#f5f4ed`，**无渐变、无阴影、无 3D**。
+- 数据图不引入外部 JS 图表库，**纯手写 SVG**，跟随 `vendor/kami/references/tokens.json` 的墨蓝 `#1B365D` / 羊皮纸 `#f5f4ed`，**无渐变、无阴影、无 3D**。
 - **不编造数据**：无数据写 `【待用户提供：XX数据】` 并列入待补清单；标注数据源与单位；坐标/宽度取 4 的倍数；焦点 1–2 个墨蓝强调、其余暖灰。
 - 逻辑图**不额外加装饰性箭头/连线**，不为了让图「好看」而改变模板既定的逻辑类型与拓扑。
 
@@ -668,7 +671,7 @@ P6 生成图表后不即时校验；**P8 统一校验/规范化**所有已生成
 
 > **为什么 PDF 不如 kami 直接输出好看？** 根因在于「Word 流式排版 + pandoc 朴素路径」复现不了 kami 的 CSS 级审美（字距、百分比行高、背景色块、留白栅格、轻阴影）。**PDF 要追平 kami 审美，唯一路径是复用 kami 的 HTML + CSS 排版管线**，而非从 Word 转 PDF。
 
-1. **首选路径（kami HTML 渲染，必用）**：将合并 `.md` 转成 **kami 风格 HTML**——复用 kami `long-doc.html` 模板结构与 `references/tokens.json` 设计令牌（暖羊皮纸底 `#f5f4ed`、墨蓝 `#1B365D` 单强调色、衬线层级、行高/字距/留白栅格、表格/图表样式），经 `@font-face` 引用 `assets/fonts/` 本地字体，用 WeasyPrint / Chromium 渲染 PDF。
+1. **首选路径（kami HTML 渲染，必用）**：将合并 `.md` 转成 **kami 风格 HTML**——复用 kami `vendor/kami/assets/templates/long-doc.html` 模板结构与 `vendor/kami/references/tokens.json` 设计令牌（暖羊皮纸底 `#f5f4ed`、墨蓝 `#1B365D` 单强调色、衬线层级、行高/字距/留白栅格、表格/图表样式），经 `@font-face` 引用 `assets/fonts/` 本地字体，用 WeasyPrint / Chromium 渲染 PDF。
 2. **次选路径（Word 转 PDF）**：仅在用户明确只要「由 Word 导出 PDF」时使用；须核对分页、字体嵌入、图表不截断，并**如实告知审美低于 HTML 渲染路径**。
 3. **字体默认嵌入（硬性）**：HTML 渲染经 `@font-face` 引用 `assets/fonts/` 本地字体，WeasyPrint / Chromium **默认嵌入字体子集**；Word 导出 PDF 勾选「嵌入字体」。**不得交付未嵌入字体的 PDF**（见 11.5）。
 4. **审美自检（交付前，必做）**：PDF 须同时满足——暖羊皮纸底（非纯白）、墨蓝单强调色、标题衬线不加粗靠字号留白分层、行高/字距/留白栅格生效、表格带墨蓝表头与可见边框、图表扁平单线几何。任一不达标即回炉重排，不得宣称「已应用 kami 审美」。
@@ -878,7 +881,7 @@ P6 生成图表后不即时校验；**P8 统一校验/规范化**所有已生成
 
 ### 图表审美规范（呼应 P8）
 
-- 图表统一**扁平、单线几何、无渐变、无硬阴影、无 3D**，与正文配色一致（墨蓝主色 + 暖灰辅助）；kami SVG 图表跟随 `tokens.json` 的墨蓝 `#1B365D` / 羊皮纸 `#f5f4ed`，全部嵌入 `<figure>`。
+- 图表统一**扁平、单线几何、无渐变、无硬阴影、无 3D**，与正文配色一致（墨蓝主色 + 暖灰辅助）；kami SVG 图表跟随 `vendor/kami/references/tokens.json` 的墨蓝 `#1B365D` / 羊皮纸 `#f5f4ed`，全部嵌入 `<figure>`。
 - 图表选型与绘制走 6.9 的决策树：**逻辑类走 `logic-diagram`**（141 页孔雀蓝模板，按逻辑关系选页、候选随机抽、一页装完、槽位填满），**数据类走 kami SVG 数据图**（墨蓝 `#1B365D` / 羊皮纸 `#f5f4ed`）。
 - 图表是正文的补充而非唯一信息载体，不删正文文字说明；`<figcaption>` 写**洞察**而非数据范围。
 - 师资资质图片排版：每行 2 张、高度一致、宽度等比；非师资图片每行 1 张居中。
@@ -902,7 +905,7 @@ P6 生成图表后不即时校验；**P8 统一校验/规范化**所有已生成
 
 ### 融入边界（PDF 复用管线，Word 映射 token）
 
-- **PDF 复用（深度融入）**：PDF 输出**必须复用 kami 的 HTML + CSS 排版管线**——复用 `long-doc.html` 模板结构 + `references/tokens.json` 设计令牌 + `assets/diagrams/` 图表皮肤，经 WeasyPrint/Chromium 渲染。**这是追平 kami 审美的唯一路径，不得再退回 Word/pandoc 朴素路径**（见 11.3）。
+- **PDF 复用（深度融入）**：PDF 输出**必须复用 kami 的 HTML + CSS 排版管线**——复用 `vendor/kami/assets/templates/long-doc.html` 模板结构 + `vendor/kami/references/tokens.json` 设计令牌 + `vendor/kami/assets/diagrams/` 图表皮肤，经 WeasyPrint/Chromium 渲染。**这是追平 kami 审美的唯一路径，不得再退回 Word/pandoc 朴素路径**（见 11.3）。
 - **Word 映射（逼近融入）**：Word 用 python-docx 把 kami 设计令牌逐项映射为样式属性（见「Word 落地映射」），在可编辑性前提下尽量逼近；Word 审美上限低于 PDF，需向用户如实说明。
 - **不融入**：kami 的 build.py/checks.py 工程脚本、brand profile 机制、更新检查——本技能自行维护「标书内容 + 排版落地」逻辑，仅复用其**排版资产（HTML 模板 / CSS token / 图表皮肤）与字体**。
 - **范本优先**：任何与招标格式范本冲突处，**以招标范本为准**；审美只作用于范本未约束的自由排版区。
