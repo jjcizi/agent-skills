@@ -20,9 +20,11 @@ import os
 import subprocess
 import sys
 
+import fitz
+from PIL import Image, ImageChops, ImageFont
 from pptx import Presentation
 from pptx.dml.color import RGBColor
-from pptx.enum.text import PP_ALIGN
+from pptx.enum.text import MSO_AUTO_SIZE, PP_ALIGN
 from pptx.oxml.ns import qn
 from pptx.util import Inches, Pt
 
@@ -36,6 +38,12 @@ from fonts import (FONT_FAMILY, ensure_fonts, find_soffice,            # noqa: E
 SOFFICE = find_soffice()
 HEADING_FALLBACK_FONT = FONT_FAMILY
 HEADING_COLOR = RGBColor(0x1F, 0x6F, 0xC4)
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+FONT_DIR = os.path.join(HERE, '..', 'assets', 'fonts')
+EMU_PT = 12700.0        # 1 pt = 12700 EMU
+PAD_RATIO = 0.02        # 裁剪后四周留白 = 内容长边的 2%（下限 8px）
+LINE_SPACING = 1.1      # 单倍行高估算系数（由模板实测反推：0.57″ 框装 2 行 12pt 正常）
 
 # 全页统一字体。
 # 模板原用「阿里巴巴普惠体」「思源宋体 CN Heavy」，两者都不可自由分发，
@@ -145,7 +153,196 @@ def keep_only(prs, page_index):
         lst.remove(ids[i])
 
 
-def render(pptx_path, out_dir):
+# ------------------------------------------------------------------ 文字适配
+
+_font_cache = {}
+
+
+def _metrics_font(size_pt, bold):
+    """取测宽用字体对象（按 4 倍字号缓存再除 4，提高小字号的测量精度）。"""
+    key = (int(round(size_pt * 4)), bool(bold))
+    f = _font_cache.get(key)
+    if f is None:
+        name = 'NotoSansSC-Bold.otf' if bold else 'NotoSansSC-Regular.otf'
+        f = ImageFont.truetype(os.path.join(FONT_DIR, name), max(4, key[0]))
+        _font_cache[key] = f
+    return f
+
+
+def text_width_pt(text, size_pt, bold=False):
+    """按 Noto Sans SC 度量一段文字的渲染宽度（单位 pt），与 PPTX 字号同尺度。"""
+    if not text:
+        return 0.0
+    return _metrics_font(size_pt, bold).getlength(text) / 4.0
+
+
+def _para_lines(p):
+    """把段落按 <a:br/> 切成多行。
+
+    坑：python-pptx 写 run.text 时把 '\\n' 落成 <a:br/>（软换行）而不是新段落，
+    p.runs 会给出多个 run。直接 ''.join(r.text) 会把两行拼成一行——宽度翻倍，
+    字号被白白压小。所以必须逐个 XML 子元素走，遇 br 就断行。
+    """
+    lines, cur = [], []
+    for child in p._p:
+        tag = child.tag.split('}')[-1]
+        if tag == 'br':
+            lines.append(''.join(cur))
+            cur = []
+        elif tag == 'r':
+            t = child.find(qn('a:t'))
+            cur.append(t.text if t is not None and t.text else '')
+    lines.append(''.join(cur))
+    return lines
+
+
+def _is_vertical(tf):
+    """是否竖排文本（eaVert / vert / vert270）。"""
+    bp = tf._txBody.find(qn('a:bodyPr'))
+    if bp is None:
+        return False
+    return (bp.get('vert') or 'horz') != 'horz'
+
+
+def _wrap_lines(lines, size, avail_w, bold):
+    """按可用宽对每行贪心折行，返回折行后的总行数。None = 框太窄，单字都放不下。"""
+    total = 0
+    for line in lines:
+        if not line:
+            total += 1
+            continue
+        if text_width_pt(line, size, bold) <= avail_w:   # 常见情形：一次测完
+            total += 1
+            continue
+        cur, n = 0.0, 1
+        for ch in line:
+            w = text_width_pt(ch, size, bold)
+            if w > avail_w:
+                return None
+            if cur + w > avail_w + 0.01:
+                n += 1
+                cur = w
+            else:
+                cur += w
+        total += n
+    return total
+
+
+def fit_text(slide, min_pt=7.5):
+    """按框宽自动缩字号，保证每段一行放得下；并关掉「形状随文字变高」。
+
+    根因：模板里的文本框是 spAutoFit（形状高度跟着文字走）。字数一多就折行，
+    文字框跟着变高，可背景色块是另一个形状、纹丝不动 —— 于是文字溢出框外。
+    改法：先算出「最宽段落一行放得下的最大字号」把字号钉死，再把 autofit
+    关掉（改成 noAutofit），形状尺寸就稳了，折行与溢出都不会再有。
+
+    返回 (fitted, tight)：fitted = 缩了字号的框；tight = 缩到下限仍偏宽的框。
+    """
+    fitted, tight = [], []
+    for path, sh in walk_shapes(slide.shapes):
+        if not sh.has_text_frame:
+            continue
+        tf = sh.text_frame
+        if not tf.text.strip():
+            continue
+
+        runs, base = [], None
+        for p in tf.paragraphs:
+            for r in p.runs:
+                if not r.text:
+                    continue
+                sz = r.font.size.pt if r.font.size else None
+                if sz and (base is None or sz < base):
+                    base = sz
+                runs.append(r)
+        if base is None:                     # 字号继承自版式，不擅自改
+            continue
+
+        bolds = [bool(r.font.bold) for p in tf.paragraphs for r in p.runs if r.text]
+        bold = any(bolds)
+        lines = []
+        for p in tf.paragraphs:
+            lines.extend(_para_lines(p))
+        lines = [l for l in lines if l.strip()]
+        if not lines:
+            continue
+
+        ml, mr = tf.margin_left or 0, tf.margin_right or 0
+        mt, mb = tf.margin_top or 0, tf.margin_bottom or 0
+        avail_w = (sh.width - ml - mr) / EMU_PT
+        avail_h = (sh.height - mt - mb) / EMU_PT
+        vert = _is_vertical(tf)
+        if vert:
+            avail_w, avail_h = avail_h, avail_w     # 真·竖排：宽高互换
+        if avail_w <= 1 or avail_h <= 1:
+            continue
+
+        # 框内连一个汉字都放不下：模板自带的超窄标签（靠逐字换行显示成竖排），
+        # 原样保留——硬缩只会毁掉版面。
+        if not vert and text_width_pt('国', base, bold) > avail_w:
+            continue
+
+        def fits(sz):
+            n = _wrap_lines(lines, sz, avail_w, bold)
+            return n is not None and n * sz * LINE_SPACING <= avail_h
+
+        size = base
+        while size > min_pt and not fits(size):
+            size = max(min_pt, size - 0.5)
+        for r in runs:
+            r.font.size = Pt(size)
+        tf.auto_size = MSO_AUTO_SIZE.NONE
+
+        if size < base - 0.01:
+            fitted.append((path, base, size))
+        if not fits(size):
+            n = _wrap_lines(lines, size, avail_w, bold)
+            tight.append((path, size, n if n else '—', round(avail_h, 1)))
+    return fitted, tight
+
+
+# ------------------------------------------------------------------ 出图裁剪
+
+def trim_outputs(doc, page, png_path, pad_ratio=PAD_RATIO, tol=6):
+    """裁掉四周多余空白：内容包围盒 + **四边等宽**留白。
+
+    模板是 16:9 演示页，内容只占中间一块、四周留白宽窄不一，插进文档还得
+    手裁。这里按内容包围盒裁紧，四边补等宽留白；内容若贴边就用白底补齐，
+    保证四条边留白严格一致（不会因为贴边而某一边变窄）。
+    PDF 用同一组像素坐标换算 cropbox，两种产物几何完全对齐。
+    """
+    im = Image.open(png_path).convert('RGB')
+    W, H = im.size
+    white = Image.new('RGB', im.size, (255, 255, 255))
+    mask = ImageChops.difference(im, white).convert('L').point(
+        lambda v: 255 if v > tol else 0)          # 容差内一律视为纯白底
+    bbox = mask.getbbox()
+    if not bbox:
+        return None
+    x0, y0, x1, y1 = bbox
+    pad = max(8, int(round(pad_ratio * max(x1 - x0, y1 - y0))))
+    cx0, cy0, cx1, cy1 = x0 - pad, y0 - pad, x1 + pad, y1 + pad
+
+    if cx0 < 0 or cy0 < 0 or cx1 > W or cy1 > H:   # 内容贴边：补白，四边仍等宽
+        canvas = Image.new('RGB', (cx1 - cx0, cy1 - cy0), (255, 255, 255))
+        sx0, sy0 = max(0, cx0), max(0, cy0)
+        canvas.paste(im.crop((sx0, sy0, min(W, cx1), min(H, cy1))),
+                     (sx0 - cx0, sy0 - cy0))
+        out = canvas
+    else:
+        out = im.crop((cx0, cy0, cx1, cy1))
+    out.save(png_path)
+
+    scale = page.rect.width / W
+    ph = page.rect.height          # 坑：PDF 原点在左下、y 轴朝上，必须翻转 y
+    box = fitz.Rect(cx0 * scale, ph - cy1 * scale, cx1 * scale, ph - cy0 * scale)
+    page.set_cropbox(box)       # 先 CropBox（此时 MediaBox 还是原页，必然包含）
+    page.set_mediabox(box)      # 再 MediaBox；两者都设，兼容不同阅读器/文档工具
+    return {'src': (W, H), 'dst': out.size, 'pad': pad,
+            'edge_before': (x0, y0, W - x1, H - y1)}
+
+
+def render(pptx_path, out_dir, trim=True, pad_ratio=PAD_RATIO, keep_full=False):
     subprocess.run(
         [SOFFICE, '-env:UserInstallation=file:///tmp/lo_profile',
          '--headless', '--norestore', '--convert-to', 'pdf',
@@ -153,12 +350,23 @@ def render(pptx_path, out_dir):
         check=True, capture_output=True, timeout=300,
     )
     pdf = os.path.splitext(pptx_path)[0] + '.pdf'
-    import fitz
-    doc = fitz.open(pdf)
     png = os.path.splitext(pptx_path)[0] + '.png'
-    doc[0].get_pixmap(dpi=150).save(png)
-    doc.close()
-    return pdf, png
+    doc = fitz.open(pdf)
+    page = doc[0]
+    page.get_pixmap(dpi=150).save(png)
+
+    info = None
+    if trim:
+        if keep_full:                              # 留一份未裁的全页版便于对照
+            Image.open(png).save(os.path.splitext(png)[0] + '.full.png')
+        info = trim_outputs(doc, page, png, pad_ratio)
+        tmp = pdf + '.tmp'
+        doc.save(tmp, deflate=True)     # 不用 garbage：会触发 structure tree 报错
+        doc.close()
+        os.replace(tmp, pdf)
+    else:
+        doc.close()
+    return pdf, png, info
 
 
 def main():
@@ -169,6 +377,11 @@ def main():
     ap.add_argument('--outdir', default='.')
     ap.add_argument('--name', help='输出文件名（不含扩展名）')
     ap.add_argument('--no-heading', action='store_true', help='不加顶部主标题')
+    ap.add_argument('--no-fit', action='store_true', help='不自动缩放字号（保留模板原字号）')
+    ap.add_argument('--no-trim', action='store_true', help='不裁四周白边（输出整页）')
+    ap.add_argument('--pad', type=float, default=PAD_RATIO,
+                    help=f'裁剪后四边留白比例（默认 {PAD_RATIO}）')
+    ap.add_argument('--keep-full', action='store_true', help='额外保留未裁剪的全页 PNG')
     args = ap.parse_args()
 
     if not ensure_fonts():
@@ -233,6 +446,10 @@ def main():
     if heading and not args.no_heading:
         add_heading(slide, heading, template_font(slide))
 
+    fitted, tight = ([], [])
+    if not args.no_fit:
+        fitted, tight = fit_text(slide)
+
     normalise_fonts(slide)
 
     keep_only(prs, args.page - 1)
@@ -242,9 +459,27 @@ def main():
     out = os.path.join(args.outdir, name + '.pptx')
     prs.save(out)
     print(f'✓ PPTX  {out}')
-    pdf, png = render(out, args.outdir)
+    pdf, png, info = render(out, args.outdir, trim=not args.no_trim,
+                            pad_ratio=args.pad, keep_full=args.keep_full)
     print(f'✓ PDF   {pdf}')
     print(f'✓ PNG   {png}')
+
+    if fitted:
+        print(f'\n✓ 文字适配：{len(fitted)} 个文本框自动缩了字号（保证不折行、不越框）')
+        for path, base, size in fitted[:14]:
+            print(f'    [{path:>5s}] {base:g}pt → {size:g}pt')
+        if len(fitted) > 14:
+            print(f'    … 另有 {len(fitted) - 14} 个')
+    if tight:
+        print(f'\n⚠ 下列文本框缩到下限仍装不下，请精简文字：')
+        for path, size, n, ah in tight:
+            print(f'    [{path:>5s}] {size:g}pt 下需 {n} 行，超出可用高 {ah}pt')
+    if info:
+        sw, sh_ = info['src']
+        dw, dh = info['dst']
+        e = info['edge_before']
+        print(f'\n✓ 裁白边：{sw}×{sh_} → {dw}×{dh}px，四边留白 {info["pad"]}px 等宽'
+              f'（裁前四周分别为 左{e[0]} 上{e[1]} 右{e[2]} 下{e[3]}px）')
 
     if snake:
         print(f'\n⚠ 该页第 {snake} 行是逆序读取的蛇形版式（模板固有）；'
