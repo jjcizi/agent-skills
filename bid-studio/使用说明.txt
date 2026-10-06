@@ -122,14 +122,23 @@
 七、内置字体与排版（kami 审美）
 ───────────────────────────────────────────────────────────────────
 
-  kami 已内嵌于 vendor/kami/；其排版所需字体由本技能内置在
-  assets/fonts/，导出无需联网：
+  kami 已内嵌于 vendor/kami/；排版所需字体位于 assets/fonts/，分两类：
 
-    TsangerJinKai02-W04.ttf        仓耳今楷 02（中文衬线主字体，商业字体）
-    TsangerJinKai02-W05.ttf        仓耳今楷 02（中文衬线主字体）
-    SourceHanSerifSC-Regular.otf   思源宋体 SC 常规（回退，开源）
-    SourceHanSerifSC-Medium.otf    思源宋体 SC 中黑（回退，开源）
-    JetBrainsMono.woff2            JetBrains Mono（等宽，开源）
+  · 开源字体已随仓库内置，开箱即用：
+      SourceHanSerifSC-Regular.otf   思源宋体 SC 常规（回退，OFL）
+      SourceHanSerifSC-Medium.otf    思源宋体 SC 中黑（回退，OFL）
+      JetBrainsMono.woff2            JetBrains Mono（等宽，OFL）
+
+  · 商业字体（仓耳今楷 02）体积大、商用需自行确认授权，不在仓库内。
+    首次使用前执行一次准备脚本，它会自动下载，失败则打印手动获取指引：
+
+      bash scripts/ensure-fonts.sh
+
+      TsangerJinKai02-W04.ttf        仓耳今楷 02（中文衬线主字体，商业）
+      TsangerJinKai02-W05.ttf        仓耳今楷 02（中文衬线主字体，商业）
+
+    字体缺失不阻断交付：中文会回退到思源宋体 SC / 系统衬线字体，
+    报告里会如实说明回退情况。
 
   排版基调：暖羊皮纸底 #f5f4ed、墨蓝 #1B365D 单一强调色、衬线标题
   层级（标题不加粗、靠字号留白分层）、正文 10.5pt。
@@ -184,6 +193,8 @@
   ├── SKILL.md              技能本体（完整规则、管线、门禁、模板）
   ├── version.json          版本与融合来源记录
   ├── 使用说明.txt          本文件
+  ├── scripts/
+  │   └── ensure-fonts.sh   字体就绪检查 + 仓耳今楷按需自动下载
   ├── assets/
   │   └── fonts/            内置字体（含 README.md 字体清单与授权说明）
   └── vendor/               内嵌依赖（已打包，无需另行安装）

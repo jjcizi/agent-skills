@@ -815,17 +815,29 @@ P6 生成图表后不即时校验；**P8 统一校验/规范化**所有已生成
 - 等宽（代码/编号）：`JetBrains Mono, "SF Mono", Consolas, Monaco, monospace`
 - 凡含中文的字体族（含页脚、代码、表格标签）必须带 CJK 回退，避免导出时出现缺字方框。
 
-### 本地字体资产（已内置，无需联网下载）
+### 本地字体资产（开源内置 · 商业按需下载）
 
-本技能已内置 kami 排版所需核心字体，位于 `assets/fonts/`（详见该目录 `README.md`）：
+本技能字体分两类，位于 `assets/fonts/`（详见该目录 `README.md`）：
 
-| 文件 | 字体 | 用途 | 授权 |
-|------|------|------|------|
-| `TsangerJinKai02-W04.ttf` | 仓耳今楷 02（W04） | 中文衬线标题+正文（主字体） | 商业字体（仓耳字库） |
-| `TsangerJinKai02-W05.ttf` | 仓耳今楷 02（W05） | 中文衬线（主字体，另一字重子集） | 商业字体（仓耳字库） |
-| `SourceHanSerifSC-Regular.otf` | 思源宋体 SC Regular | 中文回退（400 字重） | SIL OFL 1.1 |
-| `SourceHanSerifSC-Medium.otf` | 思源宋体 SC Medium | 中文回退（500 字重，匹配「锁 500 不加粗」） | SIL OFL 1.1 |
-| `JetBrainsMono.woff2` | JetBrains Mono | 等宽（代码/编号/金额） | SIL OFL 1.1 |
+- **开源字体（随仓库内置，开箱即用）**：思源宋体 SC（SIL OFL 1.1）、JetBrains Mono（SIL OFL 1.1）
+- **商业字体（仓耳今楷 02，体积大且商用需自行确认授权，不在仓库内）**：首次使用前执行一次准备脚本自动下载
+
+```bash
+# 字体就绪检查：开源字体核对存在性；仓耳今楷缺失时自动从镜像下载，
+# 下载失败则打印手动获取指引（官网 / 已有副本复制）。可重复执行。
+bash scripts/ensure-fonts.sh
+
+# 技能目录只读时，指定可写目录：
+# BIDSTUDIO_FONT_DIR=~/.local/share/fonts/bid-studio bash scripts/ensure-fonts.sh
+```
+
+| 文件 | 字体 | 用途 | 授权 | 分发方式 |
+|------|------|------|------|----------|
+| `SourceHanSerifSC-Regular.otf` | 思源宋体 SC Regular | 中文回退（400 字重） | SIL OFL 1.1 | 随仓库内置 |
+| `SourceHanSerifSC-Medium.otf` | 思源宋体 SC Medium | 中文回退（500 字重，匹配「锁 500 不加粗」） | SIL OFL 1.1 | 随仓库内置 |
+| `JetBrainsMono.woff2` | JetBrains Mono | 等宽（代码/编号/金额） | SIL OFL 1.1 | 随仓库内置 |
+| `TsangerJinKai02-W04.ttf` | 仓耳今楷 02（W04） | 中文衬线标题+正文（主字体） | 商业字体（仓耳字库） | 按需下载，不入库 |
+| `TsangerJinKai02-W05.ttf` | 仓耳今楷 02（W05） | 中文衬线（主字体，另一字重子集） | 商业字体（仓耳字库） | 按需下载，不入库 |
 
 **使用方式（P11 导出时按目标格式选择）：**
 
@@ -833,7 +845,7 @@ P6 生成图表后不即时校验；**P8 统一校验/规范化**所有已生成
 - **PDF（HTML 渲染，审美优先）**：通过 `@font-face` 引用 `assets/fonts/` 相对路径，无需系统安装；WeasyPrint / Chromium 加载本地字体后**默认嵌入字体子集**。
 - **PDF（Word 导出）**：依赖 Word 已安装字体，导出时**默认嵌入字体**。
 
-**授权提示**：仓耳今楷 02 为商业字体（版权归仓耳字库），副本供本地排版使用，商用须遵循仓耳字库授权；思源宋体、JetBrains Mono 为 SIL OFL 1.1 开源。若目标机器不便安装商业字体，可回退到思源宋体 SC（开源）作为主字体，审美仍保持衬线风格。
+**授权提示**：仓耳今楷 02 为商业字体（版权归仓耳字库），**本仓库不分发该字体**，由使用者在本地按需获取，商用须自行确认并遵循仓耳字库授权；思源宋体、JetBrains Mono 为 SIL OFL 1.1 开源，随仓库分发。若目标机器不便安装商业字体，可回退到思源宋体 SC（开源）作为主字体，审美仍保持衬线风格——**字体缺失不阻断交付，只在报告里如实说明回退情况**。
 
 ### 字号层级（打印 pt，投标适配）
 

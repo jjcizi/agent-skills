@@ -1,5 +1,5 @@
 {
-  "version": "2.7.0",
+  "version": "2.7.1",
   "updatedAt": "2026-10-06",
   "name": "bid-studio",
   "displayName": "标书超级工坊",
@@ -17,6 +17,9 @@
     "logic-diagram（v2.6.0 起替代 Mermaid 承担逻辑图绘制，141 页模板库）"
   ],
   "changelog": [
+    "**字体分发分层（v2.7.1）**：开源字体（思源宋体 SC ×2，SIL OFL 1.1）随仓库分发；商业字体仓耳今楷 02（W04/W05，各约 18MB）**不入库**，改由 `scripts/ensure-fonts.sh` 在本地按需自动下载，下载失败则打印手动获取指引",
+    "新增 `scripts/ensure-fonts.sh`：字体就绪检查——开源字体核对存在性，仓耳今楷缺失时自动下载（支持 `BIDSTUDIO_FONT_DIR` 指定可写目录）。实测下载源走 tw93/Kami 的 jsdelivr / jsdmirror 镜像，下载文件与本机字体 sha256 逐字节一致；**官方 tsanger.cn 直链已 404，不作为自动下载源**",
+    "文档同步：`assets/fonts/README.md` 重写为「分发策略 + 一键准备 + 清单 + 手动获取 + 授权」；SKILL.md「本地字体资产」段改为「开源内置 · 商业按需下载」并附准备脚本用法；使用说明「七、内置字体」段分层说明并加入 `scripts/ensure-fonts.sh` 目录条目；明确**字体缺失不阻断交付**（中文回退思源宋体 SC，报告如实说明）",
     "**内嵌依赖打包（v2.7.0）**：把 `logic-diagram`（141 页逻辑图模板库，含脚本/索引/141 张缩略图/PPTX 模板/字体）与 `kami`（排版审美体系，含数据图模板/设计令牌/渲染脚本/长文档模板）**完整打包进 `vendor/` 目录**——bid-studio 自此自包含，无需另行安装这两个 skill",
     "引用路径统一内嵌化：6.9 逻辑图调用改为 `cd vendor/logic-diagram` 后执行脚本；kami 数据图模板、`tokens.json`、`long-doc.html` 模板均写明 `vendor/kami/...` 路径；6.9 标题与来源表新增「内嵌依赖」说明段",
     "分工固化为：**逻辑图（层次/流程/结构/循环/时序等）→ vendor/logic-diagram**；**有数据的数据图表 → 保留 kami SVG**；两者都不命中则保留文字/表格",
@@ -53,5 +56,17 @@
     "vendor/logic-diagram": "141 页逻辑图模板库（SKILL.md + scripts/ + references/SCHEMA.md + assets/{index.json,template.pptx,thumbs×141,fonts}）",
     "vendor/kami": "排版审美体系（SKILL.md + references/ 含 tokens.json/diagrams.md + scripts/ + assets/{diagrams,templates,fonts,images}）",
     "说明": "两个依赖已完整内嵌，使用 bid-studio 无需另行安装 logic-diagram / kami；调用路径统一为 vendor/<name>/"
+  },
+  "fontPolicy": {
+    "内置（随仓库分发，SIL OFL 1.1）": [
+      "SourceHanSerifSC-Regular.otf",
+      "SourceHanSerifSC-Medium.otf",
+      "JetBrainsMono.woff2"
+    ],
+    "不入库（商业字体，脚本按需下载）": [
+      "TsangerJinKai02-W04.ttf",
+      "TsangerJinKai02-W05.ttf"
+    ],
+    "准备脚本": "bash scripts/ensure-fonts.sh（缺失自动下载，失败打印手动指引；可用 BIDSTUDIO_FONT_DIR 指定可写目录）"
   }
 }
