@@ -375,10 +375,9 @@ license: Proprietary. LICENSE.txt has complete terms
 逻辑类内容一律走 `logic-diagram`。若该 skill 未安装，**提示用户先安装 `logic-diagram` 再重试，不得退化为手写 Mermaid 充数**。
 
 ```bash
-# 选页：按逻辑关系 + 项数 + 每项字数检索候选；候选多于一个时随机抽
-python3 logic-diagram/scripts/match.py --items <项数> --logic <逻辑类型> --chars-per-item <每项字数> --pick random
-# 出图：把内容写成映射 JSON 后渲染（PNG/PDF/PPTX）
-python3 logic-diagram/scripts/build.py --page <页号> --map <映射.json> --outdir <输出目录>
+# 先切到 logic-diagram 技能的实际安装目录，再执行（脚本路径相对技能根目录）：
+python3 scripts/match.py --items <项数> --logic <逻辑类型> --chars-per-item <每项字数> --pick random
+python3 scripts/build.py --page <页号> --map <映射.json> --outdir <输出目录>
 ```
 
 **工作流程（六步，缺一不可）**
