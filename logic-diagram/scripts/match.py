@@ -115,6 +115,13 @@ def main():
     ap.add_argument('--list', action='store_true', help='只筛选不排序')
     ap.add_argument('--slots', help='--list 用：槽位数筛选，如 4 或 3-5')
     ap.add_argument('--all', action='store_true', help='--list 用：不限类型，列全部')
+    ap.add_argument('--pick', choices=('top1', 'random'), default='top1',
+                    help='top1=返回排序后的候选列表（默认，稳定可复现）；'
+                         'random=在「合格候选」里随机挑一页（候选>1 时的选页规则）')
+    ap.add_argument('--seed', type=int,
+                    help='--pick random 的随机种子；同种子可复现同一次抽取')
+    ap.add_argument('--min-score', type=float, default=55.0,
+                    help='--pick random 的分数线，默认 55（脚本判定「真正贴合」的那条线）')
     args = ap.parse_args()
 
     idx = load_index()
@@ -175,6 +182,51 @@ def main():
         'summary': x['summary'],
         'reasons': why,
     } for s, x, why in scored[:args.top]]
+
+    # ── 随机选页（候选 >1 时的规则）──
+    # 随机池 = 同时满足两条的候选：
+    #   ① 分数 ≥ --min-score（脚本自己的「真正贴合」线，默认 55）
+    #   ② 总容量装得下内容总字数 —— 铁律 2 要求「信息不丢失」。
+    # 注意：这里**不**按槽位数筛。铁律 1 明说「类型对上了、槽位数对不上，
+    # 那是内容颗粒度要调（见铁律 3）」—— 槽位数靠重裁内容适配，不是换页的
+    # 理由；真正卡死的是容量：12 字/槽的页塞不进 42 字/项的内容。
+    if args.pick == 'random':
+        import random as _random
+        need_total = (args.items * args.chars_per_item
+                      if args.items and args.chars_per_item else None)
+        pool, why_out = [], []
+        for o in out:
+            if o['score'] < args.min_score:
+                why_out.append(f"p{o['page']} 分数 {o['score']} < {args.min_score}")
+                continue
+            if need_total:
+                cap_total = o['slots'] * o['per_slot_chars']
+                if cap_total < need_total:
+                    why_out.append(
+                        f"p{o['page']} 总容量 {cap_total} 字 < 内容 {need_total} 字")
+                    continue
+            pool.append(o)
+        if pool:
+            picked = _random.Random(args.seed).choice(pool)
+            pool_pages = [o['page'] for o in pool]
+            print(f'随机选中 p{picked["page"]}（{picked["score"]} 分）'
+                  f' ｜ 候选池 {len(pool)} 页：{pool_pages}'
+                  + (f' ｜ seed={args.seed}' if args.seed is not None else ''),
+                  file=sys.stderr)
+        else:
+            picked = out[0]
+            pool_pages = []
+            print(f'⚠ 没有合格候选（' + '；'.join(why_out[:4]) +
+                  f'），退回最高分 p{picked["page"]}。随机未生效。', file=sys.stderr)
+        print(json.dumps({
+            'mode': 'random',
+            'picked': picked,
+            'pool_size': len(pool),
+            'pool_pages': pool_pages,
+            'seed': args.seed,
+            'excluded': why_out,
+        }, ensure_ascii=False, indent=1))
+        return
 
     print(json.dumps(out, ensure_ascii=False, indent=1))
     # 提示分数过低
