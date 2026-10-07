@@ -47,7 +47,9 @@ def main():
     ap.add_argument("--title", help="文档标题（用于页眉）")
     ap.add_argument("--style", choices=["standard", "kami"], default="standard")
     ap.add_argument("--compact", action="store_true",
-                    help="紧凑排版（缩小边距字号），用于让单份材料不超过 2 页")
+                    help="极紧排版（仅当单份材料内容特别多时才用）")
+    ap.add_argument("--standard", action="store_true",
+                    help="标准排版（字体最大，但可能超出每份 1 页）")
     a = ap.parse_args()
 
     files = collect(Path(a.source))
@@ -55,12 +57,13 @@ def main():
         print(f"目录中没有 .md 材料：{a.source}", file=sys.stderr)
         return 2
 
+    use_fit = not a.compact and not a.standard
     merged = merge(files, compact=a.compact)
     tmp = Path(a.out).with_suffix(".merged.md")
     tmp.write_text(merged, encoding="utf-8")
 
     path, doc_title = build(tmp, Path(a.out), a.title or "配套打印材料", a.style,
-                            compact=a.compact,
+                            compact=a.compact, fit=use_fit,
                             header=False, footer=False)  # 发给学生的材料：不要页眉页码
     tmp.unlink(missing_ok=True)
     print(f"已生成: {path}\n合并材料 {len(files)} 份:")

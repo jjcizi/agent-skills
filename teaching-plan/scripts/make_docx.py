@@ -190,6 +190,43 @@ def parse_markdown(text: str):
             i += 1
             continue
 
+        if s.startswith(":::cards"):
+            parts = s.split()
+            cols, row_h = 2, None
+            for tok in parts[1:]:
+                if tok.startswith("h="):
+                    try:
+                        row_h = float(tok[2:])
+                    except ValueError:
+                        pass
+                elif tok.isdigit():
+                    cols = max(1, int(tok))
+            i += 1
+            buf = []
+            while i < len(lines) and lines[i].strip() != ":::":
+                buf.append(lines[i])
+                i += 1
+            i += 1
+            cards, cur = [], []
+            for ln in buf:
+                if ln.strip() in ("---", "===", "✂"):
+                    cards.append(cur); cur = []
+                else:
+                    cur.append(ln)
+            cards.append(cur)
+            cards = [c for c in cards if any(x.strip() for x in c)]
+            blocks.append(("cards", (cols, cards, row_h)))
+            continue
+
+        if s.startswith(":::gap"):
+            try:
+                pts = float(s.split()[1])
+            except (IndexError, ValueError):
+                pts = 12.0
+            blocks.append(("gap", pts))
+            i += 1
+            continue
+
         if not s or set(s) <= {"-", "*", "_"} and len(s) >= 3:
             i += 1
             continue
@@ -306,6 +343,46 @@ def _render_slide(doc, payload, EA_BODY: str, ASCII_F: str):
     tail.paragraph_format.space_after = Pt(4)
 
 
+def _fitify(doc, scale: float = 0.90, margin_cm: float = 1.4):
+    """材料包适配排版：字号略小、边距适中，让每份材料刚好落在一页内且看得清。"""
+    for sec in doc.sections:
+        sec.top_margin = sec.bottom_margin = Cm(margin_cm)
+        sec.left_margin = sec.right_margin = Cm(margin_cm + 0.2)
+        try:
+            sec.header_distance = sec.footer_distance = Cm(0.8)
+        except Exception:
+            pass
+
+    def tune(paras):
+        for p in paras:
+            pf = p.paragraph_format
+            try:
+                # 固定行距（:::gap 的空白段）不能被改成倍数行距
+                if pf.line_spacing is not None and pf.line_spacing_rule != WD_LINE_SPACING.EXACTLY:
+                    if float(pf.line_spacing) > 1.2:
+                        pf.line_spacing = 1.32
+                if pf.line_spacing_rule == WD_LINE_SPACING.EXACTLY:
+                    pass  # 保留精确间距，不做压缩
+                elif pf.space_after is not None and pf.space_after.pt > 6:
+                    pf.space_after = Pt(4)
+                if pf.space_before is not None and pf.space_before.pt > 8:
+                    pf.space_before = Pt(6)
+            except (TypeError, ValueError):
+                pass
+            for r in p.runs:
+                if r.font.size:
+                    r.font.size = Pt(max(8.0, round(r.font.size.pt * scale, 1)))
+
+    tune(doc.paragraphs)
+    for t in doc.tables:
+        for row in t.rows:
+            for c in row.cells:
+                tune(c.paragraphs)
+    for sec in doc.sections:
+        tune(sec.header.paragraphs)
+        tune(sec.footer.paragraphs)
+
+
 def _compactify(doc, scale: float = 0.72, margin_cm: float = 1.0):
     """紧凑模式：压缩页边距、字号、段间距，把材料包控制在少量页内。"""
     for sec in doc.sections:
@@ -320,12 +397,15 @@ def _compactify(doc, scale: float = 0.72, margin_cm: float = 1.0):
         for p in paras:
             pf = p.paragraph_format
             try:
-                if pf.space_after is not None and pf.space_after.pt > 3:
-                    pf.space_after = Pt(pf.space_after.pt * 0.55)
-                if pf.space_before is not None and pf.space_before.pt > 3:
-                    pf.space_before = Pt(pf.space_before.pt * 0.55)
-                if pf.line_spacing and float(pf.line_spacing) > 1.2:
-                    pf.line_spacing = max(1.12, float(pf.line_spacing) * 0.85)
+                if pf.line_spacing_rule == WD_LINE_SPACING.EXACTLY:
+                    pass  # 保留 :::gap 的精确间距
+                else:
+                    if pf.space_after is not None and pf.space_after.pt > 3:
+                        pf.space_after = Pt(pf.space_after.pt * 0.55)
+                    if pf.space_before is not None and pf.space_before.pt > 3:
+                        pf.space_before = Pt(pf.space_before.pt * 0.55)
+                    if pf.line_spacing and float(pf.line_spacing) > 1.2:
+                        pf.line_spacing = max(1.12, float(pf.line_spacing) * 0.85)
             except (TypeError, ValueError):
                 pass
             for r in p.runs:
@@ -351,11 +431,72 @@ def _compactify(doc, scale: float = 0.72, margin_cm: float = 1.0):
         shrink(sec.footer.paragraphs)
 
 
+def _table_grid(table, sz: int = 6, color: str = "BFBFBF"):
+    """全网格细线：用于卡片布局，表框线就是裁切线。"""
+    tblPr = table._tbl.tblPr
+    borders = OxmlElement("w:tblBorders")
+
+    def edge(name):
+        e = OxmlElement(f"w:{name}")
+        e.set(qn("w:val"), "single")
+        e.set(qn("w:sz"), str(sz))
+        e.set(qn("w:space"), "0")
+        e.set(qn("w:color"), color)
+        return e
+
+    for name in ("top", "left", "bottom", "right", "insideH", "insideV"):
+        borders.append(edge(name))
+    tblPr.append(borders)
+
+
+def _set_row_height(row, pt: float):
+    trPr = row._tr.get_or_add_trPr()
+    h = OxmlElement("w:trHeight")
+    h.set(qn("w:val"), str(int(pt * 20)))  # twips
+    h.set(qn("w:hRule"), "atLeast")
+    trPr.append(h)
+
+
+def _render_cards(doc, payload, EA_TITLE: str, EA_BODY: str, ASCII_F: str, big: bool = False):
+    """多列卡片布局：卡片内容填进表格单元，边框即裁切线。payload=(列数, 卡片, 行高)"""
+    cols, cards, row_h = payload
+    rows = (len(cards) + cols - 1) // cols
+    table = doc.add_table(rows=rows, cols=cols)
+    table.autofit = True
+    _table_grid(table)
+    if row_h:
+        for r in range(rows):
+            _set_row_height(table.rows[r], row_h)
+    title_pt = 12.5 if big else 10.5
+    body_pt = 11.5 if big else 9.5
+    for idx, card in enumerate(cards):
+        r, c = divmod(idx, cols)
+        cell = table.cell(r, c)
+        cell.text = ""
+        first = True
+        for ln in card:
+            t = ln.strip()
+            if not t:
+                continue
+            p = cell.paragraphs[0] if first else cell.add_paragraph()
+            first = False
+            pf = p.paragraph_format
+            pf.space_before = Pt(0)
+            pf.space_after = Pt(4)
+            pf.line_spacing_rule = WD_LINE_SPACING.MULTIPLE
+            pf.line_spacing = 1.3
+            if t.startswith("###") or t.startswith("**"):
+                txt = t.lstrip("#").strip().strip("*")
+                _add_inline(p, txt, EA_TITLE, ASCII_F, title_pt, BRAND, base_bold=True)
+            else:
+                _add_inline(p, t, EA_BODY, ASCII_F, body_pt, INK)
+
+
 # ---------------------------------------------------------------- 文档构建
 def build(md_path: Path, out_path: Path, title: str | None, style: str = "standard",
           subtitle: str | None = None, meta_lines: list[str] | None = None,
           font_override: dict | None = None, compact: bool = False,
-          header: bool = True, footer: bool = True):
+          header: bool = True, footer: bool = True, fit: bool = False):
     fonts = FONT_PRESETS.get(style, FONT_PRESETS["standard"])
     if font_override:
         fonts = {**fonts, **{k: v for k, v in font_override.items() if v}}
@@ -426,6 +567,19 @@ def build(md_path: Path, out_path: Path, title: str | None, style: str = "standa
 
         if kind == "pagebreak":
             doc.add_page_break()
+            continue
+
+        if kind == "gap":
+            p = doc.add_paragraph()
+            pf = p.paragraph_format
+            pf.space_before = Pt(0)
+            pf.space_after = Pt(0)
+            pf.line_spacing_rule = WD_LINE_SPACING.EXACTLY
+            pf.line_spacing = Pt(float(payload))
+            continue
+
+        if kind == "cards":
+            _render_cards(doc, payload, EA_TITLE, EA_BODY, ASCII_F, big=not compact)
             continue
 
         if kind == "slide":
@@ -529,7 +683,9 @@ def build(md_path: Path, out_path: Path, title: str | None, style: str = "standa
         _add_inline(p, payload, EA_BODY, ASCII_F, 11, INK)
 
     flush_li()
-    if compact:
+    if fit:
+        _fitify(doc)
+    elif compact:
         _compactify(doc)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     doc.save(str(out_path))
@@ -550,6 +706,8 @@ def main():
     ap.add_argument("--font-ascii", help="覆盖西文字体名")
     ap.add_argument("--compact", action="store_true",
                     help="紧凑排版（缩小边距与字号），用于控制在少量页内")
+    ap.add_argument("--fit", action="store_true",
+                    help="适配排版：适中字号与边距，让每份材料刚好落在一页内（推荐用于材料包）")
     ap.add_argument("--no-header", action="store_true", help="不生成页眉（发给学生的材料用）")
     ap.add_argument("--no-footer", action="store_true", help="不生成页脚页码")
     a = ap.parse_args()
@@ -562,7 +720,7 @@ def main():
     path, doc_title = build(
         src, out, a.title, a.style, a.subtitle, a.meta,
         {"title": a.font_title, "body": a.font_body, "ascii": a.font_ascii},
-        compact=a.compact,
+        compact=a.compact, fit=a.fit,
         header=not a.no_header, footer=not a.no_footer,
     )
     print(f"已生成: {path}\n标题: {doc_title}")
