@@ -265,8 +265,13 @@ python3 ~/.codewhale/skills/teaching-plan/scripts/make_docx.py "源文件/教案
 ```bash
 cd "教案-<课题>"
 python3 ~/.codewhale/skills/teaching-plan/scripts/make_pptx.py "源文件/教案-<课题>.md" \
-  -o "投屏PPT-<课题>.pptx" --title "<课题>" --subtitle "<课时>"
+  -o "投屏PPT-<课题>.pptx" --title "<课题>" --subtitle "<班级 / 场合，如：2026 级 · 第一次项目课>"
 ```
+
+> **封面副标题只写学生视角的信息**（班级、场合、日期），**不写“综艺思维六机制”“90 分钟”
+> 这类教学法或备课信息**——封面是给学生看的，写上“综艺思维六机制”等于一开课就告诉学生
+> “这节课是用综艺套路设计的”。`make_pptx.py` 检测到这类词会直接省略副标题并告警；
+> 宁可不写副标题，也不要写教学法名。
 
 视觉参照 kami（羊皮纸底、墨蓝强调、村线层次）。编排规则详见
 `references/slide-layout.md`，其中最关键的一条：

@@ -141,6 +141,22 @@ MECH_WORDS = {
 }
 
 
+# 封面副标题面向学生：不能出现教学法/机制名（与标签同一条底线）
+COVER_BANNED = ("综艺", "六机制", "悬念机制", "反转机制", "身份机制", "站队", "盲盒", "复盘", "教学法")
+
+
+def clean_subtitle(sub):
+    """封面副标题含教学法表述时直接省略，只给学生看中性信息（班级/场合/日期）。"""
+    if not sub:
+        return sub
+    hit = [w for w in COVER_BANNED if w in sub]
+    if hit:
+        print(f"⚠ 封面副标题含教学法表述 {hit}，已省略：{sub!r}"\
+              f"（PPT 面向学生，应只写班级/场合/日期等信息）", file=sys.stderr)
+        return None
+    return sub
+
+
 def sanitize_label(label: str):
     """把投屏标签中的机制名换成中性说法，返回 (新标签, 命中的机制词)。"""
     hits = []
@@ -165,6 +181,7 @@ def build(md_path: Path, out_path: Path, title: str | None, style: str = "standa
           subtitle: str | None = None):
     fonts = FONT_PRESETS.get(style, FONT_PRESETS["standard"])
     F_TITLE, F_BODY = fonts["title"], fonts["body"]
+    subtitle = clean_subtitle(subtitle)
 
     slides = extract_slides(md_path.read_text(encoding="utf-8"))
     if not slides:
