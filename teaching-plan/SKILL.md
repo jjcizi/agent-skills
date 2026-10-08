@@ -223,6 +223,21 @@ python3 ~/.codewhale/skills/teaching-plan/scripts/make_docx.py "源文件/教案
 > 环境注意：若 `write` 工具在当前卷（外挂盘 / 网络盘 / 共享目录常见）报 `Operation not supported`，改用 shell heredoc 写文件即可，内容与流程不变：
 > `cat > "教案-<课题>.md" <<'EOF' ... EOF`。make_docx.py 本身不依赖 write 工具。
 
+### 5.5.1 教案标题区只放信息，不重复方法论
+
+教案的标题区（`--title` / `--subtitle`）**不要再写“综艺思维六机制”这类教学法表述**——
+正文的“机制地图”表已经完整说明了用了哪几种机制，标题区重复一遍没有信息量。
+标题区应当只放：课题名 + 适用对象 / 课时 / 班级规模。
+
+生成示例（**不传 `--subtitle`**）：
+
+```bash
+python3 ~/.codewhale/skills/teaching-plan/scripts/make_docx.py "源文件/教案-<课题>.md" \
+  -o "教案-<课题>.docx" --title "教案：<课题>"
+```
+
+（注：投屏 PPT 的封面**更不能**写教学法名——见 §5.7，那是学生要看的。）
+
 ### 5.6 投屏标记（教案里必须标出来）
 
 需要投屏给学生看的内容，在教案 Markdown 里用 `:::slide` 块包裹，生成 Word 时会渲染为
