@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #F5F7FB;
+    --panel: #FFFFFF;
+    --panel-2: #FAFBFE;
+    --line: #E2E8F4;
+    --line-soft: #EDF1F8;
+    --ink: #16233B;
+    --muted: #5D6C87;
+    --faint: #8B98AE;
+    --gold: #B7791F;
+    --green: #0E9F6E;
+    --yellow: #D97706;
+    --red: #DC2626;
+    --blue: #2563EB;
+  }
+  @page { size: 414px 896px; margin: 0; }
+  html, body { width: 414px; }
+  body {
+    font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    font-size: 15px;
+    line-height: 1.75;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+  /* 两端对齐 + 长串防溢出（正文段落级；标题/数字不参与） */
+  .ev, .note, .limits, .disc, .sens-note, .kpi .sub, .chip, .param .v, .method h3, .hero h1 {
+    text-align: justify;
+    text-justify: inter-ideograph;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .method .key, .pick .who, .zone-row, .axis, .brand-meta {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .hero h1, .sec-head h2, .method h3, .kpi .value, .pick .price { text-align: left; }
+  .num { font-family: "Bahnschrift", "Segoe UI", "Microsoft YaHei", sans-serif;
+         font-variant-numeric: tabular-nums; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    background:
+      radial-gradient(420px 240px at 85% -10%, rgba(14, 159, 110, 0.10), transparent 60%),
+      radial-gradient(380px 220px at 0% 0%, rgba(37, 99, 235, 0.09), transparent 55%),
+      linear-gradient(180deg, #EEF3FB, var(--bg));
+    padding: 22px 24px 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand-mark {
+    width: 30px; height: 30px; border-radius: 9px;
+    background: linear-gradient(135deg, #10B981, #3B82F6);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 14px; color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.30);
+  }
+  .brand-name { font-size: 13.5px; font-weight: 700; letter-spacing: 0.08em; color: var(--ink); }
+  .brand-sub { font-size: 9.5px; color: var(--muted); letter-spacing: 0.28em; white-space: nowrap; }
+  .brand-meta { margin-left: auto; text-align: right; font-size: 10.5px; color: var(--faint); line-height: 1.6; }
+  .brand-meta b { color: var(--gold); font-weight: 600; }
+  .kicker {
+    margin-top: 15px; display: inline-flex; align-items: center; gap: 8px;
+    font-size: 11px; letter-spacing: 0.36em; color: var(--green);
+  }
+  .kicker::before { content: ""; width: 26px; height: 1px; background: var(--green); }
+  .hero h1 { margin-top: 10px; font-size: 23px; line-height: 1.4; font-weight: 700; color: var(--ink); }
+  .chips { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 7px; }
+  .chip {
+    font-size: 11px; padding: 5px 10px; border-radius: 999px;
+    border: 1px solid var(--line); color: #3D4C66;
+    background: rgba(255, 255, 255, 0.85);
+  }
+  .chip b { color: var(--gold); font-weight: 600; }
+
+  /* ---------- 主体 ---------- */
+  .body { padding: 15px 20px 30px; }
+  .sec { margin-top: 26px; }
+  .sec:first-child { margin-top: 0; }
+  .sec.keep { break-inside: avoid; page-break-inside: avoid; }
+  .sec-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px; }
+  .sec-head .idx { font-size: 11.5px; color: var(--gold); letter-spacing: 0.14em; font-weight: 700; }
+  .sec-head h2 { font-size: 17px; font-weight: 700; letter-spacing: 0.04em; }
+  .card {
+    border: 1px solid var(--line); border-radius: 16px;
+    background: #FFFFFF;
+    box-shadow: 0 1px 3px rgba(22, 35, 59, 0.05);
+    padding: 18px 18px;
+    break-inside: avoid; page-break-inside: avoid;
+  }
+
+  /* ---------- KPI ---------- */
+  .kpis { display: flex; flex-direction: column; gap: 9px; }
+  .kpi {
+    border: 1px solid var(--line); border-radius: 16px; padding: 12px 16px;
+    background: #FFFFFF;
+    box-shadow: 0 1px 3px rgba(22, 35, 59, 0.05);
+    position: relative; overflow: hidden;
+    break-inside: avoid; page-break-inside: avoid;
+  }
+  .kpi::after {
+    content: ""; position: absolute; left: 0; top: 0; height: 3px; width: 100%;
+    background: linear-gradient(90deg, var(--accent, var(--blue)), transparent 75%);
+    opacity: 0.85;
+  }
+  .kpi .label {
+    font-size: 12px; color: var(--muted); letter-spacing: 0.14em;
+    display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  }
+  /* 首屏命中概率徽标：必须与参考值同屏出现，避免被后文淹没 */
+  .hit-badge {
+    flex: none; font-size: 11px; font-weight: 700; letter-spacing: 0.02em;
+    color: #FFFFFF; background: var(--accent, var(--blue));
+    padding: 3px 9px; border-radius: 999px;
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+  }
+  .kpi .value {
+    margin-top: 6px; font-size: 33px; font-weight: 700; line-height: 1.1;
+    color: var(--accent, var(--ink));
+  }
+  .kpi .value.range { font-size: 26px; }
+  .kpi .value .unit { font-size: 14px; font-weight: 500; color: var(--muted); margin-left: 6px; }
+  .kpi .sub { margin-top: 6px; font-size: 11px; color: var(--faint); line-height: 1.55; }
+  .kpi-hero {
+    background:
+      radial-gradient(320px 150px at 92% 0%, rgba(14, 159, 110, 0.10), transparent 70%),
+      linear-gradient(180deg, #F6FCF9, #FFFFFF);
+  }
+
+  /* ---------- 统计口径备注（首屏，防止把测算结果当成理想报价） ---------- */
+  .stat-note {
+    margin-top: 10px; padding: 10px 13px; border-radius: 12px;
+    border: 1px dashed rgba(183, 121, 31, 0.55);
+    background: rgba(183, 121, 31, 0.07);
+    font-size: 11px; line-height: 1.6; color: #7A5B1E;
+    break-inside: avoid; page-break-inside: avoid;
+    text-align: justify; text-justify: inter-ideograph; overflow-wrap: anywhere;
+  }
+  .stat-note b { color: #92400E; }
+
+  /* ---------- 标书原文公式 ---------- */
+  .formula {
+    border: 1px solid rgba(37, 99, 235, 0.35); border-radius: 16px;
+    background: linear-gradient(180deg, rgba(37, 99, 235, 0.06), #FFFFFF 70%);
+    padding: 14px 16px; margin-bottom: 12px;
+    break-inside: avoid; page-break-inside: avoid;
+  }
+  .formula .f-title {
+    font-size: 11px; letter-spacing: 0.2em; color: var(--blue); font-weight: 700;
+  }
+  .formula .f-row {
+    display: flex; gap: 10px; align-items: baseline;
+    padding: 8px 0 2px; border-bottom: 1px dashed var(--line);
+    overflow-wrap: anywhere; word-break: break-word;
+  }
+  .formula .f-row:last-child { border-bottom: 0; }
+  .formula .f-k {
+    flex: none; width: 44px; font-size: 11.5px; color: var(--muted); letter-spacing: 0.1em;
+  }
+  .formula .f-v { font-size: 14px; font-weight: 600; color: var(--ink); line-height: 1.7; }
+
+  /* ---------- 分布图（原生，与报告同风格） ---------- */
+  .ruler {
+    position: relative; height: 13px; border-radius: 999px; display: flex;
+    box-shadow: 0 0 0 1px rgba(22, 35, 59, 0.06) inset;
+    break-inside: avoid;
+  }
+  .ruler .seg { height: 100%; }
+  .ruler .seg:first-child { border-radius: 999px 0 0 999px; }
+  .ruler .seg:last-child { border-radius: 0 999px 999px 0; }
+  .mean-pin {
+    position: absolute; top: -6px; bottom: -6px; width: 2px; background: #16233B;
+    transform: translateX(-1px); box-shadow: 0 0 6px rgba(22, 35, 59, 0.45);
+  }
+  .zones { margin-top: 14px; display: flex; flex-direction: column; gap: 7px; }
+  .zone-row { display: flex; align-items: center; gap: 9px; font-size: 12.5px; }
+  .zone-dot { width: 10px; height: 10px; border-radius: 3px; flex: none; }
+  .zone-name { color: var(--muted); }
+  .zone-val { margin-left: auto; font-weight: 700; font-size: 14px; }
+  .chart {
+    margin-top: 16px; position: relative; height: 170px;
+    break-inside: avoid; page-break-inside: avoid;
+  }
+  .bars {
+    position: absolute; inset: 0 0 26px 0; display: flex; align-items: flex-end; gap: 1.5px;
+  }
+  .bars .bar { flex: 1 1 0; border-radius: 1.5px 1.5px 0 0; min-width: 0; }
+  .bars .bar.zero { height: 0 !important; }
+  /* 水平参考线：用实体元素而非 repeating-linear-gradient（Chromium 打印会把渐变条纹渲染成粗线） */
+  .gridlines { position: absolute; inset: 0 0 26px 0; }
+  .gridlines i {
+    position: absolute; left: 0; right: 0; height: 0;
+    border-top: 1px solid #E8EDF6;
+  }
+  .mean-line {
+    position: absolute; top: -4px; bottom: 26px; width: 0;
+    border-left: 1.5px dashed #64748B;
+  }
+  .mean-line .tag {
+    position: absolute; top: -2px; left: 6px; font-size: 10.5px; color: #1D4ED8;
+    background: rgba(37, 99, 235, 0.08); border: 1px solid rgba(37, 99, 235, 0.35);
+    padding: 2px 8px; border-radius: 999px; white-space: nowrap;
+  }
+  .axis {
+    position: absolute; left: 0; right: 0; bottom: 0; height: 26px;
+    border-top: 1px solid var(--line);
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 10.5px; color: var(--faint);
+  }
+
+  /* ---------- 方法识别 ---------- */
+  .method {
+    border: 1px solid var(--line); border-radius: 16px; padding: 16px 18px;
+    background: #FFFFFF;
+    box-shadow: 0 1px 3px rgba(22, 35, 59, 0.05);
+    margin-bottom: 12px;
+    break-inside: avoid; page-break-inside: avoid;
+  }
+  .method:last-child { margin-bottom: 0; }
+  .method .tag {
+    font-size: 10px; letter-spacing: 0.26em; color: var(--muted); text-transform: uppercase;
+  }
+  .method h3 { margin-top: 7px; font-size: 19px; font-weight: 700; line-height: 1.4; color: var(--ink); }
+  .method .key {
+    display: inline-block; margin-top: 8px; font-size: 11px; color: var(--gold);
+    background: rgba(183, 121, 31, 0.07); border: 1px solid rgba(183, 121, 31, 0.35);
+    padding: 3px 9px; border-radius: 6px;
+    font-family: "Cascadia Mono", Consolas, monospace;
+  }
+  .method .ev {
+    margin-top: 12px; font-size: 12.5px; line-height: 1.8; color: #4A5B78;
+    border-left: 2px solid var(--accent-b, var(--blue)); padding-left: 12px;
+  }
+
+  /* ---------- 参数 ---------- */
+  .params { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 16px; }
+  .param { padding: 10px 0 9px; border-bottom: 1px dashed var(--line); }
+  .param .k { font-size: 11.5px; color: var(--muted); letter-spacing: 0.06em; }
+  .param .v { margin-top: 4px; font-size: 16.5px; font-weight: 600; color: var(--ink); }
+  .param .v small { font-size: 11px; color: var(--faint); font-weight: 400; margin-left: 4px; }
+
+  /* ---------- 敏感性 ---------- */
+  .sens { display: flex; flex-direction: column; gap: 8px; }
+  .sens-row {
+    display: flex; align-items: center; gap: 10px;
+    border: 1px solid var(--line); border-radius: 12px;
+    padding: 10px 14px; background: #FFFFFF;
+    box-shadow: 0 1px 2px rgba(22, 35, 59, 0.04);
+    font-size: 12.5px;
+    break-inside: avoid;
+  }
+  .sens-row.main {
+    border-color: rgba(14, 159, 110, 0.45);
+    background: linear-gradient(90deg, rgba(14, 159, 110, 0.10), #FFFFFF 70%);
+  }
+  .sens-n { font-weight: 700; font-size: 14px; width: 68px; flex: none; }
+  .sens-row.main .sens-n { color: var(--green); }
+  .sens-band { margin-left: auto; text-align: right; }
+  .sens-band b { display: block; font-size: 13.5px; }
+  .sens-band span { color: var(--faint); font-size: 10.5px; }
+  .sens-note { font-size: 11.5px; color: var(--faint); margin-top: 10px; line-height: 1.7; }
+
+  /* ---------- 建议 ---------- */
+  .pick {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 16px; border-radius: 14px; margin-bottom: 10px;
+    border: 1px solid var(--line); background: #FFFFFF;
+    box-shadow: 0 1px 3px rgba(22, 35, 59, 0.05);
+    break-inside: avoid;
+  }
+  .pick.primary {
+    border-color: rgba(14, 159, 110, 0.45);
+    background: linear-gradient(90deg, rgba(14, 159, 110, 0.10), #FFFFFF 65%);
+  }
+  .pick .who { font-size: 12px; color: var(--muted); letter-spacing: 0.18em; line-height: 1.7; }
+  .pick .who .hit {
+    display: inline-block; margin-top: 3px; letter-spacing: 0.02em;
+    font-size: 13px; font-weight: 700; color: var(--blue);
+  }
+  .pick.primary .who .hit { color: var(--green); }
+  .pick .who .dr {
+    display: inline-block; margin-top: 3px; letter-spacing: 0.02em;
+    font-size: 11.5px; color: var(--faint);
+  }
+  .pick .price { font-size: 26px; font-weight: 700; }
+  .pick.primary .price { color: var(--green); }
+  .pick .price small { font-size: 12px; color: var(--muted); font-weight: 500; margin-left: 4px; }
+  .note { font-size: 13px; line-height: 1.85; color: #4A5B78; padding: 2px 2px 0; }
+
+  /* ---------- 限制/页脚 ---------- */
+  .limits { font-size: 12.5px; line-height: 1.9; color: #4A5B78; }
+  .limits li { margin-left: 18px; margin-bottom: 4px; }
+  .limits b { color: var(--gold); font-weight: 600; }
+  .disc {
+    margin-top: 18px; padding: 14px 16px; border-radius: 14px;
+    border: 1px dashed rgba(220, 38, 38, 0.40);
+    background: rgba(220, 38, 38, 0.05);
+    font-size: 12px; line-height: 1.8; color: #7F1D1D;
+  }
+  .disc b { color: #B91C1C; }
+  .foot {
+    margin-top: 22px; padding-top: 14px; border-top: 1px solid var(--line);
+    display: flex; justify-content: space-between; font-size: 10.5px; color: var(--faint);
+  }
+  .foot b { color: var(--muted); letter-spacing: 0.1em; }
+</style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="brand">
+      <div class="brand-mark">投</div>
+      <div>
+        <div class="brand-name">投镜 · BID MIRROR</div>
+        <div class="brand-sub">BID PRICE INTELLIGENCE</div>
+      </div>
+      <div class="brand-meta">测算日期　<b>${date}</b><br>模拟设置　<b>${simulations} 次 · seed ${seed}</b></div>
+    </div>
+    <div class="kicker">投标报价测算报告</div>
+    <h1>${project}</h1>
+    <div class="chips">
+      <span class="chip">基准价　<b>${rule_label}</b></span>
+      <span class="chip">算分　<b>${scoring_label}</b></span>
+      <span class="chip">限价　<b>${ceiling} ${unit}</b></span>
+      <span class="chip">模拟家数　<b>${participants} 家</b></span>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- KPI -->
+    <div class="sec">
+      <div class="kpis">
+        <div class="kpi kpi-hero" style="--accent: var(--green)">
+          <div class="label"><span>最终报价目标范围 · 低风险带</span></div>
+          <div class="value range num" style="color: var(--green)">${target_low} — ${target_high}<span class="unit">${unit}</span></div>
+          <div class="sub">${kpi1_sub}</div>
+        </div>
+        <div class="kpi" style="--accent: var(--blue)">
+          <div class="label"><span>胜出报价参考值</span>${mean_hit_line}</div>
+          <div class="value num" style="font-size:${mean_fs}px">${mean}<span class="unit">${unit}</span></div>
+          <div class="sub">${kpi2_sub}</div>
+        </div>
+        <div class="kpi" style="--accent: var(--gold)">
+          <div class="label"><span>报价参考 · 首选 / 备选</span></div>
+          <div class="value range num" style="font-size:23px;color:var(--gold)">${suggest_primary} / ${suggest_secondary}<span class="unit">${unit}</span></div>
+          <div class="sub">${kpi3_sub}</div>
+        </div>
+      </div>
+      <div class="stat-note">
+        <b>统计口径说明（必读）</b>：以上报价均为<b>纯统计模拟</b>结果，只反映"假设的报价区间与投标家数"下的抽样规律，
+        <b>未纳入</b>对手策略、成本与利润约束、评标现场判断、政策扣除等真实风险与偏差；
+        <b>不是</b>最优、最终或理想的报价，命中概率也仅是模拟频率而非中标承诺。请结合成本底线与商务判断决策，完整限制见文末"限制与声明"。
+      </div>
+    </div>
+
+    <!-- 概率分布（原生） -->
+    <div class="sec keep">
+      <div class="sec-head"><span class="idx">01</span><h2>概率分布与风险区间</h2></div>
+      <div class="card">
+        <div class="ruler">
+          <div class="seg" style="width:${seg_hl}%;background:linear-gradient(90deg,#F87171,#FCA5A5)"></div>
+          <div class="seg" style="width:${seg_ml}%;background:linear-gradient(90deg,#F59E0B,#FBBF24)"></div>
+          <div class="seg" style="width:${seg_low}%;background:linear-gradient(90deg,#10B981,#34D399)"></div>
+          <div class="seg" style="width:${seg_mr}%;background:linear-gradient(90deg,#FBBF24,#F59E0B)"></div>
+          <div class="seg" style="width:${seg_hr}%;background:linear-gradient(90deg,#FCA5A5,#F87171)"></div>
+          <div class="mean-pin" style="left:${mean_pin}%"></div>
+        </div>
+        <div class="zones">
+          <div class="zone-row"><span class="zone-dot" style="background:var(--green)"></span><span class="zone-name">低风险（目标带）</span><span class="zone-val num" style="color:var(--green)">${low_span}</span></div>
+          <div class="zone-row"><span class="zone-dot" style="background:var(--yellow)"></span><span class="zone-name">中风险 ±1σ</span><span class="zone-val num" style="color:var(--yellow)">${medium_span}</span></div>
+          <div class="zone-row"><span class="zone-dot" style="background:var(--red)"></span><span class="zone-name">高风险 ±1.5σ</span><span class="zone-val num" style="color:var(--red)">${high_span}</span></div>
+        </div>
+        <div class="chart">
+          <div class="gridlines">
+            <i style="top:0"></i>
+            <i style="top:calc((100% - 26px) * 0.25)"></i>
+            <i style="top:calc((100% - 26px) * 0.5)"></i>
+            <i style="top:calc((100% - 26px) * 0.75)"></i>
+            <i style="top:calc((100% - 26px) * 1)"></i>
+          </div>
+          <div class="bars">${bars}</div>
+          <div class="mean-line" style="left:${mean_line}%"><span class="tag">参考值 ${mean}</span></div>
+          <div class="axis">
+            <span class="num">${axis_min}</span>
+            <span class="num">${axis_mid}</span>
+            <span class="num">${axis_max}</span>
+            <span>报价（${unit}）→</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 方法识别 -->
+    <div class="sec keep">
+      <div class="sec-head"><span class="idx">02</span><h2>报价方法识别</h2></div>
+      <div class="formula">
+        <div class="f-title">招标文件的报价测算方法（原文公式）</div>
+        <div class="f-row"><span class="f-k">基准价</span><span class="f-v num">${rule_formula}</span></div>
+        <div class="f-row"><span class="f-k">算分</span><span class="f-v num">${scoring_formula}</span></div>
+      </div>
+      <div class="method" style="--accent-b:var(--green)">
+        <div class="tag">Benchmark Price Rule</div>
+        <h3>${rule_label}</h3>
+        <span class="key">${rule_key}</span>
+        <div class="ev">${rule_evidence}</div>
+      </div>
+      <div class="method" style="--accent-b:var(--blue)">
+        <div class="tag">Scoring Rule</div>
+        <h3>${scoring_label}</h3>
+        <span class="key">${scoring_key}</span>
+        <div class="ev">${scoring_evidence}</div>
+      </div>
+    </div>
+
+    <!-- 输入 -->
+    <div class="sec keep">
+      <div class="sec-head"><span class="idx">03</span><h2>测算输入</h2></div>
+      <div class="card">
+        <div class="params">
+          <div class="param"><div class="k">招标控制价</div><div class="v num">${ceiling}<small>${unit}</small></div></div>
+          <div class="param"><div class="k">模拟报价区间</div><div class="v num" style="font-size:14.5px">${bid_range}<small>${unit}</small></div></div>
+          <div class="param"><div class="k">模拟投标家数</div><div class="v num">${participants}<small>家</small></div></div>
+          <div class="param"><div class="k">随机参数</div><div class="v" style="font-size:12.5px">${params_note}</div></div>
+          <div class="param"><div class="k">模拟次数</div><div class="v num">${simulations}<small>次</small></div></div>
+          <div class="param"><div class="k">随机种子</div><div class="v num">${seed}</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 敏感性（可选） -->
+    ${sensitivity_block}
+
+    <!-- 建议 -->
+    <div class="sec keep">
+      <div class="sec-head"><span class="idx">04</span><h2>报价建议</h2></div>
+      <div class="pick primary">
+        <span class="who">首 选 报 价${primary_hit_line}${primary_disc_line}</span>
+        <span class="price num">${suggest_primary}<small>${unit}</small></span>
+      </div>
+      <div class="pick">
+        <span class="who">备 选 报 价${secondary_hit_line}${secondary_disc_line}</span>
+        <span class="price num">${suggest_secondary}<small>${unit}</small></span>
+      </div>
+      <div class="card" style="margin-top:2px"><div class="note">${suggest_note}</div></div>
+    </div>
+
+    <!-- 限制 -->
+    <div class="sec keep">
+      <div class="sec-head"><span class="idx">05</span><h2>限制与声明</h2></div>
+      <div class="card">
+        <ul class="limits">${limits_items}</ul>
+        <div class="disc">* 本报告基于蒙特卡洛模拟生成，仅供报价决策参考，<b>不构成中标承诺</b>。报价区间、家数等估计参数的偏差会显著影响结果；掌握历史中标价或对手情报后应更新参数重新测算（同 seed 可复现对比）。</div>
+      </div>
+      <div class="foot">
+        <span><b>BID PRICE CALC · SKILL</b></span>
+        <span>${date} · 原工具：投镜 BidMirror</span>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
