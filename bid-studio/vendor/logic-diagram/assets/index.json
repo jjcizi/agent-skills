@@ -1,0 +1,6243 @@
+[
+ {
+  "page": 1,
+  "page_title": "本年度第二季度",
+  "summary": "中心业绩圆+左右各3张编号卡，六项业绩并列展开",
+  "logic_type": "总分发散",
+  "structure": {
+   "topology": "放射",
+   "slot_count": 6,
+   "ordered": false,
+   "has_arrows": false,
+   "has_connectors": true,
+   "hierarchy_depth": 1
+  },
+  "capacity": {
+   "main_slots": 6,
+   "per_slot_chars": 14,
+   "total_chars": 90
+  },
+  "best_for": [
+   "部门/季度业绩的六项并列要点",
+   "中心主题+六个平行成果亮点",
+   "无明显先后的六个重点工作"
+  ],
+  "avoid_for": [
+   "需要体现先后步骤的流程",
+   "需要层级递进的论证"
+  ],
+  "scenes": [
+   "工作汇报",
+   "年度总结",
+   "产品介绍"
+  ],
+  "placeholders": [
+   "本年度第二季度",
+   "登高望远",
+   "才高八斗",
+   "安居乐业",
+   "步步高升",
+   "福星高照"
+  ],
+  "fill_hint": "左右两侧每侧 3 张卡，按 01/02 左上、03/04 右上、05/06 右下排布；每卡仅标题+两行正文，正文超 28 字会溢出。",
+  "confidence": 0.9
+ },
+ {
+  "page": 2,
+  "page_title": "企业员工考核说明",
+  "summary": "说明横栏下挂5个编号列，每列含2个子块，共5类要点",
+  "logic_type": "并列要点",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 5,
+   "ordered": true,
+   "has_arrows": false,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 5,
+   "per_slot_chars": 12,
+   "total_chars": 105
+  },
+  "best_for": [
+   "考核/制度的五个分类要点",
+   "需编号排序的五项并列说明",
+   "每项下含两条细分的说明页"
+  ],
+  "avoid_for": [
+   "单一主题的深度论证",
+   "需要展示数据对比的页面"
+  ],
+  "scenes": [
+   "工作汇报",
+   "教学课件",
+   "管理制度宣贯"
+  ],
+  "placeholders": [
+   "企业员工考核说明",
+   "1. 考核方式",
+   "2. 考核流程",
+   "3. 考核内容",
+   "4. 考核等级",
+   "5. 考核表现",
+   "输入标题文字"
+  ],
+  "fill_hint": "顶层 5 列带 1-5 编号，每列下挂 2 个子块（各含图标+标题+两行正文）；子块正文每行约 20 字。",
+  "confidence": 0.92
+ },
+ {
+  "page": 3,
+  "page_title": "输入标题文字",
+  "summary": "标题横栏下6张图标卡横排，交替深底/浅底，六项并列",
+  "logic_type": "并列要点",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 6,
+   "ordered": false,
+   "has_arrows": false,
+   "has_connectors": true,
+   "hierarchy_depth": 1
+  },
+  "capacity": {
+   "main_slots": 6,
+   "per_slot_chars": 30,
+   "total_chars": 180
+  },
+  "best_for": [
+   "六个并列的业务模块/服务项",
+   "需要图标区分的六项介绍",
+   "六条并列的制度或产品特性"
+  ],
+  "avoid_for": [
+   "有明显先后的流程",
+   "仅两条内容的极简页"
+  ],
+  "scenes": [
+   "产品介绍",
+   "工作汇报",
+   "教学课件"
+  ],
+  "placeholders": [
+   "输入标题文字",
+   "万寿无疆",
+   "建功立业",
+   "秀外慧中",
+   "鸿业远图",
+   "官运亨通",
+   "时运亨通"
+  ],
+  "fill_hint": "6 张卡各含图标+标题+约 4 行正文，单卡正文容量约 30 字；深浅底色交替，奇数位为深底白字。",
+  "confidence": 0.88
+ },
+ {
+  "page": 4,
+  "page_title": "企业发展历程",
+  "summary": "带箭头时间轴，4个年份节点上下各挂一块说明，展示发展历程",
+  "logic_type": "时间轴",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 4,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 1
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 30,
+   "total_chars": 240
+  },
+  "best_for": [
+   "企业/项目发展历程的四个阶段",
+   "按年份推进的里程碑回顾",
+   "上下对照双行的时序信息"
+  ],
+  "avoid_for": [
+   "无时序关系的并列要点",
+   "超过六段的密集时间线"
+  ],
+  "scenes": [
+   "年度总结",
+   "工作汇报",
+   "产品介绍"
+  ],
+  "placeholders": [
+   "企业发展历程",
+   "QIYEFAZHANLICHENG",
+   "2015",
+   "2020",
+   "2025",
+   "2030"
+  ],
+  "fill_hint": "4 个年份节点，每节点轴上有 1 块、轴下 1 块，共 8 个文本框；每框约 30 字，超 4 行溢出。",
+  "confidence": 0.9
+ },
+ {
+  "page": 5,
+  "page_title": "",
+  "summary": "三栏卡组，每栏1个大标题+5个子条目，栏间有箭头，三栏并列",
+  "logic_type": "并列要点",
+  "structure": {
+   "topology": "网格",
+   "slot_count": 3,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 3,
+   "per_slot_chars": 24,
+   "total_chars": 375
+  },
+  "best_for": [
+   "三大板块各含五条细项的对照展开",
+   "三类方案/产品线的并列说明",
+   "每栏 5 条要点的分类清单"
+  ],
+  "avoid_for": [
+   "单一层级的平铺要点",
+   "信息量很小的极简页"
+  ],
+  "scenes": [
+   "产品介绍",
+   "工作汇报",
+   "教学课件"
+  ],
+  "placeholders": [
+   "龙凤呈祥",
+   "鸾凤和鸣",
+   "平步青云",
+   "输入标题文字",
+   "在此处输入正文内容在此处输入正文内容"
+  ],
+  "fill_hint": "顶层 3 栏，每栏 1 个栏标题 + 5 个子条目（标题 + 约 24 字正文）；栏间有指向右侧的箭头示意推进。",
+  "confidence": 0.85
+ },
+ {
+  "page": 6,
+  "page_title": "发展里程碑",
+  "summary": "四个「大事记」节点沿折线箭头串行推进，每节点配一段虚线说明框",
+  "logic_type": "顺序流程",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 4,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 1
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 34,
+   "total_chars": 160
+  },
+  "best_for": [
+   "四件大事记/里程碑的先后串联",
+   "发展历程中的重要事件回顾",
+   "时间点不明确但需讲顺序的大事记录"
+  ],
+  "avoid_for": [
+   "并列无先后的要点",
+   "需要精确日期的密集时间轴"
+  ],
+  "scenes": [
+   "年度总结",
+   "工作汇报",
+   "产品介绍"
+  ],
+  "placeholders": [
+   "发展里程碑",
+   "FAZHANLICHENGBEI",
+   "大事记",
+   "请根据标题在此处输入正文内容支持主题模式一键自由换色"
+  ],
+  "fill_hint": "4 个「大事记」圆角节点沿折线箭头串联（右→下→右→下→右），每节点旁配 1 个虚线说明框，框内约 34 字；节点标题建议 3-5 字。",
+  "confidence": 0.82
+ },
+ {
+  "page": 7,
+  "page_title": "",
+  "summary": "蛇形折返的十节点顺序流程，首尾各一个大箭头",
+  "logic_type": "顺序流程",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 10,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 1
+  },
+  "capacity": {
+   "main_slots": 10,
+   "per_slot_chars": 32,
+   "total_chars": 320
+  },
+  "best_for": [
+   "十步以内的长流程步骤拆解",
+   "项目全流程的十个节点说明",
+   "年度工作推进的十项节点",
+   "制度执行步骤分解"
+  ],
+  "avoid_for": [
+   "每步需要大段论述的页面",
+   "强调主次层级的论证"
+  ],
+  "scenes": [
+   "工作汇报",
+   "教学课件",
+   "方案说明"
+  ],
+  "placeholders": [
+   "输入标题文字",
+   "请根据标题在此处输入正文内容支持主题模式一键自由换色"
+  ],
+  "fill_hint": "三行分别为4/3/3个节点，虚线蛇形连成一条线，换行不改变先后顺序；每节点标题≤10字、正文≤35字。",
+  "confidence": 0.88
+ },
+ {
+  "page": 8,
+  "page_title": "",
+  "summary": "四栏编号大卡，每栏含图标表头加三段要点",
+  "logic_type": "并列要点",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 4,
+   "ordered": true,
+   "has_arrows": false,
+   "has_connectors": false,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 30,
+   "total_chars": 480
+  },
+  "best_for": [
+   "四大板块各含三条要点的工作汇报",
+   "四个并列模块的能力说明",
+   "四条业务线分点介绍",
+   "四项制度各展开三条细则"
+  ],
+  "avoid_for": [
+   "超过四组的并列内容",
+   "需要跨栏连线的因果分析"
+  ],
+  "scenes": [
+   "工作汇报",
+   "年度总结",
+   "产品介绍"
+  ],
+  "placeholders": [
+   "大事一",
+   "大事二",
+   "大事三",
+   "大事四",
+   "输入标题文字"
+  ],
+  "fill_hint": "左侧四个小标签与右侧四栏一一对应，是栏目标签而非独立槽位；每栏含图标表头+3个要点块，共4个子块，子块正文≤30字。",
+  "confidence": 0.75
+ },
+ {
+  "page": 9,
+  "page_title": "大力推进 流程展示",
+  "summary": "中心大圆半环上排布1-5编号节点，顺时针推进",
+  "logic_type": "总分发散",
+  "structure": {
+   "topology": "放射",
+   "slot_count": 6,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 6,
+   "per_slot_chars": 34,
+   "total_chars": 190
+  },
+  "best_for": [
+   "以主题为中心的5步推进流程",
+   "五项环环相扣的工作环节",
+   "概念导入后的五个分步说明"
+  ],
+  "avoid_for": [
+   "并列无先后的要点罗列",
+   "需要多层级分解的复杂结构"
+  ],
+  "scenes": [
+   "工作汇报",
+   "教学课件",
+   "方案说明"
+  ],
+  "placeholders": [
+   "大力推 进流程展示",
+   "输入标题文字",
+   "请根据标题在此处输入正文内容支持主题模式一键自由换色"
+  ],
+  "fill_hint": "中心大圆算1个槽位（仅放主题短句，约8字），外弧1-5共5个节点各含图标+标题+两行正文；底部横栏是说明长条，可作整页概述，不计入槽位。",
+  "confidence": 0.82
+ },
+ {
+  "page": 10,
+  "page_title": "大力推进流程展示",
+  "summary": "中央大箭头向前推进，上下各3个编号项被箭头带出",
+  "logic_type": "顺序流程",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 6,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": false,
+   "hierarchy_depth": 1
+  },
+  "capacity": {
+   "main_slots": 6,
+   "per_slot_chars": 28,
+   "total_chars": 170
+  },
+  "best_for": [
+   "六个阶段依次推进的流程展示",
+   "上下两两对应的六项进展说明",
+   "产品迭代的六个里程碑",
+   "需强调推进方向的工作环节"
+  ],
+  "avoid_for": [
+   "无先后的纯并列要点",
+   "需要展示数据对比的页面"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍",
+   "方案说明"
+  ],
+  "placeholders": [
+   "大力推进流程展示",
+   "孜孜不倦",
+   "欣欣向荣",
+   "弘基永固",
+   "金玉满堂"
+  ],
+  "fill_hint": "中央大箭头是装饰无需填字（或仅放主题）；上排01/02/03、下排04/05/06，标题4字+正文两行；顺序按编号01→06。",
+  "confidence": 0.85
+ },
+ {
+  "page": 11,
+  "page_title": "",
+  "summary": "波浪升降曲线串起5个圆形节点，编号1-5依次升高",
+  "logic_type": "顺序流程",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 5,
+   "ordered": true,
+   "has_arrows": false,
+   "has_connectors": true,
+   "hierarchy_depth": 1
+  },
+  "capacity": {
+   "main_slots": 5,
+   "per_slot_chars": 10,
+   "total_chars": 50
+  },
+  "best_for": [
+   "五步递进且逐步上升的过程展示",
+   "五个阶段的能力成长曲线",
+   "教学课件的五个环节串联",
+   "项目推进的五个台阶"
+  ],
+  "avoid_for": [
+   "需要详细文字说明的页面",
+   "并列无先后的要点罗列"
+  ],
+  "scenes": [
+   "工作汇报",
+   "教学课件",
+   "产品介绍"
+  ],
+  "placeholders": [
+   "生意兴隆",
+   "花开富贵",
+   "文定吉祥",
+   "大吉大利",
+   "八方捷报"
+  ],
+  "fill_hint": "5个大圆各只放一个短标题（≤5字），编号小圆1-5不计入槽位；圆形内不宜再塞正文，需说明请另加备注。",
+  "confidence": 0.8
+ },
+ {
+  "page": 12,
+  "page_title": "",
+  "summary": "中心方块扇出4项，各项右侧对应一个季度指标",
+  "logic_type": "总分发散",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 5,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 5,
+   "per_slot_chars": 26,
+   "total_chars": 160
+  },
+  "best_for": [
+   "中心主题+四个分项对齐量化指标",
+   "四个季度的考核业绩对比",
+   "四项举措对应四个结果数据",
+   "中心结论配四项支撑证据"
+  ],
+  "avoid_for": [
+   "纯并列无中心内容的页面",
+   "无数据指标项的纯文字说明"
+  ],
+  "scenes": [
+   "工作汇报",
+   "年度总结",
+   "数据汇报"
+  ],
+  "placeholders": [
+   "发奋图强",
+   "1. 福星高照",
+   "2. 旗开得胜",
+   "3. 百年好合",
+   "4. 震古烁今"
+  ],
+  "fill_hint": "中心方块算1个槽位，中间4条编号条为4项；右侧4张卡是左侧各项的量化结果（原为60%/70%/80%/90%），左右需一一对齐；中间条目正文两行约30字。",
+  "confidence": 0.83
+ },
+ {
+  "page": 13,
+  "page_title": "",
+  "summary": "横向时间轴，5个年份胶囊节点，节点上下各配一组说明文字",
+  "logic_type": "时间轴",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 5,
+   "ordered": true,
+   "has_arrows": false,
+   "has_connectors": true,
+   "hierarchy_depth": 1
+  },
+  "capacity": {
+   "main_slots": 5,
+   "per_slot_chars": 30,
+   "total_chars": 300
+  },
+  "best_for": [
+   "五年发展规划的分年目标",
+   "产品版本迭代路线（V1→V5）",
+   "公司发展历程大事记按年份并列"
+  ],
+  "avoid_for": [
+   "无时间属性的并列要点",
+   "需要展示因果关系的内容"
+  ],
+  "scenes": [
+   "工作汇报",
+   "年度总结",
+   "产品介绍",
+   "教学课件"
+  ],
+  "placeholders": [
+   "输入标题文字",
+   "2017",
+   "2019",
+   "2021",
+   "2023",
+   "2025",
+   "请根据标题在此处输入正文内容支持主题模式一键自由换色"
+  ],
+  "fill_hint": "5 个年份为主轴固定序号区，每列上下共 2 个文本块（各含标题+正文），共 10 个可填块，建议上写目标、下写举措。",
+  "confidence": 0.9
+ },
+ {
+  "page": 14,
+  "page_title": "",
+  "summary": "中心观点圆，左右两级扇出：2个方向词再派生6张要点卡",
+  "logic_type": "总分发散",
+  "structure": {
+   "topology": "放射",
+   "slot_count": 9,
+   "ordered": false,
+   "has_arrows": false,
+   "has_connectors": true,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 9,
+   "per_slot_chars": 16,
+   "total_chars": 160
+  },
+  "best_for": [
+   "核心观点加左右两大方向、每向3条支撑",
+   "产品价值主张的对称式论证",
+   "正反/内外双维度的观点聚合"
+  ],
+  "avoid_for": [
+   "严格时间顺序的叙述",
+   "单层并列的清单要点"
+  ],
+  "scenes": [
+   "产品介绍",
+   "年度总结",
+   "工作汇报",
+   "教学课件"
+  ],
+  "placeholders": [
+   "逻辑图观点展示",
+   "财运亨通",
+   "吉祥如意",
+   "鹏程万里",
+   "寿比南山",
+   "天作之合",
+   "锦绣前程",
+   "万事大吉"
+  ],
+  "fill_hint": "slot_count=1中心+2中层椭圆方向词+6张外层卡片；每张卡片=蓝色标题块+说明块+下方2行正文，层级深度3。",
+  "confidence": 0.65
+ },
+ {
+  "page": 15,
+  "page_title": "",
+  "summary": "左右两大面板并置，中间经「归纳总结」节点，左侧为分行列表、右侧为列表+圆形节点",
+  "logic_type": "总分发散",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 2,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 2,
+   "per_slot_chars": 40,
+   "total_chars": 220
+  },
+  "best_for": [
+   "两种方案的并列讲解（左列表 / 右列表+节点）",
+   "罗列多条要点后再行归纳总结",
+   "并列展示两组子项并给出一句小结"
+  ],
+  "avoid_for": [
+   "单一线性流程",
+   "只有一条内容需要展示的场景"
+  ],
+  "scenes": [
+   "工作汇报",
+   "教学课件",
+   "产品介绍"
+  ],
+  "placeholders": [
+   "安居乐业",
+   "步步高升",
+   "登高望远",
+   "才高八斗",
+   "金童玉女",
+   "归纳总结",
+   "输入标题文字",
+   "在此处输入正文内容"
+  ],
+  "fill_hint": "顶层 2 组：左面板含 4 行条目、右面板含 4 行条目+3 个圆形节点；中间「归纳总结」为过渡标签（不算并列项）。",
+  "confidence": 0.55
+ },
+ {
+  "page": 16,
+  "page_title": "输入标题文字",
+  "summary": "中心观点方框，左右各4条并列项经「升级」汇入，底部经「推进」汇总一段总结",
+  "logic_type": "总分发散",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 4,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 24,
+   "total_chars": 320
+  },
+  "best_for": [
+   "中心主题 + 左右各4条支撑 + 底部总结",
+   "升级/演进类论述（左右汇入中心）",
+   "总分结构并带一句总括结论"
+  ],
+  "avoid_for": [
+   "需要严格时间序列的叙述",
+   "只有三四条要点的小体量内容"
+  ],
+  "scenes": [
+   "工作汇报",
+   "年度总结",
+   "产品介绍",
+   "教学课件"
+  ],
+  "placeholders": [
+   "输入标题文字",
+   "逻辑图观点展示",
+   "升级",
+   "推进",
+   "请根据标题在此处输入正文内容支持主题模式一键自由换色",
+   "请根据标题在此处输入正文内容"
+  ],
+  "fill_hint": "顶层 4 项＝左列组 + 中心方框 + 右列组 + 底部总述条；左右两列各含 4 个子块（标题+1行正文）；底部总述条可容 2–3 行长文。",
+  "confidence": 0.6
+ },
+ {
+  "page": 17,
+  "page_title": "工作推进流程 GONGZUOTUIJINLIUCHENG",
+  "summary": "四步推进流程：上排4张配图+箭头流程条，下排4列模式形态各含3个子卡",
+  "logic_type": "顺序流程",
+  "structure": {
+   "topology": "网格",
+   "slot_count": 4,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": false,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 36,
+   "total_chars": 480
+  },
+  "best_for": [
+   "四步工作推进流程（目标→方法→沟通→改进）",
+   "流程图配现场实景图的分步说明",
+   "每步再展开3条执行要点的流程页"
+  ],
+  "avoid_for": [
+   "无先后关系的并列清单",
+   "只有单一环节的内容"
+  ],
+  "scenes": [
+   "工作汇报",
+   "年度总结",
+   "教学课件"
+  ],
+  "placeholders": [
+   "工作推进流程",
+   "GONGZUOTUIJINLIUCHENG",
+   "1. 确定工作目标",
+   "2. 确定工作方法",
+   "3. 沟通和协调",
+   "4. 反馈和改进",
+   "模式形态一",
+   "模式形态二"
+  ],
+  "fill_hint": "顶层 4 列；每列 1 个蓝色标题卡 + 3 个虚线子卡（各 2 行文字）；顶部 4 个图片占位可替换为实景照片。",
+  "confidence": 0.8
+ },
+ {
+  "page": 18,
+  "page_title": "输入标题文字",
+  "summary": "5 个编号列 01–05，每列配图标、标题与整段正文，第5列尾部带箭头收束",
+  "logic_type": "清单列表",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 5,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": false,
+   "hierarchy_depth": 1
+  },
+  "capacity": {
+   "main_slots": 5,
+   "per_slot_chars": 60,
+   "total_chars": 300
+  },
+  "best_for": [
+   "五项并列的制度要点",
+   "五个方面的举措/亮点说明",
+   "横向 5 个编号步骤或模块的介绍"
+  ],
+  "avoid_for": [
+   "需要大量正文的深度论述",
+   "层级嵌套的复杂结构"
+  ],
+  "scenes": [
+   "工作汇报",
+   "年度总结",
+   "教学课件",
+   "产品介绍"
+  ],
+  "placeholders": [
+   "输入标题文字",
+   "01",
+   "02",
+   "03",
+   "04",
+   "05",
+   "花好月圆",
+   "登峰造极"
+  ],
+  "fill_hint": "5 列为内容主体，编号 01–05 与图标为装饰不计；每列仅有 1 个正文块，字数控制在 60 字内以免溢出（第5列尾部箭头会挤压宽度）。",
+  "confidence": 0.85
+ },
+ {
+  "page": 19,
+  "page_title": "",
+  "summary": "7 个编号节点沿横向大箭头排布，序号 01-07 递进，尾端折回",
+  "logic_type": "顺序流程",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 7,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": false,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 7,
+   "per_slot_chars": 14,
+   "total_chars": 98
+  },
+  "best_for": [
+   "七步流程或七阶段推进说明",
+   "带序号的年度重点工作分解",
+   "制度执行的七个环节"
+  ],
+  "avoid_for": [
+   "无先后的并列要点罗列",
+   "需要长段论述的页面"
+  ],
+  "scenes": [
+   "工作汇报",
+   "教学课件",
+   "年度总结"
+  ],
+  "placeholders": [
+   "输入标题文字",
+   "请根据标题在此处输入正文内容支持主题模式一键自由换色",
+   "01",
+   "02",
+   "03"
+  ],
+  "fill_hint": "每个序号节点 = 编号圆 + 标题 + 1 张小正文卡，共 7 组，上下交错；文字宜短，07 号在左侧收尾",
+  "confidence": 0.85
+ },
+ {
+  "page": 20,
+  "page_title": "",
+  "summary": "波浪时间线上 5 个圆点节点，各带标题正文卡与图标行",
+  "logic_type": "时间轴",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 5,
+   "ordered": true,
+   "has_arrows": false,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 5,
+   "per_slot_chars": 22,
+   "total_chars": 110
+  },
+  "best_for": [
+   "五个时间节点的阶段规划",
+   "发展历程与里程碑演进",
+   "流程五步骤要点说明"
+  ],
+  "avoid_for": [
+   "并列关系无先后",
+   "超过六项的密集要点"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍",
+   "教学课件"
+  ],
+  "placeholders": [
+   "输入标题文字",
+   "请根据标题在此处输入正文内容支持主题模式一键自由换色",
+   "01",
+   "02",
+   "03"
+  ],
+  "fill_hint": "5 个节点，标题卡上下交替；每卡可放标题 + 2 行正文 + 最多 4 个图标，波浪线仅装饰",
+  "confidence": 0.85
+ },
+ {
+  "page": 21,
+  "page_title": "",
+  "summary": "上方 2 张标题卡统辖，下方 3 行图标-文字-板块-文字流程带",
+  "logic_type": "顺序流程",
+  "structure": {
+   "topology": "层叠",
+   "slot_count": 5,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 5,
+   "per_slot_chars": 30,
+   "total_chars": 150
+  },
+  "best_for": [
+   "两个方向各三条推进举措",
+   "分类下的三行流程说明",
+   "业务线携动作要点"
+  ],
+  "avoid_for": [
+   "单一线性长流程",
+   "纯数据展示页"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍",
+   "年度总结"
+  ],
+  "placeholders": [
+   "百事可乐",
+   "笑口常开",
+   "开门大吉",
+   "意气风发",
+   "花开富贵"
+  ],
+  "fill_hint": "顶层 2 张标题卡，下方 3 行各含 左圆图标 + 1 小正文块 + 中间板块名 + 1 小正文块；每行文字少",
+  "confidence": 0.7
+ },
+ {
+  "page": 22,
+  "page_title": "",
+  "summary": "上方 2 张标题卡附小卡阵，下方左 KPI 条卡、右柱状图",
+  "logic_type": "其他",
+  "structure": {
+   "topology": "网格",
+   "slot_count": 4,
+   "ordered": false,
+   "has_arrows": false,
+   "has_connectors": false,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 24,
+   "total_chars": 96
+  },
+  "best_for": [
+   "双主题的要点 + 数据佐证页",
+   "业绩指标与对比图表同页呈现",
+   "含小组卡的概览页"
+  ],
+  "avoid_for": [
+   "纯文字论述页",
+   "单一结论强调页"
+  ],
+  "scenes": [
+   "工作汇报",
+   "数据分析",
+   "年度总结"
+  ],
+  "placeholders": [
+   "功成名就",
+   "名列前茅",
+   "所有模板素材均可任意编辑",
+   "数据对比",
+   "成交转化率"
+  ],
+  "fill_hint": "4 个顶层卡：2 张顶部标题卡（各挂 4 张小卡，共 2×2）+ 左下 KPI 卡（含 2 条百分比条）+ 右下柱状图卡",
+  "confidence": 0.65
+ },
+ {
+  "page": 23,
+  "page_title": "",
+  "summary": "中心圆 + 四分之一圆四分扇区，01-04 编号渐次展开",
+  "logic_type": "环形关系",
+  "structure": {
+   "topology": "放射",
+   "slot_count": 5,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": false,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 5,
+   "per_slot_chars": 24,
+   "total_chars": 120
+  },
+  "best_for": [
+   "四个阶段/四类内容的放射展开",
+   "以核心概念统辖四象限",
+   "闭环式的四步关系图解"
+  ],
+  "avoid_for": [
+   "并列六项以上",
+   "需要逐条长说明的页面"
+  ],
+  "scenes": [
+   "工作汇报",
+   "教学课件",
+   "产品介绍"
+  ],
+  "placeholders": [
+   "输入标题文字",
+   "请根据标题在此处输入正文内容支持主题模式一键自由换色",
+   "01",
+   "02",
+   "03",
+   "04"
+  ],
+  "fill_hint": "中心圆 1 个 + 4 个扇区（每区含编号、标题胶囊、2 行正文）；中心周围另有 4 个图标仅装饰，不计入",
+  "confidence": 0.85
+ },
+ {
+  "page": 24,
+  "page_title": "",
+  "summary": "顶部一级标题下挂 3 条二级标题，各带图标说明卡",
+  "logic_type": "总分发散",
+  "structure": {
+   "topology": "纵排",
+   "slot_count": 4,
+   "ordered": false,
+   "has_arrows": false,
+   "has_connectors": true,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 40,
+   "total_chars": 160
+  },
+  "best_for": [
+   "一个总论点下的三条并列支撑",
+   "三项重点工作的分层说明",
+   "方案三个模块介绍"
+  ],
+  "avoid_for": [
+   "大量条目密集罗列",
+   "有先后依赖的流程"
+  ],
+  "scenes": [
+   "工作汇报",
+   "教学课件",
+   "产品介绍"
+  ],
+  "placeholders": [
+   "输入一级标题",
+   "01. 二级标题",
+   "02. 二级标题",
+   "03. 二级标题",
+   "请根据标题在此处输入正文内容"
+  ],
+  "fill_hint": "一级标题为 1 个总节点（按规则计入），下挂 3 个分支，每分支 = 二级标题条 + 图标 + 副标题 + 3 行正文",
+  "confidence": 0.8
+ },
+ {
+  "page": 25,
+  "page_title": "",
+  "summary": "5 个编号要点被一条双向箭头带贯穿，上下各一卡承载信息",
+  "logic_type": "顺序流程",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 5,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 5,
+   "per_slot_chars": 26,
+   "total_chars": 260
+  },
+  "best_for": [
+   "五步工作法分阶段说明",
+   "五个并列要点的制度条目",
+   "五项并列标语式小标题栏"
+  ],
+  "avoid_for": [
+   "需要长段落论证的内容",
+   "多于五项的并列清单"
+  ],
+  "scenes": [
+   "工作汇报",
+   "年度总结",
+   "教学课件"
+  ],
+  "placeholders": [
+   "气宇轩昂",
+   "相敬如宾",
+   "相濡以沫",
+   "茁壮成长",
+   "蒸蒸日上",
+   "诲人不倦",
+   "郎才女貌",
+   "金榜题名"
+  ],
+  "fill_hint": "每列含上、下两个文字块（小标题 + 一段说明），共 10 个文本框；01–05 编号已固定，勿增删列",
+  "confidence": 0.85
+ },
+ {
+  "page": 26,
+  "page_title": "PDCA 业务循环",
+  "summary": "中心 PDCA 循环胶囊，上下左右四个环节节点，四角配卡与要点列表",
+  "logic_type": "循环闭环",
+  "structure": {
+   "topology": "放射",
+   "slot_count": 5,
+   "ordered": false,
+   "has_arrows": false,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 5,
+   "per_slot_chars": 8,
+   "total_chars": 120
+  },
+  "best_for": [
+   "PDCA / 戴明环类管理循环",
+   "四个环节 + 中心的闭环模型",
+   "四象限配套说明的循环框架"
+  ],
+  "avoid_for": [
+   "严格线性先后流程",
+   "并列条目超过四类的清单"
+  ],
+  "scenes": [
+   "工作汇报",
+   "教学课件"
+  ],
+  "placeholders": [
+   "计划",
+   "执行",
+   "检查",
+   "处置",
+   "PDCA 业务循环"
+  ],
+  "fill_hint": "中心 1 个大胶囊 + 上下左右 4 个节点；四角另有 4 张卡各带约 3 条小字，需另配文案",
+  "confidence": 0.7
+ },
+ {
+  "page": 27,
+  "page_title": "输入一级标题",
+  "summary": "顶栏说明 + 四列阶段，每列三个子卡，列顶横向大箭头示意推进",
+  "logic_type": "并列要点",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 4,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 60,
+   "total_chars": 780
+  },
+  "best_for": [
+   "四阶段工作计划分列展开",
+   "策划-实施-检查-处理类四段说明",
+   "四类并列工作各含 3 条子项"
+  ],
+  "avoid_for": [
+   "单项长文连续叙述",
+   "超过四类的并列清单"
+  ],
+  "scenes": [
+   "工作汇报",
+   "教学课件",
+   "年度总结"
+  ],
+  "placeholders": [
+   "输入一级标题",
+   "策划",
+   "实施",
+   "检查",
+   "处理"
+  ],
+  "fill_hint": "每列 3 个子卡（小标题 + 两行正文），共 12 个子卡；顶部一级标题条与列顶横向箭头为固定装饰",
+  "confidence": 0.85
+ },
+ {
+  "page": 28,
+  "page_title": "本年度第三季度",
+  "summary": "中心圆配左右两片横向色带，左右各有标签与 3 个卡片，示意推进到升级",
+  "logic_type": "递进阶梯",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 3,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 3,
+   "per_slot_chars": 40,
+   "total_chars": 240
+  },
+  "best_for": [
+   "一个阶段目标 + 左右两类支撑举措",
+   "升级/演进类对比式说明",
+   "左右各 3 条举措的对称布局"
+  ],
+  "avoid_for": [
+   "严格时间顺序的多阶段流程",
+   "并列项超过三项的清单"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍",
+   "年度总结"
+  ],
+  "placeholders": [
+   "本年度第三季度",
+   "输入标题文字",
+   "推进",
+   "升级",
+   "请根据标题在此处输入正文内容支持主题模式一键自由换色"
+  ],
+  "fill_hint": "中心圆 1 个 + 左右两个带标签的中转圆各 1 个；左右椭圆内各含 3 张卡片，共 6 张",
+  "confidence": 0.6
+ },
+ {
+  "page": 29,
+  "page_title": "",
+  "summary": "药丸形跑道上分布 01–08 编号圆，环内外各配说明卡，中心大字",
+  "logic_type": "循环闭环",
+  "structure": {
+   "topology": "环形",
+   "slot_count": 8,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": false,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 8,
+   "per_slot_chars": 30,
+   "total_chars": 240
+  },
+  "best_for": [
+   "八步闭环流程 / 八个环节循环推进",
+   "环内外各配说明的循环模型",
+   "概念口号 + 八条支撑要点"
+  ],
+  "avoid_for": [
+   "线性单向先后流程",
+   "少于五项或多于八项的并列清单"
+  ],
+  "scenes": [
+   "工作汇报",
+   "教学课件",
+   "年度总结"
+  ],
+  "placeholders": [
+   "输入标题文字",
+   "01",
+   "02",
+   "03",
+   "04",
+   "05",
+   "06",
+   "07"
+  ],
+  "fill_hint": "环上 8 个编号圆为顶层项，环外上下各 3 卡 + 左右各 1 卡共 8 个文字块与之对应；中心大字为固定装饰性主张",
+  "confidence": 0.75
+ },
+ {
+  "page": 30,
+  "page_title": "",
+  "summary": "中心胶囊含图标与主张，左右两个大虚线区各放 3 张编号卡，上下标签带箭头",
+  "logic_type": "总分发散",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 3,
+   "ordered": false,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 3,
+   "per_slot_chars": 30,
+   "total_chars": 300
+  },
+  "best_for": [
+   "一个中心主题 + 左右各三条要点",
+   "公司/产品介绍的主体与两类支撑",
+   "中心标语 + 六条编号要点的发散说明"
+  ],
+  "avoid_for": [
+   "严格时间顺序流程",
+   "需要堆叠大量正文的页面"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍",
+   "教学课件"
+  ],
+  "placeholders": [
+   "输入标题文字",
+   "壹本萬利",
+   "恭喜发财",
+   "財源廣進",
+   "在此处输入正文内容在此处输入正文内容",
+   "1",
+   "2",
+   "3"
+  ],
+  "fill_hint": "顶层为 1 中心胶囊 + 左右两组（每组 3 张卡，共 6 张）；编号 1–6 沿左右交替排布，上下两个四字标签为固定装饰",
+  "confidence": 0.6
+ },
+ {
+  "page": 31,
+  "page_title": "",
+  "summary": "横向时间轴箭头，6 个年份节点上下各配一张卡片",
+  "logic_type": "时间轴",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 6,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 6,
+   "per_slot_chars": 24,
+   "total_chars": 290
+  },
+  "best_for": [
+   "六个年份的里程碑演进",
+   "发展阶段分期介绍",
+   "产品版本迭代路线",
+   "政策实施时间节奏"
+  ],
+  "avoid_for": [
+   "需要大量长段落论证",
+   "无先后关系的并列要点"
+  ],
+  "scenes": [
+   "工作汇报",
+   "年度总结",
+   "产品介绍",
+   "教学课件"
+  ],
+  "placeholders": [
+   "输入标题文字",
+   "请根据标题在此处输入正文内容支持主题模式一键自由换色",
+   "2017",
+   "2019",
+   "2021",
+   "2023"
+  ],
+  "fill_hint": "每个年份节点上下各 1 张卡片（共 12 块），同一节点上下两块建议一为标题一为说明；年份文字可直接改，卡片正文单块≤24 字。",
+  "confidence": 0.9
+ },
+ {
+  "page": 32,
+  "page_title": "",
+  "summary": "中心圆形主题向外放射，四周环形分布 8 张卡片与关键词标签",
+  "logic_type": "总分发散",
+  "structure": {
+   "topology": "放射",
+   "slot_count": 9,
+   "ordered": false,
+   "has_arrows": false,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 9,
+   "per_slot_chars": 30,
+   "total_chars": 270
+  },
+  "best_for": [
+   "一个核心主题发散出八条支撑论述",
+   "企业文化/价值观扇面解读",
+   "中心能力与周边要素关系",
+   "会议主题的分项展开"
+  ],
+  "avoid_for": [
+   "需要严格先后顺序的流程",
+   "数据对比或排名"
+  ],
+  "scenes": [
+   "产品介绍",
+   "工作汇报",
+   "教学课件",
+   "年度总结"
+  ],
+  "placeholders": [
+   "输入标题文字",
+   "输入关键词",
+   "明确工作的目标和要求，确保所有人对工作的目标有清晰的理解。"
+  ],
+  "fill_hint": "slot_count 计中心圆 1 + 四周卡片 8；另有 8 个「输入关键词」小标签为二级标注，每标签≤6 字，卡片正文单块≤30 字，中心圆文字要短。",
+  "confidence": 0.7
+ },
+ {
+  "page": 33,
+  "page_title": "",
+  "summary": "01–06 编号六列，每列圆形图标、标题条与多行正文",
+  "logic_type": "并列要点",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 6,
+   "ordered": true,
+   "has_arrows": false,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 6,
+   "per_slot_chars": 42,
+   "total_chars": 300
+  },
+  "best_for": [
+   "六项并列的制度要点",
+   "六个步骤或模块速览",
+   "六类产品能力清单",
+   "六条建议并列陈列"
+  ],
+  "avoid_for": [
+   "单列需要长文论述",
+   "强调因果推进的叙事"
+  ],
+  "scenes": [
+   "工作汇报",
+   "教学课件",
+   "产品介绍",
+   "年度总结"
+  ],
+  "placeholders": [
+   "01",
+   "02",
+   "春风得意",
+   "欢天喜地",
+   "欣欣向荣",
+   "气宇轩昂"
+  ],
+  "fill_hint": "编号 01–06 与图标为装饰不计入 slot；每列含标题条 1 块（≤6 字）+正文 1 块（≤42 字，约 5 行），六列文字量需均衡。",
+  "confidence": 0.85
+ },
+ {
+  "page": 34,
+  "page_title": "",
+  "summary": "五枚六边形图标横向串联，其中 3 枚上下各挂一张标题+正文卡",
+  "logic_type": "顺序流程",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 5,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 5,
+   "per_slot_chars": 24,
+   "total_chars": 140
+  },
+  "best_for": [
+   "五个阶段的流程节点",
+   "带说明的关键步骤路径",
+   "五项能力/环节的递进展示",
+   "项目里程碑串联"
+  ],
+  "avoid_for": [
+   "需要每项大段文字",
+   "无顺序的纯并列清单"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍",
+   "教学课件",
+   "年度总结"
+  ],
+  "placeholders": [
+   "诲人不倦",
+   "金榜题名",
+   "蒸蒸日上",
+   "郎才女貌",
+   "飞黄腾达",
+   "请根据标题在此处输入正文内容支持主题模式一键自由换色"
+  ],
+  "fill_hint": "只有第 2、4 枚六边形挂了上下卡片（标题≤5 字 + 正文≤24 字），第 1/3/5 枚以内嵌图标呈现，填字时需接受这种不对称；六边形内文字建议≤4 字。",
+  "confidence": 0.75
+ },
+ {
+  "page": 35,
+  "page_title": "",
+  "summary": "01–05 五个标题并列在上，下方层叠汇聚出中、下两段汇总文字区",
+  "logic_type": "并列要点",
+  "structure": {
+   "topology": "层叠",
+   "slot_count": 5,
+   "ordered": false,
+   "has_arrows": false,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 5,
+   "per_slot_chars": 10,
+   "total_chars": 150
+  },
+  "best_for": [
+   "五项要点 + 分段总述",
+   "五个模块名称配归纳说明",
+   "并列标题加结论段",
+   "指标体系的一级项罗列"
+  ],
+  "avoid_for": [
+   "需要每项独立长正文",
+   "有严格时间顺序的流程"
+  ],
+  "scenes": [
+   "工作汇报",
+   "年度总结",
+   "教学课件",
+   "产品介绍"
+  ],
+  "placeholders": [
+   "01",
+   "02",
+   "鹏程万里",
+   "寿比南山",
+   "锦绣前程",
+   "万事大吉",
+   "德才兼备"
+  ],
+  "fill_hint": "顶层 5 个标题块每块≤6 字；下方中层为 3 个合并短文块（每块≤30 字）、底层为 1 个通栏长文块（≤80 字），三层为汇总关系而非逐项展开。",
+  "confidence": 0.6
+ },
+ {
+  "page": 36,
+  "page_title": "",
+  "summary": "三条横条叠置，每条第 1 块为左侧标题、后 4 块为图标短文项",
+  "logic_type": "清单列表",
+  "structure": {
+   "topology": "层叠",
+   "slot_count": 3,
+   "ordered": false,
+   "has_arrows": false,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 3,
+   "per_slot_chars": 6,
+   "total_chars": 200
+  },
+  "best_for": [
+   "三组并列要点的分组罗列",
+   "三大板块下各四点要素",
+   "制度条款分组展示",
+   "产品三大能力线"
+  ],
+  "avoid_for": [
+   "单一主题的深度论证",
+   "需要顺序推进的流程"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍",
+   "教学课件",
+   "年度总结"
+  ],
+  "placeholders": [
+   "输入标题文字",
+   "请根据标题在此处输入正文内容支持主题模式一键自由换色"
+  ],
+  "fill_hint": "slot_count 数顶层 3 条横条：每条含左侧标题 1 块（≤6 字）+4 个带图标子项（每子项≤18 字）；三条横条颜色深浅不同，第二行蓝底反白条最醒目，建议放重点组。",
+  "confidence": 0.7
+ },
+ {
+  "page": 37,
+  "page_title": "",
+  "summary": "四个编号圆珠波线横排，各自向下箭头落到标题条与正文说明",
+  "logic_type": "顺序流程",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 4,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 1
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 6,
+   "total_chars": 130
+  },
+  "best_for": [
+   "四步工作流程的四个阶段",
+   "四阶段项目推进节点",
+   "四个并列的政策要点"
+  ],
+  "avoid_for": [
+   "需要多层级拆解的内容",
+   "八项以上并列要点"
+  ],
+  "scenes": [
+   "工作汇报",
+   "教学课件",
+   "年度总结"
+  ],
+  "placeholders": [
+   "01",
+   "02",
+   "03",
+   "04",
+   "请输入标题文字"
+  ],
+  "fill_hint": "圆珠只放序号，每个圆下一条四字标题条 + 2 行正文（约 20 字/行）；虚线波线仅为装饰连接，不代表严格流程",
+  "confidence": 0.82
+ },
+ {
+  "page": 38,
+  "page_title": "",
+  "summary": "五个大编号圆珠横排，每列圆下纵向堆叠三个小标题+说明块",
+  "logic_type": "并列要点",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 5,
+   "ordered": true,
+   "has_arrows": false,
+   "has_connectors": false,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 5,
+   "per_slot_chars": 6,
+   "total_chars": 480
+  },
+  "best_for": [
+   "五个并列的模块要点，每项再拆三小点",
+   "五类指标的细化说明",
+   "五个部门各自三项职责"
+  ],
+  "avoid_for": [
+   "强调先后递进的流程",
+   "单条长文本论述"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍",
+   "教学课件"
+  ],
+  "placeholders": [
+   "01",
+   "02",
+   "03",
+   "04",
+   "05"
+  ],
+  "fill_hint": "每列含 3 个子卡（小蓝标题 + 2 行正文，每卡约 30 字），共 15 个文本块；列宽很窄，子标题控制在 6 字内",
+  "confidence": 0.85
+ },
+ {
+  "page": 39,
+  "page_title": "",
+  "summary": "蓝色横条时间轴串四个时间点，每点下方虚线卡内堆叠要点块",
+  "logic_type": "时间轴",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 4,
+   "ordered": true,
+   "has_arrows": false,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 6,
+   "total_chars": 330
+  },
+  "best_for": [
+   "发展历程四个里程碑（带年月）",
+   "项目阶段时间节点",
+   "企业大事记"
+  ],
+  "avoid_for": [
+   "非时间性的并列要点",
+   "单期内容的详细展开"
+  ],
+  "scenes": [
+   "工作汇报",
+   "年度总结",
+   "产品介绍"
+  ],
+  "placeholders": [
+   "2019.06",
+   "2021.06",
+   "2023.06",
+   "2025.06",
+   "请输入标题文字"
+  ],
+  "fill_hint": "时间点写在蓝条上（原样为年月格式），标题条放 6 字内短语；卡内子块数不齐（3/2/3/2），需自行补平，每块正文约 30 字",
+  "confidence": 0.8
+ },
+ {
+  "page": 40,
+  "page_title": "",
+  "summary": "中央大圆为主题，四周四个小圆带标题条环绕，属中心发散的创意图示",
+  "logic_type": "总分发散",
+  "structure": {
+   "topology": "放射",
+   "slot_count": 5,
+   "ordered": false,
+   "has_arrows": false,
+   "has_connectors": false,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 5,
+   "per_slot_chars": 8,
+   "total_chars": 120
+  },
+  "best_for": [
+   "一个核心概念引出四个方向/维度",
+   "主题式章节过渡页",
+   "核心能力＋四项支撑"
+  ],
+  "avoid_for": [
+   "需要有序号的严格流程",
+   "每项都要大量文字说明"
+  ],
+  "scenes": [
+   "产品介绍",
+   "年度总结",
+   "教学课件"
+  ],
+  "placeholders": [
+   "请输入标题文字",
+   "登峰造极",
+   "恭贺新禧",
+   "招财进宝",
+   "珠联璧合"
+  ],
+  "fill_hint": "中心圆只放主题词（≤6 字），四角标题条为四字短语、下挂 1 行说明；小圆内为图标，不可填字，注意装饰性很强的中国风纪念模板",
+  "confidence": 0.72
+ },
+ {
+  "page": 41,
+  "page_title": "",
+  "summary": "行为→心智判断→引导三列递进：左两圆、中两块心理卡、右两卡分别由大箭头指向",
+  "logic_type": "因果链",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 3,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 3,
+   "per_slot_chars": 12,
+   "total_chars": 260
+  },
+  "best_for": [
+   "三段式因果分析（现象→归因→对策）",
+   "用户行为到运营策略的推导",
+   "问题诊断与解决方案对照"
+  ],
+  "avoid_for": [
+   "五项以上并列要点",
+   "纯时间顺序的节点展示"
+  ],
+  "scenes": [
+   "工作汇报",
+   "教学课件",
+   "产品介绍"
+  ],
+  "placeholders": [
+   "1、行为分析",
+   "2、判断用户心智或需求",
+   "3、提供相应引导",
+   "行为",
+   "程度"
+  ],
+  "fill_hint": "列为顶层三步（可改标题序号），每列内 2 个子块：左列圆内为 2–4 字词＋英文小注，中列为大卡（标题＋1 行英文式说明约 25 字），右列为带图标的虚线卡（两行短语，每行约 12 字）；箭头方向固定为左→右",
+  "confidence": 0.83
+ },
+ {
+  "page": 42,
+  "page_title": "",
+  "summary": "核心内容居中，三个大圆成环相连，每个圆再向右侧扇出三张虚线子卡",
+  "logic_type": "环形关系",
+  "structure": {
+   "topology": "环形",
+   "slot_count": 4,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 8,
+   "total_chars": 400
+  },
+  "best_for": [
+   "围绕核心主题的三环节闭环关系",
+   "用户旅程/触点循环模型",
+   "每个环节再拆三个抓手"
+  ],
+  "avoid_for": [
+   "线性单链条流程",
+   "每项只有一句话的简单并列"
+  ],
+  "scenes": [
+   "产品介绍",
+   "工作汇报",
+   "教学课件"
+  ],
+  "placeholders": [
+   "核心内容",
+   "视觉感受传达",
+   "用户获取行为",
+   "产品记忆点",
+   "内容需求审核"
+  ],
+  "fill_hint": "顶层 4 个（中心 1 + 环上 3）；环上三圆各带 2–4 字环节名，旁边蓝色小字标注 01/02/03 序号与动作说明；左右两侧共 9 张子卡（标题 ≤6 字＋1 行说明约 15 字），左列 3 张、右上 3 张、右下 3 张，标题需自行补全",
+  "confidence": 0.75
+ },
+ {
+  "page": 43,
+  "page_title": "",
+  "summary": "平台会员（成长/付费体系）经一卡通百卡打通行业会员，底部里程体系承载发放回收",
+  "logic_type": "对比",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 4,
+   "ordered": false,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 24,
+   "total_chars": 110
+  },
+  "best_for": [
+   "平台自有体系与外部行业会员的左右对照",
+   "两套会员体系四条并列制度的对比说明",
+   "含底部公共承载层（如积分/账户）的体系图"
+  ],
+  "avoid_for": [
+   "严格按时间推进的流程",
+   "超过 4 个顶层大类"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍",
+   "方案宣讲"
+  ],
+  "placeholders": [
+   "平台会员",
+   "行业会员",
+   "成长体系",
+   "等级体系 & 权益体系",
+   "付费体系",
+   "身份体系 or 权益包",
+   "里程体系",
+   "单体酒店会员"
+  ],
+  "fill_hint": "左侧 2 张实心卡为平台会员子项，右侧 4 条虚线卡为行业会员子项（slot_count 只算 4 个顶层：成长体系、付费体系、行业会员组、里程体系）；左右区间箭头文字（一卡通百卡/权益反哺）与上下发放回收箭头需保留方向语义",
+  "confidence": 0.78
+ },
+ {
+  "page": 44,
+  "page_title": "",
+  "summary": "品牌心智与品牌体验双翼夹中心目标，外围三阶段包裹的菱形对称结构",
+  "logic_type": "对比",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 5,
+   "ordered": false,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 5,
+   "per_slot_chars": 18,
+   "total_chars": 100
+  },
+  "best_for": [
+   "双引擎/双轮驱动的对称对照（如心智侧与体验侧）",
+   "中心目标 + 上下目标夹持的战略示意",
+   "外围包裹阶段词（预热/引爆/延续）的品牌节奏图"
+  ],
+  "avoid_for": [
+   "多层级组织架构",
+   "线性步骤说明"
+  ],
+  "scenes": [
+   "品牌提案",
+   "产品介绍",
+   "方案宣讲"
+  ],
+  "placeholders": [
+   "品牌心智",
+   "品牌体验",
+   "业务目标",
+   "设计目标",
+   "引爆期",
+   "预热期",
+   "延续期",
+   "品牌系统"
+  ],
+  "fill_hint": "中心圆算 1 个（统一品牌物料库/组件&框架沉淀），上下两条为业务目标与设计目标，左右菱形为品牌心智与品牌体验；两侧三行小字列表（品牌/内容/宣传系统、互动/导视/运营系统）为附属标签不另计 slot，每侧≤3 行",
+  "confidence": 0.72
+ },
+ {
+  "page": 45,
+  "page_title": "",
+  "summary": "左侧问题-原因-措施同心层递进，右侧四步纵向流程加双结果分支",
+  "logic_type": "递进阶梯",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 3,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 3,
+   "per_slot_chars": 14,
+   "total_chars": 90
+  },
+  "best_for": [
+   "问题→原因→措施的层层深入分析",
+   "单侧放原因剖析、另一侧放优化动作的复合页",
+   "四步纵向流程加底部双成果分支"
+  ],
+  "avoid_for": [
+   "纯并列要点罗列",
+   "需要 6 个以上同级项目"
+  ],
+  "scenes": [
+   "工作汇报",
+   "教学课件",
+   "复盘总结"
+  ],
+  "placeholders": [
+   "问题",
+   "原因",
+   "措施",
+   "发生了什么？",
+   "为什么会发生？",
+   "怎么解决？",
+   "复杂性",
+   "价值体现"
+  ],
+  "fill_hint": "左右两套结构：左「问题/原因/措施」同心圆算 3 个顶层 slot，右纵向 4 步 + 底部 2 个结果卡（加深用户认真/提升用户体验）作附属；右侧子项数需在 fill_hint 声明，两套结构主题保持同一叙事",
+  "confidence": 0.7
+ },
+ {
+  "page": 46,
+  "page_title": "",
+  "summary": "会员中心单点向右分三类模块，每类再连目标语与要点列表的三级发散",
+  "logic_type": "总分发散",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 4,
+   "ordered": false,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 10,
+   "total_chars": 120
+  },
+  "best_for": [
+   "中心主题向 3 个方向的能力/抓手拆解",
+   "每个方向带一句目标语 + 3~5 条落地要点的汇报页",
+   "产品改版三大模块说明"
+  ],
+  "avoid_for": [
+   "双向对称对比",
+   "环形/闭环关系表达"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍",
+   "方案宣讲"
+  ],
+  "placeholders": [
+   "会员中心",
+   "决策效率",
+   "尊享感知",
+   "组件沉淀",
+   "懂你所想",
+   "会员中心框架重构",
+   "凸显尊享感知",
+   "视觉语言升级"
+  ],
+  "fill_hint": "中心圆「会员中心」算 1 个，右侧 3 个分支模块算其余 3 个（slot_count=4）；每分支下含「目标语」+「3~5 条 bullet」两层，bullet 用短词（≤8 字），第三分支 bullet 较少注意留白",
+  "confidence": 0.85
+ },
+ {
+  "page": 47,
+  "page_title": "",
+  "summary": "吸引力相关指标与效率相关指标左右两栏同构对照，各含 3 个指标项及其子指标",
+  "logic_type": "对比",
+  "structure": {
+   "topology": "网格",
+   "slot_count": 2,
+   "ordered": false,
+   "has_arrows": true,
+   "has_connectors": false,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 2,
+   "per_slot_chars": 12,
+   "total_chars": 90
+  },
+  "best_for": [
+   "两组指标体系的左右同构对照（吸引力 vs 效率）",
+   "同一套维度的两套口径并列说明",
+   "每栏 3 行、每行带 2~3 条子指标的评测页"
+  ],
+  "avoid_for": [
+   "单一概念的深入展开",
+   "需要时间顺序的流程"
+  ],
+  "scenes": [
+   "工作汇报",
+   "教学课件",
+   "研究评测"
+  ],
+  "placeholders": [
+   "01、吸引力 相关指标",
+   "02、效率 相关指标",
+   "元素 / 区域的显著性",
+   "元素 / 区域的兴趣度",
+   "情绪唤醒",
+   "可见占比",
+   "首次注视时间",
+   "注视次数"
+  ],
+  "fill_hint": "顶层只有 2 组（吸引力组深蓝实心、效率组浅蓝虚线），slot_count=2；每栏含 3 个共同维度行，每行的右侧 bullet 为子指标（左 2~3 条、右 2 条），不要按 6 行计 slot；两栏维度名称最好保持一致以便对照",
+  "confidence": 0.8
+ },
+ {
+  "page": 48,
+  "page_title": "",
+  "summary": "中心现状及解决方案向左右展开现状与解决两大板块，各带 2 个卡片与说明段",
+  "logic_type": "对比",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 7,
+   "ordered": false,
+   "has_arrows": false,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 7,
+   "per_slot_chars": 22,
+   "total_chars": 260
+  },
+  "best_for": [
+   "现状与解决方案左右对称的问题-对策页",
+   "中心主题向两侧各展开 2 个同类卡片（问题/措施）",
+   "每个卡片配一段说明文字的分析页"
+  ],
+  "avoid_for": [
+   "三类以上并列对比",
+   "强顺序流程"
+  ],
+  "scenes": [
+   "工作汇报",
+   "方案宣讲",
+   "政策/项目汇报"
+  ],
+  "placeholders": [
+   "现状及解决方案",
+   "现状",
+   "解决方案",
+   "问题",
+   "农民信用低，贷款不了，对生活产生极大问题",
+   "农业主题信息缺失，农民信用意识不高，已手机数据以静态为主，缺乏经营、交易等动态数据，分散且应用度不高。",
+   "整合农村大数据资源，完善农村信用体系"
+  ],
+  "fill_hint": "中心大圆算 1、左右两个文字带「现状/解决方案」算 2、左右各 2 个卡片算 4（共 7）；每个卡片下另有一段 40~60 字说明，属第二层，需为大段文字预留行宽；本页左右内容在模板中高度重复，填充时应替换为不同实例",
+  "confidence": 0.68
+ },
+ {
+  "page": 49,
+  "page_title": "",
+  "summary": "线索获取→培育→跟进三段式全流程，含子模块与返回回环",
+  "logic_type": "顺序流程",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 3,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 3,
+   "per_slot_chars": 8,
+   "total_chars": 130
+  },
+  "best_for": [
+   "线索到成交的三段式流程说明",
+   "部门协作链条（获客/培育/跟进）",
+   "带回环和汇总条的流程图"
+  ],
+  "avoid_for": [
+   "并列无顺序的要点罗列",
+   "需要展示 6 个以上同层模块"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍",
+   "方案宣讲"
+  ],
+  "placeholders": [
+   "01、线索获取",
+   "02、线索培育",
+   "03、线索跟进",
+   "广告",
+   "直播",
+   "活动",
+   "会员营销"
+  ],
+  "fill_hint": "顶层 3 组（获取/培育/跟进）；组内子块：左组 4 条，中组上1下2，右侧为 2 个竖排窄块；底部横条为总结句，不计入 slot。",
+  "confidence": 0.82
+ },
+ {
+  "page": 50,
+  "page_title": "",
+  "summary": "售前/售中/售后三段并列大卡，中段为双列子功能＋两侧竖排标签",
+  "logic_type": "顺序流程",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 3,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": false,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 3,
+   "per_slot_chars": 10,
+   "total_chars": 150
+  },
+  "best_for": [
+   "三段式阶段划分（售前/售中/售后）的功能清单",
+   "按阶段铺开的模块矩阵",
+   "中段功能较多的三栏对照"
+  ],
+  "avoid_for": [
+   "纯时间点轴（无阶段并列）",
+   "需要严格线性单链的流程"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍",
+   "方案宣讲"
+  ],
+  "placeholders": [
+   "01、售前",
+   "02、售中",
+   "03、售后",
+   "线索获取",
+   "服务运营",
+   "多咨询入口自定义",
+   "行为轨迹来源跟踪",
+   "数据实时同步 CRM"
+  ],
+  "fill_hint": "组数 3；中组内 8 个 2×4 小卡＋两侧竖排「保障外呼接通」「提升销售效率」标签；左右组各含 1 顶卡＋4 条列表项。",
+  "confidence": 0.88
+ },
+ {
+  "page": 51,
+  "page_title": "",
+  "summary": "设计思维五阶段纵向四层展开，底部回环指向对齐目标",
+  "logic_type": "顺序流程",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 5,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 5,
+   "per_slot_chars": 6,
+   "total_chars": 110
+  },
+  "best_for": [
+   "五阶段流程／方法论的逐列展开",
+   "每列含「阶段＋动作＋细项＋目标」四层的结构",
+   "带底部反馈回环的流程"
+  ],
+  "avoid_for": [
+   "卡片数量少、信息极简的页",
+   "无顺序的并列要点"
+  ],
+  "scenes": [
+   "教学课件",
+   "工作汇报",
+   "方案宣讲"
+  ],
+  "placeholders": [
+   "发现\nemphase",
+   "定义\ndefine",
+   "创想\nIdeate",
+   "原型\nprototype",
+   "测试\ntest",
+   "洞察业务",
+   "产品体验分析",
+   "确定设计方法"
+  ],
+  "fill_hint": "顶层 5 列并列；每列自上而下 4 层（英文阶段标签/蓝色主卡/虚线细项卡/目标词），细项卡内含 3 行＋省略号。底部虚线为跨列汇总回环。",
+  "confidence": 0.85
+ },
+ {
+  "page": 52,
+  "page_title": "",
+  "summary": "中心「互动直播」枢纽 + 左右各两段主题块，漏斗式转化，右侧延伸复购与追加销售",
+  "logic_type": "漏斗筛选",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 4,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 8,
+   "total_chars": 90
+  },
+  "best_for": [
+   "营销转化链（全渠道→互动→留存→复购）",
+   "以中心枢纽强调核心玩法的页",
+   "带括号形分区分割的复合结构"
+  ],
+  "avoid_for": [
+   "需要严格等宽并列卡片的页",
+   "信息量大、需要逐条清单的页"
+  ],
+  "scenes": [
+   "产品介绍",
+   "方案宣讲",
+   "年度总结"
+  ],
+  "placeholders": [
+   "全渠道整合",
+   "实时互动 提高营销转化",
+   "智能化留存分析",
+   "客户成功",
+   "互动直播",
+   "挖掘",
+   "智能分析",
+   "潜客池"
+  ],
+  "fill_hint": "4 个有标题的主题区（左右各 2）；中心圆「互动直播」为枢纽，若按「中心 1＋4 分支」计则 slot_count=5；区块内小标签（发现市场/智能管理/数据分析等）算子项。",
+  "confidence": 0.6
+ },
+ {
+  "page": 53,
+  "page_title": "",
+  "summary": "现状-目标-策略-实现四列并列，列内子块层层收口到最终实现三卡",
+  "logic_type": "并列要点",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 4,
+   "ordered": true,
+   "has_arrows": false,
+   "has_connectors": false,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 16,
+   "total_chars": 160
+  },
+  "best_for": [
+   "现状/目标/策略/实现四段式论证",
+   "每列含 2–3 个子块的对照说明",
+   "从问题到落地工具的方案页"
+  ],
+  "avoid_for": [
+   "需要箭头串联成流程的页",
+   "单列文字很长的段落式内容"
+  ],
+  "scenes": [
+   "工作汇报",
+   "方案宣讲",
+   "年度总结"
+  ],
+  "placeholders": [
+   "01、现状",
+   "02、目标",
+   "03、策略",
+   "04、实现",
+   "C 端",
+   "缺乏体系化度量指导",
+   "B 端",
+   "缺乏设计质量度量评估方法"
+  ],
+  "fill_hint": "顶层 4 列（现状/目标/策略/实现）；第1列 2 个子块、第2列 1 大块＋3 个按钮条、第3列 2 个策略块、第4列 3 个实心卡（配色最重，暗示终点）。列间无箭头，靠编号与底色表达顺序。",
+  "confidence": 0.86
+ },
+ {
+  "page": 54,
+  "page_title": "",
+  "summary": "消费者剩余 → 三级价格歧视金字塔 → 会员体系，三段递进并说明结论",
+  "logic_type": "层级金字塔",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 3,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": false,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 3,
+   "per_slot_chars": 10,
+   "total_chars": 80
+  },
+  "best_for": [
+   "「概念A→核心模型→概念B」的递进解释",
+   "分层价格/分层策略的金字塔图示",
+   "需要中部金字塔＋两侧呼应的经济学/策略页"
+  ],
+  "avoid_for": [
+   "需要多并列要点的清单页",
+   "信息密度高、子项很多的页"
+  ],
+  "scenes": [
+   "教学课件",
+   "方案宣讲",
+   "产品介绍"
+  ],
+  "placeholders": [
+   "消费者剩余",
+   "三级价格歧视",
+   "会员体系",
+   "消费者\n愿意支付最大值",
+   "实际价值",
+   "一级定价",
+   "二级定价",
+   "三级定价"
+  ],
+  "fill_hint": "顶层 3 区（左1卡＋中金字塔＋右1卡），中间用双箭头 » 连接表递进；金字塔内 3 层子块算子项；每区下方有一句结论说明。",
+  "confidence": 0.78
+ },
+ {
+  "page": 55,
+  "page_title": "",
+  "summary": "中心 SOP 流程向左右扇出工具/机制/标准与实施测评，外围三层定性标签",
+  "logic_type": "总分发散",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 6,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 6,
+   "per_slot_chars": 8,
+   "total_chars": 60
+  },
+  "best_for": [
+   "一套方法论从中心向周边拆出 5 个落地抓手",
+   "中心主张 + 左右对称抓手的工作汇报",
+   "流程闭环与外围指标的组合说明"
+  ],
+  "avoid_for": [
+   "需要长段落解释的内容",
+   "并列项超过 6 个的清单"
+  ],
+  "scenes": [
+   "工作汇报",
+   "方法论讲解",
+   "产品介绍"
+  ],
+  "placeholders": [
+   "测试工具 test",
+   "可落地易推行的 SOP 流程",
+   "搭工具",
+   "定机制",
+   "建标准",
+   "统计分析",
+   "实施测评"
+  ],
+  "fill_hint": "中心圆算 1 槽，左 3 右 2 为分支槽；上下大标签（易用性度量模型/易操作性）为层次标签，每条分支 6–8 字",
+  "confidence": 0.6
+ },
+ {
+  "page": 56,
+  "page_title": "",
+  "summary": "中心核心概念，左右各 3 阶段镜像循环，对比两条路径",
+  "logic_type": "对比",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 7,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 7,
+   "per_slot_chars": 6,
+   "total_chars": 90
+  },
+  "best_for": [
+   "同一对象两条路径（消费者侧 / 生产者侧）的镜像对比",
+   "3 阶段递进循环的左右对照",
+   "中心概念 + 两侧各 3 步的成长模型"
+  ],
+  "avoid_for": [
+   "单侧超过 3 阶段的流程",
+   "没有中心概念的纯并列"
+  ],
+  "scenes": [
+   "教学课件",
+   "方法论讲解",
+   "运营复盘"
+  ],
+  "placeholders": [
+   "智慧社区",
+   "核心心智",
+   "核心用户",
+   "认知阶段",
+   "探索阶段",
+   "忠诚阶段",
+   "内容消费者侧"
+  ],
+  "fill_hint": "中心圆算 1，左右各 3 阶段共 7；每阶段旁小圆点连线放 4–8 字说明，不宜再嵌套",
+  "confidence": 0.7
+ },
+ {
+  "page": 57,
+  "page_title": "",
+  "summary": "左侧设计语言统领，右侧三层规范库自上而下递进收束",
+  "logic_type": "层级金字塔",
+  "structure": {
+   "topology": "层叠",
+   "slot_count": 4,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 10,
+   "total_chars": 70
+  },
+  "best_for": [
+   "规范体系自上而下分层（基础规范→元素→元件→组件）",
+   "一个总主题统辖 4 层递进模块",
+   "设计或技术规范的层级说明"
+  ],
+  "avoid_for": [
+   "并列无层级关系的内容",
+   "需要横向铺开的多列对比"
+  ],
+  "scenes": [
+   "技术方案",
+   "规范说明",
+   "教学课件"
+  ],
+  "placeholders": [
+   "设计语言",
+   "设计基础规范（收敛）",
+   "字号、字重、尺寸、行高、投影、边角…",
+   "元素库（视觉最小单位）",
+   "元件库（交互最小单位）"
+  ],
+  "fill_hint": "slot_count 取顶层 4 层（含底部组件库）；每层内 2–4 个子块，子项文字 2–4 字，括号小标题可保留",
+  "confidence": 0.85
+ },
+ {
+  "page": 58,
+  "page_title": "",
+  "summary": "通用基础设计模块与定制可控变量模块左右对照，中间加号表示叠加",
+  "logic_type": "对比",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 2,
+   "ordered": false,
+   "has_arrows": false,
+   "has_connectors": false,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 2,
+   "per_slot_chars": 12,
+   "total_chars": 120
+  },
+  "best_for": [
+   "通用模块 + 定制模块两类体系的能力对比",
+   "左右两个体系叠加构成完整方案的说明",
+   "服务周期与创新点的双栏拆解"
+  ],
+  "avoid_for": [
+   "三项以上并列对比",
+   "需要顺序演进的流程"
+  ],
+  "scenes": [
+   "产品介绍",
+   "方案汇报",
+   "能力体系说明"
+  ],
+  "placeholders": [
+   "通用基础设计模块",
+   "定制可控变量设计模块",
+   "触底涉及整个服务周期",
+   "寻找 / 重点打磨差异化创新点",
+   "售前"
+  ],
+  "fill_hint": "顶层 2 组；左组 3 行×3 子块，右组 5+2 行，三级嵌套，每子块 4–6 字，底部标题较长可保留",
+  "confidence": 0.85
+ },
+ {
+  "page": 59,
+  "page_title": "",
+  "summary": "时间轴上 6 个活动阶段，配目标与触达点三行对齐",
+  "logic_type": "时间轴",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 6,
+   "ordered": true,
+   "has_arrows": false,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 6,
+   "per_slot_chars": 6,
+   "total_chars": 100
+  },
+  "best_for": [
+   "活动全周期 6 阶段排期（含目标与触达点）",
+   "带时间刻度的项目里程碑拆解",
+   "线上/线下分段落的多阶段规划"
+  ],
+  "avoid_for": [
+   "无先后关系的并列要点",
+   "阶段数超过 6 的排期"
+  ],
+  "scenes": [
+   "活动策划",
+   "项目排期",
+   "工作汇报"
+  ],
+  "placeholders": [
+   "海选期",
+   "打榜期",
+   "决赛区",
+   "预热期",
+   "活动开启"
+  ],
+  "fill_hint": "slot_count 取 6 个阶段框；每列下方可填「目标」「触达点」两行，各 6 字内；顶部时间刻度与线上/线下/长尾分段标签可改",
+  "confidence": 0.8
+ },
+ {
+  "page": 60,
+  "page_title": "",
+  "summary": "底部五项能力逐级向上贯通环节链，右侧汇出四个结果指标",
+  "logic_type": "递进阶梯",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 5,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 5,
+   "per_slot_chars": 6,
+   "total_chars": 70
+  },
+  "best_for": [
+   "五级能力递进到最终转化结果的链路说明",
+   "能力模型 + 中间环节 + 结果指标的三层贯通",
+   "短视频/直播漏斗式的能力拆解"
+  ],
+  "avoid_for": [
+   "纯并列无递进关系的内容",
+   "需要横向对比两个对象"
+  ],
+  "scenes": [
+   "产品介绍",
+   "方法论讲解",
+   "运营复盘"
+  ],
+  "placeholders": [
+   "吸睛力",
+   "信息量",
+   "交流感",
+   "内化力",
+   "认同力"
+  ],
+  "fill_hint": "slot_count 取底部 5 项能力；每项向上对应 1 个环节圆（第 2 层），最右汇入 4 个指标（第 3 层）；能力圆内中英文均可，中文 3–4 字",
+  "confidence": 0.65
+ },
+ {
+  "page": 61,
+  "page_title": "",
+  "summary": "五节点横向时间轴，含上线节点卡与底部目标说明",
+  "logic_type": "时间轴",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 5,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 5,
+   "per_slot_chars": 14,
+   "total_chars": 150
+  },
+  "best_for": [
+   "全年营销活动节点排期",
+   "产品版本上线节奏",
+   "项目里程碑分期展示",
+   "活动线上线下阶段划分"
+  ],
+  "avoid_for": [
+   "需要详细长文本说明",
+   "并列无先后的要点罗列"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍",
+   "年度总结"
+  ],
+  "placeholders": [
+   "阶段：",
+   "线上阶段",
+   "线下阶段",
+   "目标：",
+   "10/09 项目启动",
+   "11/13 线下启动",
+   "12/05 活动举办",
+   "# 我要上嘉年华 #"
+  ],
+  "fill_hint": "每节点=圆形日期/主题+下方矩形卡(2行短句)+底部目标说明；节点建议4–6个，超出需删减",
+  "confidence": 0.82
+ },
+ {
+  "page": 62,
+  "page_title": "",
+  "summary": "五列递进阶梯，含底部指标说明与左侧渐高箭头背景",
+  "logic_type": "递进阶梯",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 5,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 5,
+   "per_slot_chars": 12,
+   "total_chars": 130
+  },
+  "best_for": [
+   "运营漏斗五阶段（获客到传播）",
+   "用户增长模型分步说明",
+   "成熟度递进关系",
+   "产品能力升级路径"
+  ],
+  "avoid_for": [
+   "并列无递进关系的要点",
+   "需要大段解释的复杂论证"
+  ],
+  "scenes": [
+   "工作汇报",
+   "教学课件",
+   "产品介绍"
+  ],
+  "placeholders": [
+   "获取用户 Get user",
+   "激活用户 Activate user",
+   "提高留存 Improve retention",
+   "增加收入 increase income",
+   "扩大传播 Dissemination",
+   "流量引入 PV\\UV",
+   "刺激用户参与 点击率、访问深度"
+  ],
+  "fill_hint": "5列递进，每列=图标+中英标题+底部指标名与说明；阶梯高度递增，列数与高低趋势需匹配内容",
+  "confidence": 0.8
+ },
+ {
+  "page": 63,
+  "page_title": "",
+  "summary": "左侧主标签分两路，向右逐级推进并汇入对比结论",
+  "logic_type": "总分发散",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 3,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 3,
+   "per_slot_chars": 16,
+   "total_chars": 120
+  },
+  "best_for": [
+   "一个主题拆两条并行路径",
+   "方案推演与竞品对比",
+   "运营方案分线推导",
+   "因果推理链展示"
+  ],
+  "avoid_for": [
+   "项数多且完全并列的清单",
+   "需要大量正文的说明页"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍",
+   "教学课件"
+  ],
+  "placeholders": [
+   "开运词运营方案",
+   "明星祝福词",
+   "今年开运词",
+   "春节疫情时事",
+   "基于运势祝福的开运词玩法",
+   "基于社交刷屏的竞品分析",
+   "推动",
+   "符合时事的开运词"
+  ],
+  "fill_hint": "左1主标签+2条分支，每支向右递进2–3层；分支内小圆词云(如福/健康/坚持)不超过6个，避免与主节点混淆",
+  "confidence": 0.75
+ },
+ {
+  "page": 64,
+  "page_title": "",
+  "summary": "中心主体向左右各4项扇出，外围三层战略与流量框架",
+  "logic_type": "总分发散",
+  "structure": {
+   "topology": "放射",
+   "slot_count": 9,
+   "ordered": false,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 9,
+   "per_slot_chars": 6,
+   "total_chars": 80
+  },
+  "best_for": [
+   "业务体系总览（中心能力+输入输出）",
+   "平台角色与上下游关系",
+   "产品能力矩阵概览",
+   "战略—场景—渠道整体框架"
+  ],
+  "avoid_for": [
+   "需要详细文字描述的页",
+   "强先后顺序的流程"
+  ],
+  "scenes": [
+   "产品介绍",
+   "工作汇报",
+   "年度总结"
+  ],
+  "placeholders": [
+   "线上门店",
+   "商品",
+   "服务",
+   "内容",
+   "营销",
+   "会员",
+   "消息",
+   "行业"
+  ],
+  "fill_hint": "中心1个圆角块算1槽，左右各4个短词框；外围顶部/左右/底部为框架标签（业务战略、业务基础场景、行业覆盖场景、流量触达渠道），不计入并列项",
+  "confidence": 0.78
+ },
+ {
+  "page": 65,
+  "page_title": "",
+  "summary": "四类会员认知并列，每类附下指箭头与对应策略卡",
+  "logic_type": "对比",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 4,
+   "ordered": false,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 10,
+   "total_chars": 90
+  },
+  "best_for": [
+   "用户认知/态度四象限细分",
+   "客户分层与差异化策略",
+   "人群画像与打法对照",
+   "问题诊断分类"
+  ],
+  "avoid_for": [
+   "超过5类的人群细分",
+   "需要长句解释的说明"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍",
+   "教学课件"
+  ],
+  "placeholders": [
+   "对会员 完全不了解",
+   "对会员 部分了解",
+   "从来不是会员 但了解",
+   "曾经是会员",
+   "“懵懂”",
+   "“在摇摆”",
+   "“待刺激”",
+   "“待唤醒”"
+  ],
+  "fill_hint": "4列，每列=圆形状态描述+引号标签+底部策略卡(1行)+卡下补充小字；第2、4列深色强调，可对应重点人群",
+  "confidence": 0.8
+ },
+ {
+  "page": 66,
+  "page_title": "",
+  "summary": "测试流程闭环：双角色入口经测试端与服务器到执行机",
+  "logic_type": "顺序流程",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 7,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 7,
+   "per_slot_chars": 9,
+   "total_chars": 110
+  },
+  "best_for": [
+   "系统架构与数据流说明",
+   "测试/运维流程闭环",
+   "客户端与服务端交互链路",
+   "产品技术方案总览"
+  ],
+  "avoid_for": [
+   "纯业务并列表述",
+   "无技术背景的汇报场合"
+  ],
+  "scenes": [
+   "产品介绍",
+   "工作汇报",
+   "教学课件"
+  ],
+  "placeholders": [
+   "测试工程师",
+   "用户端",
+   "测试端",
+   "反馈端",
+   "APP 测试服务器",
+   "执行机 服务器",
+   "测试终端",
+   "发送控制命令"
+  ],
+  "fill_hint": "顶层可填块=测试工程师/用户端/测试端/反馈端/APP测试服务器/执行机服务器/测试终端共7个；圆角矩形为环节内步骤（开发测试脚本、收集执行结果等）计入层级不计槽",
+  "confidence": 0.7
+ },
+ {
+  "page": 67,
+  "page_title": "",
+  "summary": "供应链经电商/直播平台到用户的C2M横向链路",
+  "logic_type": "顺序流程",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 4,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 6,
+   "total_chars": 140
+  },
+  "best_for": [
+   "四方主体的业务链路分工",
+   "从上游到用户的渠道流向说明",
+   "含子角色的产业链结构图"
+  ],
+  "avoid_for": [
+   "无先后关系的纯并列要点",
+   "单一主体的内容展开"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍",
+   "方案讲解"
+  ],
+  "placeholders": [
+   "上游供应链",
+   "主流电商平台",
+   "直播平台",
+   "用户",
+   "MCN",
+   "主播",
+   "品牌方",
+   "C2M 模式直接供货"
+  ],
+  "fill_hint": "顶层 4 组，每组含编号子卡（4 个）；虚线连接柱表示归属，箭头标注关系词如“货源供应/下单渠道”。",
+  "confidence": 0.85
+ },
+ {
+  "page": 68,
+  "page_title": "",
+  "summary": "保险中介到支付人群的横向链路并带监管与厂商支持",
+  "logic_type": "因果链",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 8,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 8,
+   "per_slot_chars": 8,
+   "total_chars": 150
+  },
+  "best_for": [
+   "多角色产业链与监管关系图",
+   "主链路加外围支撑方的说明",
+   "支付/医疗等生态结构介绍"
+  ],
+  "avoid_for": [
+   "纯并列要点罗列",
+   "需要强层级对比的场景"
+  ],
+  "scenes": [
+   "工作汇报",
+   "行业分析",
+   "教学课件"
+  ],
+  "placeholders": [
+   "保险中介",
+   "保险公司",
+   "测试工程师",
+   "支付人群",
+   "保监会",
+   "卫健委",
+   "医保局",
+   "软件支持厂商"
+  ],
+  "fill_hint": "主链 4 个大圆（中介→保险公司→工程师→支付人群），上方 3 个监管方、下方 1 个支持厂商；右侧 01-04 编号卡为支付人群的示例细分。",
+  "confidence": 0.7
+ },
+ {
+  "page": 69,
+  "page_title": "",
+  "summary": "五个网站指标卡并列，上方分组归为三类价值",
+  "logic_type": "并列要点",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 5,
+   "ordered": false,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 5,
+   "per_slot_chars": 12,
+   "total_chars": 110
+  },
+  "best_for": [
+   "五项并列指标的展示",
+   "带英文副标的要点卡",
+   "指标归入若干大类"
+  ],
+  "avoid_for": [
+   "需要严格先后顺序的流程",
+   "单一论点的深度展开"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍",
+   "教学课件"
+  ],
+  "placeholders": [
+   "01 运行时间 Uptime",
+   "02 延迟 Latency",
+   "03 页面浏览 Page Views",
+   "04 周活用户 Seven-day Active Users",
+   "05 收益 Earnings",
+   "技术侧的用户体验",
+   "产品的用户忠诚度",
+   "商业收益"
+  ],
+  "fill_hint": "顶层 5 张编号卡（含图标+中英标题）；上方 3 个虚线胶囊为分组标签，连接线指向对应卡片；底部一条长说明条。",
+  "confidence": 0.85
+ },
+ {
+  "page": 70,
+  "page_title": "",
+  "summary": "标准检测四步循环闭环，对应两类人员的三项需求",
+  "logic_type": "循环闭环",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 7,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 7,
+   "per_slot_chars": 12,
+   "total_chars": 150
+  },
+  "best_for": [
+   "闭环流程加角色需求双栏对照",
+   "标准/规范落地的能力说明",
+   "系统运维与使用方职责拆分"
+  ],
+  "avoid_for": [
+   "纯时间顺序的一次性流程",
+   "大量并列要点的清单页"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍",
+   "技术方案"
+  ],
+  "placeholders": [
+   "标准 GB28181",
+   "在线检测",
+   "图像质量检测",
+   "录像时长检测",
+   "发现",
+   "巡检",
+   "诊断",
+   "分析"
+  ],
+  "fill_hint": "左侧中心圆+4 个环形节点构成闭环（中心圆里的 3 个白条为子项）；右侧 2 个角色圆各挂 3 张 01-03 编号卡，中间箭头带“执行要求/管理要求”。",
+  "confidence": 0.7
+ },
+ {
+  "page": 71,
+  "page_title": "",
+  "summary": "总目标-设计目标/关键事件-表现的目标推进关系图",
+  "logic_type": "其他",
+  "structure": {
+   "topology": "放射",
+   "slot_count": 4,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 12,
+   "total_chars": 110
+  },
+  "best_for": [
+   "目标拆解（G-DO-KR-P）框架",
+   "上下弧线表达双向作用关系",
+   "左右对照的指标因果说明"
+  ],
+  "avoid_for": [
+   "五项以上并列清单",
+   "单纯的时间轴流程"
+  ],
+  "scenes": [
+   "工作汇报",
+   "年度总结",
+   "产品介绍"
+  ],
+  "placeholders": [
+   "总目标（G）",
+   "设计目标（DO）",
+   "关键事件（KR）",
+   "表现（P）",
+   "助力达成",
+   "细化场景",
+   "会员业务 GMV TISHENG 120%",
+   "用户首次购买 再次购买提升"
+  ],
+  "fill_hint": "4 个圆形节点两两成组（中心双圆为一组），上下弧线上各带 1 个关系标签；4 个虚线框为节点下方的补充说明，属子级。",
+  "confidence": 0.6
+ },
+ {
+  "page": 72,
+  "page_title": "",
+  "summary": "智慧医疗定位下的五个业务板块及其子项罗列",
+  "logic_type": "并列要点",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 5,
+   "ordered": false,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 5,
+   "per_slot_chars": 12,
+   "total_chars": 150
+  },
+  "best_for": [
+   "产品/业务板块的五列细分展开",
+   "战略定位下的能力清单",
+   "每列三到五项的子要点罗列"
+  ],
+  "avoid_for": [
+   "需要因果推导的单线叙事",
+   "两句以内的极简表达"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍",
+   "方案讲解"
+  ],
+  "placeholders": [
+   "医疗服 务",
+   "健康管 理",
+   "科技升 级",
+   "医药流 通",
+   "医疗保 险",
+   "智慧医疗",
+   "产品在互联网医疗产业生态中的定位",
+   "产品战略定位：以乳腺健康市场为切入点，搭建一个全生命周期的健康管理服务平台"
+  ],
+  "fill_hint": "顶部为小标题+一行定位说明，向下树状分支到 5 列；每列含 3–4 个纯文字子项（无底色卡），底部一行战略定位条。",
+  "confidence": 0.85
+ },
+ {
+  "page": 73,
+  "page_title": "",
+  "summary": "三栏映射：用户分层→使用场景→需求清单",
+  "logic_type": "对比",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 3,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 3,
+   "per_slot_chars": 14,
+   "total_chars": 180
+  },
+  "best_for": [
+   "三类受众/场景/诉求的横向对照映射",
+   "用户分层到需求的推导链",
+   "产品三栏式价值说明"
+  ],
+  "avoid_for": [
+   "强调严格先后的流程",
+   "单一中心论点发散"
+  ],
+  "scenes": [
+   "产品介绍",
+   "工作汇报",
+   "方案说明"
+  ],
+  "placeholders": [
+   "用户",
+   "用户场景",
+   "需求",
+   "乳腺患者",
+   "患者",
+   "慢病",
+   "健康用户",
+   "在线问诊"
+  ],
+  "fill_hint": "左栏为4层嵌套圆环(乳腺患者/患者/慢病/健康用户)，中栏3个场景框，右栏8条需求；按栏内子项横向压缩",
+  "confidence": 0.72
+ },
+ {
+  "page": 74,
+  "page_title": "",
+  "summary": "前链路-用户磁场-后链路-平台赋能混合生态图",
+  "logic_type": "环形关系",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 4,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 12,
+   "total_chars": 150
+  },
+  "best_for": [
+   "业务生态/增长闭环全貌",
+   "前中后链路加底层能力的一页总览",
+   "多板块协同关系"
+  ],
+  "avoid_for": [
+   "线性单流程",
+   "单点细节说明"
+  ],
+  "scenes": [
+   "工作汇报",
+   "年度总结",
+   "产品介绍",
+   "战略规划"
+  ],
+  "placeholders": [
+   "前链路",
+   "流量提效",
+   "后链路",
+   "经营沉淀",
+   "平台赋能",
+   "极致信任下的用户磁场",
+   "平台",
+   "品牌"
+  ],
+  "fill_hint": "左栏前链路含3个子组(触达/激发/转化提效)，右栏后链路含2个子组(站内经营闭环/站外品牌阵地)，底部平台赋能含3项；中心大圆加平台/品牌/创作者3个环绕节点",
+  "confidence": 0.68
+ },
+ {
+  "page": 75,
+  "page_title": "",
+  "summary": "中心品牌现状→品牌DNA，四周环绕输入与输出",
+  "logic_type": "总分发散",
+  "structure": {
+   "topology": "放射",
+   "slot_count": 5,
+   "ordered": false,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 5,
+   "per_slot_chars": 14,
+   "total_chars": 170
+  },
+  "best_for": [
+   "品牌诊断到品牌定位的推导",
+   "中心结论+多维输入输出环绕",
+   "调研分析→战略输出的一页总览"
+  ],
+  "avoid_for": [
+   "严格时间序列",
+   "纯并列清单"
+  ],
+  "scenes": [
+   "工作汇报",
+   "方案说明",
+   "年度总结"
+  ],
+  "placeholders": [
+   "内部用户",
+   "外部用户",
+   "业务梳理",
+   "行业趋势",
+   "竞品分析",
+   "品牌现状",
+   "现状梳理",
+   "品牌 DNA"
+  ],
+  "fill_hint": "顶层5个并列输入框为顶层项；中心双圆(品牌现状/品牌DNA)、左侧3层面(视觉/传播/用户心智)、右侧3要素(使命愿景/核心价值/品牌特征)、底部3方向，合计约16个文本块",
+  "confidence": 0.55
+ },
+ {
+  "page": 76,
+  "page_title": "",
+  "summary": "吸引-刺激-加固三决策递进，社交决策反馈后下单",
+  "logic_type": "顺序流程",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 5,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 5,
+   "per_slot_chars": 12,
+   "total_chars": 110
+  },
+  "best_for": [
+   "用户决策路径/购买链路拆解",
+   "三步递进过程加反馈回路",
+   "消费行为阶段说明"
+  ],
+  "avoid_for": [
+   "并列无先后的要点罗列",
+   "多分支对比"
+  ],
+  "scenes": [
+   "产品介绍",
+   "教学课件",
+   "方案说明"
+  ],
+  "placeholders": [
+   "提升商品感知价值",
+   "吸引决策",
+   "刺激决策",
+   "加固决策",
+   "社交决策",
+   "下单购买",
+   "被商品吸引确认商品基本信息"
+  ],
+  "fill_hint": "3个决策圆各带上方说明文字；下方社交决策为横向反馈条，指向3圆(双向虚线)；右侧下单购买为出口圆",
+  "confidence": 0.78
+ },
+ {
+  "page": 77,
+  "page_title": "行为可能性 = 动机 + 能力 + 触发",
+  "summary": "顶部五并列抓手卡 + 底部动机/能力/触发加法公式与Fogg模型",
+  "logic_type": "并列要点",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 5,
+   "ordered": false,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 5,
+   "per_slot_chars": 16,
+   "total_chars": 160
+  },
+  "best_for": [
+   "五项并列方法论/抓手要点",
+   "理论模型(公式)加配套落地手段",
+   "设计策略分维度说明"
+  ],
+  "avoid_for": [
+   "单线流程叙述",
+   "多层级组织架构"
+  ],
+  "scenes": [
+   "教学课件",
+   "方案说明",
+   "工作汇报"
+  ],
+  "placeholders": [
+   "承载形式",
+   "信息框架",
+   "权益 / 抓手包装",
+   "沟通话术",
+   "操作引导",
+   "动机",
+   "能力",
+   "触发"
+  ],
+  "fill_hint": "上半5个标题块各带2行说明；下半为独立公式图(行为可能性=动机+能力+触发)与Fogg坐标图，属示意不单独计为slot",
+  "confidence": 0.7
+ },
+ {
+  "page": 78,
+  "page_title": "",
+  "summary": "三角形三顶点(资源投入/收集共建/阶段目标)围绕中心设计支撑",
+  "logic_type": "环形关系",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 4,
+   "ordered": false,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 10,
+   "total_chars": 70
+  },
+  "best_for": [
+   "三要素构成的工作三角关系",
+   "中心支撑能力加三个外围角色",
+   "协作机制/职责三角说明"
+  ],
+  "avoid_for": [
+   "大量并列要点",
+   "时间顺序流程"
+  ],
+  "scenes": [
+   "工作汇报",
+   "方案说明",
+   "教学课件"
+  ],
+  "placeholders": [
+   "资源投入",
+   "收集共建",
+   "阶段目标",
+   "设计支撑",
+   "第一性原则",
+   "统一认知"
+  ],
+  "fill_hint": "三顶点大圆各3-4字；中心圆2行；三角形边与内部散落若干小标签(视觉/交互、品牌/营销、竞品分析、用户分析、风格确立、DAU/GMV)，属注释级文本",
+  "confidence": 0.66
+ },
+ {
+  "page": 79,
+  "page_title": "",
+  "summary": "左侧源点汇入中部三类需求，收敛为设计创新力，再向右发散四类落脚点",
+  "logic_type": "总分发散",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 9,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 9,
+   "per_slot_chars": 12,
+   "total_chars": 110
+  },
+  "best_for": [
+   "从需求收敛到创新策略再落到四条落点",
+   "左中右三段的推导型汇报页",
+   "四类并列落点各配一行说明"
+  ],
+  "avoid_for": [
+   "纯并列无因果的清单",
+   "需要大量正文的长段落说明"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍",
+   "教学课件"
+  ],
+  "placeholders": [
+   "设计落地",
+   "业务诉求",
+   "用户需求",
+   "产品需求",
+   "设计创新力",
+   "征信品牌",
+   "情感体系",
+   "交互动效"
+  ],
+  "fill_hint": "左 1 圆 + 中部纵排 3 圆 + 中心 1 圆 + 右侧 4 个标签块（各带一行说明）；右侧虚线批注框不计入 slot_count",
+  "confidence": 0.75
+ },
+ {
+  "page": 80,
+  "page_title": "",
+  "summary": "左侧问题态经中部三角解构，向右给出抽象/结构化/减法三条方法",
+  "logic_type": "总分发散",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 7,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 7,
+   "per_slot_chars": 10,
+   "total_chars": 90
+  },
+  "best_for": [
+   "问题→解构→方法的推导页",
+   "三类核心动作各自展开子说明",
+   "信息/内容梳理类方法论页"
+  ],
+  "avoid_for": [
+   "简单并列清单",
+   "单一线性流程"
+  ],
+  "scenes": [
+   "工作汇报",
+   "教学课件",
+   "方法论讲解"
+  ],
+  "placeholders": [
+   "信息冗余 逻辑混乱 信息内容复杂",
+   "场景解构",
+   "逻辑解构",
+   "信息解构",
+   "以“用户”为中心",
+   "以“逻辑解构”为中心",
+   "以“信息内容”为中心",
+   "抽象 / 结构化 / 减法"
+  ],
+  "fill_hint": "顶层为 1 左问题圆 + 中部 3 个解构圆 + 右侧 3 条方法（每条含 1 子说明框）；上下三处“以…为中心”标签为附属注释",
+  "confidence": 0.6
+ },
+ {
+  "page": 81,
+  "page_title": "",
+  "summary": "三个大圆互相交叠，外围各带一个层级标签与虚线说明框",
+  "logic_type": "环形关系",
+  "structure": {
+   "topology": "放射",
+   "slot_count": 3,
+   "ordered": false,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 1
+  },
+  "capacity": {
+   "main_slots": 3,
+   "per_slot_chars": 10,
+   "total_chars": 45
+  },
+  "best_for": [
+   "三项并列的品牌/体验主题",
+   "每项附一段文字说明的概览页",
+   "圆形强调型封面或章节页"
+  ],
+  "avoid_for": [
+   "多于四项的并列",
+   "需要严谨先后顺序的流程"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍",
+   "年度总结"
+  ],
+  "placeholders": [
+   "提升转化 Upgrade TRANSFORMATION",
+   "用户粘性 User Stickiness",
+   "品牌调性 Brand tonality",
+   "产品层",
+   "用户层",
+   "视觉层",
+   "优化产品呈现方式…",
+   "增加学习功能…"
+  ],
+  "fill_hint": "顶部 1 圆 + 下方 2 圆为三个并列主块；外围“产品层/用户层/视觉层”标签与虚线框是附属说明，不计入 slot_count",
+  "confidence": 0.7
+ },
+ {
+  "page": 82,
+  "page_title": "",
+  "summary": "左侧正向影响为源，向右三条主线各带三格子项，左下附四格闭环",
+  "logic_type": "总分发散",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 4,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 12,
+   "total_chars": 130
+  },
+  "best_for": [
+   "一个主题派生三条分析线的推导页",
+   "每条主线再拆三个子要素",
+   "正负对比加解决方案的复盘页"
+  ],
+  "avoid_for": [
+   "单一线性流程",
+   "极简要点页"
+  ],
+  "scenes": [
+   "工作汇报",
+   "年度总结",
+   "方法论讲解"
+  ],
+  "placeholders": [
+   "正向影响",
+   "生命周期",
+   "用户反馈",
+   "商业续签率",
+   "解决方式",
+   "探",
+   "负向影响",
+   "重新设计研发 / 大版本更新"
+  ],
+  "fill_hint": "中心 1 圆 + 右侧三条主线（生命周期/用户反馈/商业续签率）对应三列各含 2–3 子框；左下四格闭环为附属注记，不计入 slot_count",
+  "confidence": 0.65
+ },
+ {
+  "page": 83,
+  "page_title": "",
+  "summary": "需求到方案的横向时间线，三段里程碑下方挂载工具与阶段标签",
+  "logic_type": "时间轴",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 3,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 3,
+   "per_slot_chars": 8,
+   "total_chars": 150
+  },
+  "best_for": [
+   "需求→方案的全流程阶段汇报",
+   "三阶段各挂多个工具/方法要点的流程图",
+   "设计或研发方法论长条时间轴"
+  ],
+  "avoid_for": [
+   "只有三句要点的极简页",
+   "无顺序要求的并列清单"
+  ],
+  "scenes": [
+   "工作汇报",
+   "方法论讲解",
+   "教学课件"
+  ],
+  "placeholders": [
+   "需求",
+   "方案",
+   "质疑 & 调研",
+   "发散 & 构思",
+   "研发 & 测试",
+   "专家走查",
+   "竞品分析",
+   "头脑风暴 / 信息架构 / 流程图"
+  ],
+  "fill_hint": "顶层并列 3 段（质疑&调研 / 发散&构思 / 研发&测试）；每段下挂 4–8 个白色小方块，小方块与底部“战略/范围/结构/框架/表现/研发/测试”窄条均为子项与轨道标签，不计入 slot_count",
+  "confidence": 0.6
+ },
+ {
+  "page": 84,
+  "page_title": "",
+  "summary": "左侧三方输入汇聚到设计，经立项漏斗后向两端输出汇报与洽谈",
+  "logic_type": "漏斗筛选",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 2,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 2,
+   "per_slot_chars": 14,
+   "total_chars": 90
+  },
+  "best_for": [
+   "三方需求汇聚到单一职能的协作页",
+   "设计工作上下半场（立项前后）对比",
+   "对接角色与沟通方向说明"
+  ],
+  "avoid_for": [
+   "纯并列的多项清单",
+   "需要展示数据量级的图表页"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍",
+   "协作流程讲解"
+  ],
+  "placeholders": [
+   "OP / 运营方向",
+   "产品 / 需求方向",
+   "BD / 合作模式",
+   "设计 / 设计调研/风暴",
+   "设计 / 设计 DEMO",
+   "产品-设计 / 向上汇报",
+   "BD-设计 / 商务洽谈",
+   "开发上线"
+  ],
+  "fill_hint": "顶层 2 段：立项前汇聚（OP/产品/BD 三行 + 设计）与立项后输出（向上汇报 / 商务洽谈 / 开发上线）；左右两侧浅蓝大箭头为背景装饰，不计入 slot_count",
+  "confidence": 0.55
+ },
+ {
+  "page": 85,
+  "page_title": "",
+  "summary": "中心公共管理，左右两大服务领域，底部平台支撑层",
+  "logic_type": "总分发散",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 3,
+   "ordered": false,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 3,
+   "per_slot_chars": 6,
+   "total_chars": 120
+  },
+  "best_for": [
+   "中心平台+两大业务领域的总体架构",
+   "城市治理/民生服务双域并列阐述",
+   "含底座支撑的体系全景"
+  ],
+  "avoid_for": [
+   "纯线性流程",
+   "需要逐一对比的并列项"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍",
+   "方案总览"
+  ],
+  "placeholders": [
+   "公共管理",
+   "民生服务",
+   "城市治理",
+   "智能旅游",
+   "智能导服",
+   "一事通办",
+   "最多跑一次",
+   "业务中台"
+  ],
+  "fill_hint": "中心圆=核心对象；左右各1个领域圆，圈内4个细项；底部为平台层(业务中台/数据中台/云化基础设施/智联网/移动协同)，属第3层，不计入slot_count",
+  "confidence": 0.68
+ },
+ {
+  "page": 86,
+  "page_title": "",
+  "summary": "中心度量主题，左侧三步执行链，右侧四类参与角色",
+  "logic_type": "总分发散",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 8,
+   "ordered": false,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 8,
+   "per_slot_chars": 6,
+   "total_chars": 140
+  },
+  "best_for": [
+   "中心指标+左右分工(执行步骤/责任角色)",
+   "度量体系与参与方说明",
+   "机制类内容双翼布局"
+  ],
+  "avoid_for": [
+   "超过3步的线性流程",
+   "单点结论展示"
+  ],
+  "scenes": [
+   "工作汇报",
+   "教学课件",
+   "管理制度说明"
+  ],
+  "placeholders": [
+   "易用性度量",
+   "统一标准",
+   "专业输出",
+   "改进闭环",
+   "易用性小组",
+   "易用性专家团",
+   "外部真实用户",
+   "产品团队"
+  ],
+  "fill_hint": "中心1个；左侧虚线框内3步(统一标准/专业输出/改进闭环，每步右侧附说明)；右侧4个角色框(每框右侧附说明)，虚线箭头形成闭环回路",
+  "confidence": 0.7
+ },
+ {
+  "page": 87,
+  "page_title": "",
+  "summary": "三角色关系带中间三阶段信任递进",
+  "logic_type": "递进阶梯",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 3,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 3,
+   "per_slot_chars": 4,
+   "total_chars": 60
+  },
+  "best_for": [
+   "三方关系随阶段演进的信任建立路径",
+   "服务/客户关系分层递进说明",
+   "前后对比式的角色状态变化"
+  ],
+  "avoid_for": [
+   "无顺序要求的并列要点",
+   "超过4个阶段的流程"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍",
+   "教学课件"
+  ],
+  "placeholders": [
+   "用户",
+   "投顾",
+   "产品",
+   "认识",
+   "陪伴",
+   "朋友",
+   "表面信任",
+   "情戚信任"
+  ],
+  "fill_hint": "左右各3个角色节点(上/中/下三行)构成关系带，中间3个阶段卡(认识/陪伴/朋友)为进度主线，下方小标签(表面信任/情戚信任/行为信任)为阶段注解；两侧竖排文字为说明不占slot",
+  "confidence": 0.55
+ },
+ {
+  "page": 88,
+  "page_title": "",
+  "summary": "中心能力支撑，左右各三项价值维度对称展开",
+  "logic_type": "总分发散",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 3,
+   "ordered": false,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 3,
+   "per_slot_chars": 8,
+   "total_chars": 110
+  },
+  "best_for": [
+   "中心能力+双侧价值对称展开",
+   "设计/团队双视角价值论证",
+   "对称式价值体系首页"
+  ],
+  "avoid_for": [
+   "线性流程",
+   "多层级组织架构"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍",
+   "年度总结"
+  ],
+  "placeholders": [
+   "能力支撑",
+   "设计价值",
+   "团队价值",
+   "领导力",
+   "服务设计",
+   "用户研究",
+   "金融知识",
+   "充分发挥设计团队价值 助力金融产品业务增长"
+  ],
+  "fill_hint": "中心圆=能力支撑；左列设计价值含3张卡(情感认同/体验认同/功能认同)，右列团队价值含3张卡(引领行业/驱动业务/协同业务)，顶部横向关键词条与底部结论条不计入slot",
+  "confidence": 0.7
+ },
+ {
+  "page": 89,
+  "page_title": "",
+  "summary": "组件从需求到上线的开发流程并回流组件库",
+  "logic_type": "顺序流程",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 5,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 5,
+   "per_slot_chars": 8,
+   "total_chars": 90
+  },
+  "best_for": [
+   "组件/功能研发上线全流程",
+   "含需求归集与资产沉淀的闭环流程",
+   "产品开发标准工序展示"
+  ],
+  "avoid_for": [
+   "无顺序的并列要点",
+   "超过6步的更细流程"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍",
+   "流程规范说明"
+  ],
+  "placeholders": [
+   "新组件or组件升级",
+   "交互设计",
+   "视觉设计",
+   "前端开发",
+   "上线",
+   "需求沟通组件评估",
+   "已有组件",
+   "组件库"
+  ],
+  "fill_hint": "主链5步(新组件or组件升级→交互设计→视觉设计→前端开发→上线)为slot；左侧需求A-D为输入(虚线，不计)，中部沉淀/评审&验证与已有组件/页面模板构成回流循环，属第2层",
+  "confidence": 0.6
+ },
+ {
+  "page": 90,
+  "page_title": "创新项目",
+  "summary": "环形中心创新项目，环上三节点各扇出落地卡片组",
+  "logic_type": "总分发散",
+  "structure": {
+   "topology": "环形",
+   "slot_count": 4,
+   "ordered": false,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 8,
+   "total_chars": 200
+  },
+  "best_for": [
+   "中心主题+环上三大抓手各自展开细则",
+   "创新项目推进框架",
+   "一侧为多栏明细的复合布局"
+  ],
+  "avoid_for": [
+   "严格线性流程",
+   "需要严格左右对等的对比"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍",
+   "方案总览"
+  ],
+  "placeholders": [
+   "创新项目",
+   "FUTURE更多",
+   "业务目标",
+   "制定策略",
+   "低成本实施落地",
+   "把控节奏",
+   "动态路径",
+   "想给>想要"
+  ],
+  "fill_hint": "中心大圆=创新项目(1个)；环上3个节点(制定策略/低成本实施落地/把控节奏)，每节点右侧扇出一组卡片(每卡2-3栏、每栏3-4条子项)；顶部业务目标为环上锚点标注，不计入slot",
+  "confidence": 0.6
+ },
+ {
+  "page": 91,
+  "page_title": "",
+  "summary": "两种宣发模式对比：线性静态无连贯体系 vs 循环动态精细化运营",
+  "logic_type": "对比",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 2,
+   "ordered": false,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 2,
+   "per_slot_chars": 28,
+   "total_chars": 90
+  },
+  "best_for": [
+   "旧模式与新模式的左右对照",
+   "单一热点打法与体系化运营的价值对比",
+   "两类宣发理念的优劣比较"
+  ],
+  "avoid_for": [
+   "三个以上对象的并列比较",
+   "纯时间顺序的流程叙述"
+  ],
+  "scenes": [
+   "工作汇报",
+   "年度总结",
+   "产品介绍"
+  ],
+  "placeholders": [
+   "线性静态宣发模式",
+   "无连贯体系",
+   "追求单一热点",
+   "作品驱动",
+   "业务导向",
+   "循环动态宣发模式",
+   "精细化运营",
+   "强曝光"
+  ],
+  "fill_hint": "左右两大组各 2 层：左组含 2 个并列圆（作品驱动/业务导向），右组含 3 个并列圆（强曝光/深触达/快转化）+ 主论点文字；子项数不进 slot_count。",
+  "confidence": 0.8
+ },
+ {
+  "page": 92,
+  "page_title": "",
+  "summary": "设计体系四步框架：目标—原则—模式—技术实现",
+  "logic_type": "层级金字塔",
+  "structure": {
+   "topology": "纵排",
+   "slot_count": 4,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 24,
+   "total_chars": 160
+  },
+  "best_for": [
+   "四步式的体系建设/设计规范总览",
+   "从目标到落地的分层框架",
+   "设计原则与落地平台的对应说明"
+  ],
+  "avoid_for": [
+   "只有一两个要点的简单页",
+   "需要强调时间节点的项目进度"
+  ],
+  "scenes": [
+   "工作汇报",
+   "教学课件",
+   "产品介绍"
+  ],
+  "placeholders": [
+   "STEP 01",
+   "用户目标",
+   "STEP 02",
+   "价值观 设计原则",
+   "STEP 03",
+   "设计模式",
+   "STEP 04",
+   "技术实现"
+  ],
+  "fill_hint": "slot_count=4 指 STEP01–04 四个顶层步骤；STEP03 内含 4 个组件条目（设计风格/组件模块/典型页面/效率工具）+ 3 个平台列 + 中心「应用↔提炼」结点，子项数不进 slot_count。",
+  "confidence": 0.72
+ },
+ {
+  "page": 93,
+  "page_title": "",
+  "summary": "从问题诊断到指标体系方案的推导：定义指标—优化过程—三类模型",
+  "logic_type": "因果链",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 2,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 2,
+   "per_slot_chars": 22,
+   "total_chars": 130
+  },
+  "best_for": [
+   "现状问题 → 解决框架的推导页",
+   "指标体系/度量模型的引入说明",
+   "调研方法与评估模型对应"
+  ],
+  "avoid_for": [
+   "纯并列无因果的清单",
+   "超过两段的复杂流程"
+  ],
+  "scenes": [
+   "工作汇报",
+   "教学课件",
+   "产品介绍"
+  ],
+  "placeholders": [
+   "问题",
+   "缺失大规模行为数据指标",
+   "态度数据",
+   "行为数据",
+   "优化问题",
+   "定义指标",
+   "优化过程",
+   "Pulse 模型"
+  ],
+  "fill_hint": "slot_count=2=左「问题诊断」块与右「解决方案」块；右块再分 5 层过程条 + 3 个模型圆（各带 1 个说明框），子项数不进 slot_count。",
+  "confidence": 0.7
+ },
+ {
+  "page": 94,
+  "page_title": "",
+  "summary": "业务模块流程：客户管理→合同管理→负荷预警，附财务与关系网管理",
+  "logic_type": "顺序流程",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 5,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 5,
+   "per_slot_chars": 12,
+   "total_chars": 70
+  },
+  "best_for": [
+   "五个业务模块的流程与从属关系图",
+   "系统功能域串联示意",
+   "客户/合同/负荷等业务链路总览"
+  ],
+  "avoid_for": [
+   "纯文字要点罗列",
+   "需要大量文字解释的页面"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍",
+   "教学课件"
+  ],
+  "placeholders": [
+   "CUSTOMER Management 客户管理",
+   "CONTRACT Management 合同管理",
+   "LOAD WARLY Warning 负荷预警",
+   "FINANCE Management 财务管理",
+   "关系网管理",
+   "潜在客户",
+   "签约客户",
+   "流失客户"
+  ],
+  "fill_hint": "slot_count=5=5 个业务模块大圆（3 个横排主链 + 财务管理、关系网管理 2 个从属圆）；每圆旁的小标签（新增/查询/报表）与外围状态框为子项，不进 slot_count。",
+  "confidence": 0.65
+ },
+ {
+  "page": 95,
+  "page_title": "",
+  "summary": "趋势设计闭环：左侧三阶段，右侧从分润产品到消费者的产业链路",
+  "logic_type": "顺序流程",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 8,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 8,
+   "per_slot_chars": 10,
+   "total_chars": 60
+  },
+  "best_for": [
+   "趋势/设计驱动的产业闭环链路图",
+   "三个阶段配一条上下游链条的说明",
+   "供给端到消费端的价值传导"
+  ],
+  "avoid_for": [
+   "文字量大的说明页",
+   "只讲单条直线流程的场景"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍",
+   "教学课件"
+  ],
+  "placeholders": [
+   "趋势认证",
+   "趋势选品",
+   "趋势设计",
+   "分润产品",
+   "智美产品",
+   "商家",
+   "天猫淘宝",
+   "消费者"
+  ],
+  "fill_hint": "slot_count=8=左侧 3 个阶段圆（趋势认证/趋势选品/趋势设计）+ 右侧链路 5 个节点（分润产品/商家/天猫淘宝/消费者/智美产品）；两侧括号内的机构、数据小框为子项，不进 slot_count。",
+  "confidence": 0.6
+ },
+ {
+  "page": 96,
+  "page_title": "",
+  "summary": "以趋势设计为中心的环形关系图：两侧产品与下方产业链环绕中心",
+  "logic_type": "环形关系",
+  "structure": {
+   "topology": "放射",
+   "slot_count": 6,
+   "ordered": false,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 6,
+   "per_slot_chars": 14,
+   "total_chars": 80
+  },
+  "best_for": [
+   "中心主题 + 周边要素的环绕关系图",
+   "趋势设计向两端辐射的价值示意",
+   "一个核心概念串联多方角色"
+  ],
+  "avoid_for": [
+   "严格按时间推进的流程",
+   "8 个以上要点的大容量清单"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍",
+   "教学课件"
+  ],
+  "placeholders": [
+   "趋势设计",
+   "Designed by design",
+   "分润产品",
+   "智美产品",
+   "商家",
+   "天猫淘宝",
+   "消费者",
+   "趋势认证"
+  ],
+  "fill_hint": "slot_count=6=中心圆「趋势设计」1 + 左右两圆（分润产品/智美产品）2 + 下方产业链 3 框（商家/天猫淘宝/消费者）；椭圆内的层级标签「趋势选品/趋势认证」与最外侧机构组、数据组框为分组/子项，不进 slot_count。",
+  "confidence": 0.6
+ },
+ {
+  "page": 97,
+  "page_title": "",
+  "summary": "中心大圆为核心理念，三角位三个圆节点，每个节点再挂2–3个虚线小贴片",
+  "logic_type": "总分发散",
+  "structure": {
+   "topology": "放射",
+   "slot_count": 4,
+   "ordered": false,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 20,
+   "total_chars": 320
+  },
+  "best_for": [
+   "一个核心理念 + 三条支撑主线的观点页",
+   "品牌/能力体系的三角式论证结构",
+   "每条主线再挂2–3个落地渠道或抓手"
+  ],
+  "avoid_for": [
+   "严格先后顺序的流程叙述",
+   "需要并列超过6个同级要点的场景"
+  ],
+  "scenes": [
+   "产品介绍",
+   "工作汇报",
+   "年度总结",
+   "教学课件"
+  ],
+  "placeholders": [
+   "品牌一致性 持续传递",
+   "品牌形象建立",
+   "品牌心智强化",
+   "品牌价值 全链路透传",
+   "线上 PC H5 新媒体 公众号",
+   "线下 宣传册 视频 KV 物料",
+   "BD环节 商务洽谈 宣传物料",
+   "企业营销平台"
+  ],
+  "fill_hint": "顶层 4 项＝中心圆 + 三圆周节点；每个外圈节点外挂 2–3 个虚线小贴片（共7个），属第二层，不计入 slot_count。",
+  "confidence": 0.7
+ },
+ {
+  "page": 98,
+  "page_title": "",
+  "summary": "上端模块组成条与下端企业营销平台条之间，左右两个4项清单夹住中央三圆模块",
+  "logic_type": "总分发散",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 5,
+   "ordered": false,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 5,
+   "per_slot_chars": 18,
+   "total_chars": 260
+  },
+  "best_for": [
+   "平台两端（前端/后台）技术能力对称罗列",
+   "中央模块组 + 左右两侧各4项支撑清单",
+   "系统架构示意（上下为平台与模块组标签）"
+  ],
+  "avoid_for": [
+   "因果推演或时间序列内容",
+   "只有一条主干、无左右对比的结构"
+  ],
+  "scenes": [
+   "产品介绍",
+   "工作汇报",
+   "教学课件"
+  ],
+  "placeholders": [
+   "技术模块组成",
+   "前端技术",
+   "财务系统",
+   "物流协同模块",
+   "数据交互模块",
+   "物流监控模块",
+   "后台技术",
+   "企业营销平台"
+  ],
+  "fill_hint": "顶层 5 项＝左清单组 + 三个圆模块 + 右清单组；左右两面板各含 4 个子项（垂直列表）；顶部横条与底部横条为上下轴标签，不计入并列项。",
+  "confidence": 0.6
+ },
+ {
+  "page": 99,
+  "page_title": "",
+  "summary": "中心胶囊为目标，左一圆+右侧上下两圆各挂3条虚线要点，外圈虚线弧回环",
+  "logic_type": "总分发散",
+  "structure": {
+   "topology": "放射",
+   "slot_count": 4,
+   "ordered": false,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 24,
+   "total_chars": 300
+  },
+  "best_for": [
+   "一个目标 + 三条主线，每条再列3个具体举措",
+   "问题—对策式页面（上方挂问题句、下方挂方案）",
+   "业务/技术/组件三维度的能力提升论述"
+  ],
+  "avoid_for": [
+   "严格时间顺序的流程",
+   "无中心主题的多点并列清单"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍",
+   "年度总结",
+   "教学课件"
+  ],
+  "placeholders": [
+   "提升用户体验",
+   "业务流程",
+   "平台能力",
+   "基础组件",
+   "业务操作流不够高效 层级架构复杂",
+   "平台客服能力问题 文档问题 消息触达问题",
+   "组件体验不一致 组件操作反馈不及时"
+  ],
+  "fill_hint": "顶层 4 项＝中心胶囊 + 3 个蓝色圆节点；每个圆节点右侧挂 3 条虚线要点卡（共9条，第二层）；各圆上方小句为该组的问题描述。",
+  "confidence": 0.65
+ },
+ {
+  "page": 100,
+  "page_title": "",
+  "summary": "横向五节点链：品牌共性—统一性—频道品牌（中心）—个性化—品牌差异，上下再挂标签组",
+  "logic_type": "总分发散",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 5,
+   "ordered": false,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 5,
+   "per_slot_chars": 12,
+   "total_chars": 160
+  },
+  "best_for": [
+   "中心概念向左右两端对称展开（统一 ↔ 差异）",
+   "品牌规范类论述：共性/差异、认知顺序与通用原则",
+   "四五个关键词构成的对称关系示意图"
+  ],
+  "avoid_for": [
+   "多段文字说明的内容",
+   "需要分步演示的流程"
+  ],
+  "scenes": [
+   "产品介绍",
+   "教学课件",
+   "工作汇报"
+  ],
+  "placeholders": [
+   "频道品牌",
+   "统一性",
+   "个性化",
+   "品牌共性",
+   "品牌差异",
+   "认知顺序",
+   "通用原则",
+   "图形"
+  ],
+  "fill_hint": "slot_count=5 为横向主链的5个节点；上方「认知顺序」条下3个小标签、下方「通用原则」条上4个小标签属第二层；主链节点文字极短（4字内）。",
+  "confidence": 0.6
+ },
+ {
+  "page": 101,
+  "page_title": "痛点总结",
+  "summary": "上下两段：上段深蓝横幅内6列编号条目（01–06），下段4张胶囊标题+说明卡",
+  "logic_type": "并列要点",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 2,
+   "ordered": false,
+   "has_arrows": false,
+   "has_connectors": false,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 2,
+   "per_slot_chars": 40,
+   "total_chars": 340
+  },
+  "best_for": [
+   "上半陈列编号清单、下半总结若干痛点的两段式页",
+   "先罗列现象再归纳4条结论的汇报页",
+   "深色横幅配浅色卡片区的对比排版"
+  ],
+  "avoid_for": [
+   "需要展示单一递进流程的内容",
+   "层级超过两层的信息结构"
+  ],
+  "scenes": [
+   "工作汇报",
+   "年度总结",
+   "产品介绍",
+   "教学课件"
+  ],
+  "placeholders": [
+   "痛点总结",
+   "PAIN POINT SUMMARY",
+   "年年有余",
+   "生意兴隆",
+   "财源广进",
+   "万事如意",
+   "开门大吉",
+   "吉祥如意"
+  ],
+  "fill_hint": "顶层 2 段：上段 6 列（每列 1 标题 + 3 行正文，带 01–06 编号区），下段 4 张卡（胶囊标题 + 2–3 行说明）；上段背景带大字水印装饰，非并列项。",
+  "confidence": 0.55
+ },
+ {
+  "page": 102,
+  "page_title": "",
+  "summary": "数据展示页：两块柱图、中央环形图、右侧三个KPI统计块，底部一段说明文字",
+  "logic_type": "并列要点",
+  "structure": {
+   "topology": "网格",
+   "slot_count": 4,
+   "ordered": false,
+   "has_arrows": false,
+   "has_connectors": false,
+   "hierarchy_depth": 1
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 20,
+   "total_chars": 200
+  },
+  "best_for": [
+   "数据汇报中的图表组合页（柱状+环形+指标块）",
+   "用三四个量化结论支撑一个行业判断",
+   "市场规模/增长率的可视化陈列"
+  ],
+  "avoid_for": [
+   "无数据支撑的纯观点并列",
+   "需要流程或因果表达的页面"
+  ],
+  "scenes": [
+   "数据汇报",
+   "工作汇报",
+   "年度总结",
+   "产品介绍"
+  ],
+  "placeholders": [
+   "中国生活垃圾清理",
+   "生活垃圾清运运费 top10 城市",
+   "整合分析",
+   "用户调研",
+   "43个城市实现垃圾分类"
+  ],
+  "fill_hint": "顶层 4 块＝左上柱图、左下柱图、中央环形图、右侧三个KPI块（KPI块为第三层）；底部整段说明文字为全页注脚，不计入 slot_count；图为示例数据需替换。",
+  "confidence": 0.5
+ },
+ {
+  "page": 103,
+  "page_title": "",
+  "summary": "三张并列人物画像卡，按动机/目标/痛点三维度对比三类用户",
+  "logic_type": "对比",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 3,
+   "ordered": false,
+   "has_arrows": false,
+   "has_connectors": false,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 3,
+   "per_slot_chars": 150,
+   "total_chars": 450
+  },
+  "best_for": [
+   "三类用户画像横向对比",
+   "同维度三方案评分对照",
+   "三种场景痛点分析"
+  ],
+  "avoid_for": [
+   "需要展示先后步骤的流程",
+   "单条长文论述"
+  ],
+  "scenes": [
+   "用户研究",
+   "产品介绍",
+   "工作汇报"
+  ],
+  "placeholders": [
+   "垃圾分类困难型",
+   "没有时间去分类垃圾型",
+   "没有意识去分类垃圾型",
+   "小刘：26岁，深圳，企业白领",
+   "陈哥：33岁，北京，建筑设计师",
+   "王叔：46岁，上海，货车司机",
+   "动机",
+   "目标"
+  ],
+  "fill_hint": "每卡为大卡+图标，卡内分「动机（3 条条形评分）/目标/痛点」三层子块；副标题一行约 15-20 字，目标与痛点各约 20-30 字，超出需精简",
+  "confidence": 0.9
+ },
+ {
+  "page": 104,
+  "page_title": "",
+  "summary": "2×2 四栏面板，左列概念解释 + 右列结构图，箭头连接成对",
+  "logic_type": "并列要点",
+  "structure": {
+   "topology": "网格",
+   "slot_count": 4,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 110,
+   "total_chars": 440
+  },
+  "best_for": [
+   "两组概念的左讲右证四宫格",
+   "理论要点+结构示例配对展示",
+   "概念定义与关系拆解"
+  ],
+  "avoid_for": [
+   "线性流程叙述",
+   "超过四组的并列内容"
+  ],
+  "scenes": [
+   "教学课件",
+   "培训材料",
+   "产品介绍"
+  ],
+  "placeholders": [
+   "同理心",
+   "情绪",
+   "愉悦与不爽",
+   "关系",
+   "生物化情绪",
+   "满足",
+   "愉悦",
+   "不爽"
+  ],
+  "fill_hint": "左上/左下为纯文本栏（带项目符号，约 60-90 字），右上/右下为「主干+分支+要点」结构图；两行之间用蓝色三角箭头由左指右，子项不宜超过 4 个",
+  "confidence": 0.75
+ },
+ {
+  "page": 105,
+  "page_title": "",
+  "summary": "同心圆环 4 象限阶段图，环内嵌套用户旅程多层环带",
+  "logic_type": "环形关系",
+  "structure": {
+   "topology": "环形",
+   "slot_count": 4,
+   "ordered": true,
+   "has_arrows": false,
+   "has_connectors": true,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 60,
+   "total_chars": 240
+  },
+  "best_for": [
+   "四阶段循环的用户旅程模型",
+   "服务全周期四环节说明",
+   "围绕同一中心展开的四大举措"
+  ],
+  "avoid_for": [
+   "严格线性的先后流程",
+   "超过五项的并列罗列"
+  ],
+  "scenes": [
+   "产品介绍",
+   "工作汇报",
+   "教学课件"
+  ],
+  "placeholders": [
+   "决策",
+   "使用",
+   "发现",
+   "留存",
+   "我们如何让用户使用服务？如何向他们传递我们的服务价值和优点",
+   "我们如何让用户使用更便捷、体验更顺畅",
+   "我们如何让用户注意到我们的产品或服务？",
+   "1 触达用户"
+  ],
+  "fill_hint": "外围四项（①②③④）各配一段 20-40 字说明；内层 3 层同心圆环带（接触前/使用中/使用后 与 感知、决策、重复使用）为附属层级，文字须极短（4-8 字）；中心白圆与小气泡「用户/服务」仅作点缀",
+  "confidence": 0.75
+ },
+ {
+  "page": 106,
+  "page_title": "",
+  "summary": "三泳道横向旅程图：主流程节点配用户心声与系统机会点",
+  "logic_type": "顺序流程",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 5,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 5,
+   "per_slot_chars": 12,
+   "total_chars": 60
+  },
+  "best_for": [
+   "用户旅程/体验地图式流程",
+   "直播等业务全流程拆解",
+   "流程节点+痛点+机会点三线对照"
+  ],
+  "avoid_for": [
+   "无先后关系的并列要点",
+   "单一节点的深度展开"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍",
+   "用户研究"
+  ],
+  "placeholders": [
+   "打开平台",
+   "寻找直播",
+   "开启直播",
+   "等待观众",
+   "知识分享",
+   "观看直播",
+   "直播互动",
+   "推出直播"
+  ],
+  "fill_hint": "顶层 5 个主阶段（打开平台/寻找直播/观看直播/直播互动/推出直播），每阶段下挂 1-2 个胶囊子步骤（开启直播、等待观众、知识分享）；上中下三泳道分别为用户心声、主流程、主播侧心声，每条心声下配 1 个 40-60 字的系统机会点说明框",
+  "confidence": 0.7
+ },
+ {
+  "page": 107,
+  "page_title": "",
+  "summary": "左侧四类用户标签+说明，右侧同心圆环呈现用户间互动关系",
+  "logic_type": "环形关系",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 4,
+   "ordered": false,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 70,
+   "total_chars": 280
+  },
+  "best_for": [
+   "四类用户角色定义+关系图",
+   "社群内互动链路说明",
+   "角色分层与接触关系刻画"
+  ],
+  "avoid_for": [
+   "强顺序流程",
+   "需要精确量化对比的内容"
+  ],
+  "scenes": [
+   "用户研究",
+   "产品介绍",
+   "工作汇报"
+  ],
+  "placeholders": [
+   "资深主播",
+   "活跃用户",
+   "观望大佬",
+   "潜水小透明",
+   "热爱使用直播的方式与观众分享交流，就是目前平台观众层次不一，有时聊不起来",
+   "获得反馈经常在直播间评论，偶尔和主播消费内容连麦",
+   "不知道平台还能直播呢，目前在平台已经输出了一些高质量回答"
+  ],
+  "fill_hint": "左侧 2×2 四个胶囊标签各带一段 30-50 字说明；右侧同心圆/虚线圆环中「资深主播」为中心，向外扇出 观望大佬、活跃观众、潜水小透明，连线标签为「消费内容/生产内容/给予支持/获得反馈」等短词（4-6 字）",
+  "confidence": 0.8
+ },
+ {
+  "page": 108,
+  "page_title": "用户选取",
+  "summary": "左图示三层用户圈层韦恩图，右栏研究目标三小节说明",
+  "logic_type": "总分发散",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 3,
+   "ordered": false,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 3,
+   "per_slot_chars": 60,
+   "total_chars": 180
+  },
+  "best_for": [
+   "研究对象选取范围说明",
+   "用户圈层交叠关系界定",
+   "研究目标三要点罗列"
+  ],
+  "avoid_for": [
+   "多分支并列的要点清单",
+   "数据量较大的图表"
+  ],
+  "scenes": [
+   "用户研究",
+   "工作汇报",
+   "教学课件"
+  ],
+  "placeholders": [
+   "用户选取",
+   "平台主播资深主播其他直播",
+   "01 平台观众",
+   "02 平台主播",
+   "03 平台主播",
+   "01. 研究目标",
+   "访谈目标",
+   "行为"
+  ],
+  "fill_hint": "左侧为标题+一段 40-60 字说明+三个编号圆点（01/02/03，各带 6-10 字标签）指向椭圆韦恩图中的 平台用户/平台直播/其他直播；右侧浅蓝栏为「01. 研究目标」，下辖 访谈目标/行为/背后动机 三小节，每节 30-60 字",
+  "confidence": 0.65
+ },
+ {
+  "page": 109,
+  "page_title": "",
+  "summary": "四张并列卡说明首页四大问题，顶部导语点出规划目的",
+  "logic_type": "并列要点",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 4,
+   "ordered": true,
+   "has_arrows": false,
+   "has_connectors": false,
+   "hierarchy_depth": 1
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 60,
+   "total_chars": 240
+  },
+  "best_for": [
+   "四项并列的问题盘点",
+   "四个方向的设计原则并列",
+   "四类用户痛点的对比陈述"
+  ],
+  "avoid_for": [
+   "需要先后顺序的流程",
+   "单一核心观点的展开"
+  ],
+  "scenes": [
+   "工作汇报",
+   "教学课件",
+   "项目评审"
+  ],
+  "placeholders": [
+   "目前用户主要场景需求是“搜索 + 购买 ”。我们以用户目标的强弱 特征去规划首页内容，首页不同板块对应着不同的用户，通过分析首页用户的特征对首页区域作针对性的规划，符合用户心智，促进首页转化",
+   "信息层级混乱",
+   "信息杂乱，内容拥挤，色彩繁多，过于花哨。",
+   "过多信息展示难以让用户在短时间内发现重点",
+   "体验参差不齐",
+   "品牌感较弱",
+   "使用效率低"
+  ],
+  "fill_hint": "卡片带蓝色顶条与灰色 01–04 编号，编号为装饰不计入 slot；每卡可写 1–2 句短正文，顶条颜色代表分组无需改动",
+  "confidence": 0.86
+ },
+ {
+  "page": 110,
+  "page_title": "打造「平台特色」直播，以提高直播的「互动率」为目标",
+  "summary": "左侧实心卡突出平台特色，右侧两虚线卡讲互动率抓手与互动价值",
+  "logic_type": "并列要点",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 3,
+   "ordered": false,
+   "has_arrows": false,
+   "has_connectors": false,
+   "hierarchy_depth": 1
+  },
+  "capacity": {
+   "main_slots": 3,
+   "per_slot_chars": 80,
+   "total_chars": 220
+  },
+  "best_for": [
+   "三项并列的运营策略拆解",
+   "一个重点主张 + 两个支撑说明",
+   "直播/活动运营的三段式说明"
+  ],
+  "avoid_for": [
+   "严格时间顺序的流程",
+   "五条以上的长清单"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍",
+   "运营方案"
+  ],
+  "placeholders": [
+   "吉样物作为有形的拟人化形象，能够更直观地为品牌代言，表现出产品的性格和气质。在应用过程中需要注意的是吉祥物的画风和性格要始终保持一致，是萌是丑还是贱。要像管理你自己的人设一样经营你的吉祥物形象。",
+   "平台特\n色",
+   "寻找答案……·高效 · 针对性",
+   "获取知识……·生动 · 有趣",
+   "开放讨论……·实时 · 真实感",
+   "如何提高互动率",
+   "互动的价值"
+  ],
+  "fill_hint": "第 1 卡为深蓝实心强调卡（背景色块本身是 1 个 slot），第 2、3 卡为虚线浅底常规卡；顶部导语与本页主题无关，填充时应替换成页主题导语",
+  "confidence": 0.82
+ },
+ {
+  "page": 111,
+  "page_title": "",
+  "summary": "双泳道情绪曲线沿三阶段时间轴展示寄件/收件用户触点与仪式感",
+  "logic_type": "时间轴",
+  "structure": {
+   "topology": "网格",
+   "slot_count": 3,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 3,
+   "per_slot_chars": 40,
+   "total_chars": 150
+  },
+  "best_for": [
+   "分角色（寄件/收件）的用户旅程对比",
+   "三阶段时间线上的体验触点梳理",
+   "旅程各阶段的情绪高低起伏展示"
+  ],
+  "avoid_for": [
+   "无时间关系的并列要点",
+   "超过 4 个阶段的复杂旅程",
+   "纯数据图表"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍",
+   "用户研究"
+  ],
+  "placeholders": [
+   "寄件前",
+   "运输中",
+   "派送 / 签",
+   "寄件用户",
+   "收件用户",
+   "触点",
+   "仪式感",
+   "选择惊喜送达\n添加贺卡、心意"
+  ],
+  "fill_hint": "顶层为 3 个时间阶段列，每列下含寄件/收件 2 条泳道（共 6 个内容块）；曲线为示意，需按阶段替换文字，右上情绪图例两条勿删",
+  "confidence": 0.78
+ },
+ {
+  "page": 112,
+  "page_title": "",
+  "summary": "四张图标领衔卡并列陈述视觉层级、体验优化、品牌统一等设计方向",
+  "logic_type": "并列要点",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 4,
+   "ordered": false,
+   "has_arrows": false,
+   "has_connectors": false,
+   "hierarchy_depth": 1
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 70,
+   "total_chars": 280
+  },
+  "best_for": [
+   "四条设计规范/原则并列",
+   "四类解决方案的要点罗列",
+   "风格统一的四栏说明"
+  ],
+  "avoid_for": [
+   "强调先后顺序或因果的内容",
+   "单条内容需要长段落展开"
+  ],
+  "scenes": [
+   "工作汇报",
+   "教学课件",
+   "设计规范宣讲"
+  ],
+  "placeholders": [
+   "目前用户主要场景需求是“搜索 + 购买 ”。我们以用户目标的强弱 特征去规划首页内容，首页不同板块对应着不同的用户，通过分析首页用户的特征对首页区域作针对性的规划，符合用户心智，促进首页转化",
+   "视觉层级",
+   "文字层级",
+   "体验优化",
+   "品牌统一",
+   "栅格布局控制留白疏密、卡片设计整合同类信息。",
+   "重要信息加大突出，辅助信息弱化"
+  ],
+  "fill_hint": "第 1、3 卡为虚线浅底、第 2、4 卡为蓝色实心（仅强调风格差异，均计入 4 个 slot）；每卡 2–3 条项目符号，第 1 卡内含“视觉层级/文字层级”两个子标题",
+  "confidence": 0.84
+ },
+ {
+  "page": 113,
+  "page_title": "",
+  "summary": "四层架构图：用户接入/统一流程运营/统一业务集成及各侧翼平台的关系",
+  "logic_type": "其他",
+  "structure": {
+   "topology": "层叠",
+   "slot_count": 4,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 30,
+   "total_chars": 220
+  },
+  "best_for": [
+   "系统架构总览（接入层/流程层/集成层）",
+   "多平台间的集成与调用关系说明",
+   "IT 建设方案的分层展开"
+  ],
+  "avoid_for": [
+   "只有 3 条以内的简单并列",
+   "需要讲时间顺序的流程"
+  ],
+  "scenes": [
+   "产品介绍",
+   "技术方案",
+   "工作汇报"
+  ],
+  "placeholders": [
+   "敏捷开发平台应用",
+   "全方位用户接入",
+   "统一流程运营平台",
+   "统一业务集成平台（ESB）",
+   "流程监控预警平台（BI）",
+   "集团用户",
+   "子公司门户",
+   "统一信息门户（单点登录、审批集成、消息推送）"
+  ],
+  "fill_hint": "顶层 4 类：左侧应用入口、中部接入层、中部运营总线、底部集成层 + 右侧 BI 监控（左右为中部的侧翼，不计独立组）；底部集成层含 SAP/CRM/MES 等约 9 个系统子块",
+  "confidence": 0.74
+ },
+ {
+  "page": 114,
+  "page_title": "",
+  "summary": "四层平台能力架构，横向铺开行业场景、应用服务、平台服务、数据服务",
+  "logic_type": "其他",
+  "structure": {
+   "topology": "层叠",
+   "slot_count": 4,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 20,
+   "total_chars": 260
+  },
+  "best_for": [
+   "平台型产品的能力底座说明",
+   "从行业场景到数据服务的分层支撑关系",
+   "技术体系/开放能力的全景图"
+  ],
+  "avoid_for": [
+   "单一观点的深挖",
+   "文字量大的叙述型内容"
+  ],
+  "scenes": [
+   "产品介绍",
+   "技术方案",
+   "对外宣讲"
+  ],
+  "placeholders": [
+   "行业/场景",
+   "应用服务",
+   "平台服务",
+   "数据服务",
+   "金融",
+   "家电",
+   "零售",
+   "O2O"
+  ],
+  "fill_hint": "四层分别含 6 行业卡 / 5 应用服务 / 4 平台服务组（每组 3–4 子卡，另有 4 个 SD K 出口）/ 5 数据服务项；子块数量多，替换文字时保持等宽等距即可",
+  "confidence": 0.72
+ },
+ {
+  "page": 115,
+  "page_title": "",
+  "summary": "四层堆叠的数据中台技术架构图，自下而上数据源→后台→中台→应用。",
+  "logic_type": "层级金字塔",
+  "structure": {
+   "topology": "层叠",
+   "slot_count": 4,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 8,
+   "total_chars": 190
+  },
+  "best_for": [
+   "数据中台/技术架构分层说明",
+   "平台能力全景图（数据源-后台-中台-应用）",
+   "IT 系统分层建设方案"
+  ],
+  "avoid_for": [
+   "需要说明先后步骤的流程",
+   "并列关系多于层级的清单"
+  ],
+  "scenes": [
+   "产品介绍",
+   "技术方案",
+   "工作汇报"
+  ],
+  "placeholders": [
+   "业务前台",
+   "智能分析",
+   "标签系统",
+   "用户画像",
+   "数字化运营",
+   "数字化管理",
+   "数字化供应链",
+   "数据中台"
+  ],
+  "fill_hint": "顶层为 7 张并列应用卡；中台层含 3 个模块（开发套件/数据标准体系建设/数据治理平台），各带 3-5 个子项；底层数据源 5 项。slot_count 按 4 个层级带计。",
+  "confidence": 0.62
+ },
+ {
+  "page": 116,
+  "page_title": "",
+  "summary": "寄件/收件用户与体验要素的环形闭环，围绕营造惊喜循环。",
+  "logic_type": "环形关系",
+  "structure": {
+   "topology": "环形",
+   "slot_count": 5,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 1
+  },
+  "capacity": {
+   "main_slots": 5,
+   "per_slot_chars": 6,
+   "total_chars": 60
+  },
+  "best_for": [
+   "用户体验闭环关系（参与感/仪式感/惊喜主张）",
+   "双角色互动的价值循环",
+   "品牌体验设计思路"
+  ],
+  "avoid_for": [
+   "需要具体数值对比的场景",
+   "线性步骤流程"
+  ],
+  "scenes": [
+   "产品介绍",
+   "教学课件",
+   "工作汇报"
+  ],
+  "placeholders": [
+   "寄件用户",
+   "收件用户",
+   "参与感",
+   "仪式感",
+   "营造惊喜",
+   "差异化体验",
+   "口碑传播",
+   "自定义内容"
+  ],
+  "fill_hint": "中心两圆为参与感/仪式感，右侧大圆为营造惊喜；外圈虚线箭头串联双角色与传播结果，文字框很小，每块控制在 6 字内。",
+  "confidence": 0.6
+ },
+ {
+  "page": 117,
+  "page_title": "",
+  "summary": "左侧背景列表经中心定位圆扇出品牌/视觉/体验三项设计目标，右侧收束。",
+  "logic_type": "总分发散",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 4,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 10,
+   "total_chars": 120
+  },
+  "best_for": [
+   "设计目标三维展开（品牌/视觉/体验）",
+   "从背景到定位到目标的推演",
+   "改版或品牌升级思路说明"
+  ],
+  "avoid_for": [
+   "纯并列无递进的清单",
+   "多层级组织架构"
+  ],
+  "scenes": [
+   "产品介绍",
+   "工作汇报",
+   "教学课件"
+  ],
+  "placeholders": [
+   "改版背景",
+   "产品目标",
+   "设计目标",
+   "设计愿望",
+   "明确定位提升知名度",
+   "品牌",
+   "视觉",
+   "体验"
+  ],
+  "fill_hint": "中心圆 1 个（定位主张）+ 右侧 3 个纵向堆叠圆（品牌/视觉/体验，各有右侧说明文字）；左右两侧圆角长条为辅助列表，每侧 4-5 行短词，不计入 slot_count。",
+  "confidence": 0.58
+ },
+ {
+  "page": 118,
+  "page_title": "",
+  "summary": "三维体验三角布局：用户体验/产品价值/用户需求三圆，右接品质清单。",
+  "logic_type": "总分发散",
+  "structure": {
+   "topology": "放射",
+   "slot_count": 4,
+   "ordered": false,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 8,
+   "total_chars": 70
+  },
+  "best_for": [
+   "三要素并列支撑同一主张（用户体验/产品价值/用户需求）",
+   "产品体验三维定义",
+   "带编号的三大要点页"
+  ],
+  "avoid_for": [
+   "超过三项的并列清单",
+   "有严格时间顺序的流程"
+  ],
+  "scenes": [
+   "产品介绍",
+   "教学课件",
+   "工作汇报"
+  ],
+  "placeholders": [
+   "三维体验",
+   "01 用户体验",
+   "02 产品价值",
+   "03 用户需求",
+   "轻松的获取知识",
+   "有温度的产品",
+   "专业使用的装修内容",
+   "一站式装修平台"
+  ],
+  "fill_hint": "三圆各带 01/02/03 编号圈与 1 行小字注释，圆外上下方另有短标签；右侧圆角长条内 4 行短词（温度/轻松/专业/实用），可算 1 个附加槽位。",
+  "confidence": 0.6
+ },
+ {
+  "page": 119,
+  "page_title": "",
+  "summary": "五步顺序流程：需求方→设计方→需求方→QCP→设计审核，含回环与三档优先级。",
+  "logic_type": "顺序流程",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 5,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 5,
+   "per_slot_chars": 8,
+   "total_chars": 90
+  },
+  "best_for": [
+   "五步协作流程（需求-设计-下单-审核）",
+   "跨角色流转与交接说明",
+   "含前置指导与反馈回环的审批链路"
+  ],
+  "avoid_for": [
+   "无顺序的并列清单",
+   "需要展示大量分支的决策树"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍",
+   "教学课件"
+  ],
+  "placeholders": [
+   "需求方",
+   "设计方",
+   "需求方",
+   "QCP",
+   "设计审核",
+   "设计前置、指导视觉定位",
+   "需求周知",
+   "需求鉴定"
+  ],
+  "fill_hint": "5 个圆形节点横排，节点上标 01-05 编号；节点间虚线小箭头带短标签（需求周知/制定模板/下单/输出审核）；上方有跨节点回路箭头，右下有 3 条优先级小标签带；文字块小，单块控制在 8 字内。",
+  "confidence": 0.68
+ },
+ {
+  "page": 120,
+  "page_title": "",
+  "summary": "形态一→形态二→形态三的记忆递进，各形态下挂若干支撑要点框。",
+  "logic_type": "递进阶梯",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 3,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": false,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 3,
+   "per_slot_chars": 6,
+   "total_chars": 60
+  },
+  "best_for": [
+   "三阶段递进关系（瞬间记忆-短期记忆-情感寄托）",
+   "品牌认知深化路径",
+   "每阶段配若干支撑要点的对比页"
+  ],
+  "avoid_for": [
+   "四项以上并列",
+   "需要强调循环闭环的场景"
+  ],
+  "scenes": [
+   "产品介绍",
+   "工作汇报",
+   "教学课件"
+  ],
+  "placeholders": [
+   "形态一",
+   "形态二",
+   "形态三",
+   "占领任职",
+   "重复记忆",
+   "瞬间记忆",
+   "短期记忆",
+   "品牌情感化寄托"
+  ],
+  "fill_hint": "3 个圆（中间实心为主推形态），圆下各挂 2-3 个要点框，每框 7-18 字不等；圆内主标签 3 字 + 小字副标题，要点框文字较长需注意缩排。",
+  "confidence": 0.63
+ },
+ {
+  "page": 121,
+  "page_title": "建设路线与预期目标",
+  "summary": "从基础要素到平台成果、再到近期/远期目标的横向推进路线图",
+  "logic_type": "递进阶梯",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 3,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 3,
+   "per_slot_chars": 14,
+   "total_chars": 180
+  },
+  "best_for": [
+   "分阶段推进的建设路线说明",
+   "从基础要素到落地目标的因果递进",
+   "近期与远期两栏目标对照"
+  ],
+  "avoid_for": [
+   "无阶段顺序的并列要点",
+   "单一结论页"
+  ],
+  "scenes": [
+   "工作汇报",
+   "年度总结",
+   "战略规划"
+  ],
+  "placeholders": [
+   "政策",
+   "理论",
+   "技术",
+   "市场",
+   "机制",
+   "教育平台",
+   "业务板块",
+   "众创平台"
+  ],
+  "fill_hint": "三段横向推进：左段5个基础要素纵排、中段3平台+2成果框（含成果/需求双向小箭头）、右段2个目标组各3张蓝卡；顶层组数为3",
+  "confidence": 0.55
+ },
+ {
+  "page": 122,
+  "page_title": "数据资产流通图",
+  "summary": "数据资产在监管下经生产到应用的分层流通与回收闭环",
+  "logic_type": "循环闭环",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 3,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": false,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 3,
+   "per_slot_chars": 12,
+   "total_chars": 150
+  },
+  "best_for": [
+   "多方参与的分层生态/流通链路",
+   "监管主体统管下的上下行闭环",
+   "角色层与应用场景层对照"
+  ],
+  "avoid_for": [
+   "纯线性单流程",
+   "数据量对比"
+  ],
+  "scenes": [
+   "产品介绍",
+   "政策解读",
+   "行业方案"
+  ],
+  "placeholders": [
+   "市场监",
+   "数据资产 生产",
+   "数据资产 支付",
+   "数据资产 持有",
+   "数据资产 转移",
+   "数据资产 使用",
+   "城市管理方",
+   "运维单位"
+  ],
+  "fill_hint": "左侧1个竖排监管柱+5个阶段小标签；右侧3行分层区（上行5+2项、中行5项、下行5项），slot_count 取顶层3行",
+  "confidence": 0.5
+ },
+ {
+  "page": 123,
+  "page_title": "组织机制",
+  "summary": "以技术创新中心为核的三方治理架构与四个下属板块",
+  "logic_type": "层级金字塔",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 4,
+   "ordered": false,
+   "has_arrows": false,
+   "has_connectors": true,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 8,
+   "total_chars": 90
+  },
+  "best_for": [
+   "组织架构与治理机制说明",
+   "委员会+中心+多板块的权责分工",
+   "下属单位与专家名单展示"
+  ],
+  "avoid_for": [
+   "时间顺序流程",
+   "数据对比"
+  ],
+  "scenes": [
+   "工作汇报",
+   "组织介绍",
+   "方案说明"
+  ],
+  "placeholders": [
+   "上级单位",
+   "主管单位",
+   "依托单位",
+   "管理委员会",
+   "技术创新中心",
+   "中心主任",
+   "技术委员会",
+   "管理版块"
+  ],
+  "fill_hint": "顶层为管委会/技术创新中心/技术委员会（主任居中层，委员会右列5位专家）；底层4个虚线框板块各含1-3个竖排子块，slot_count 取顶层4板块",
+  "confidence": 0.5
+ },
+ {
+  "page": 124,
+  "page_title": "产品功能矩阵",
+  "summary": "按前中后三阶段横向展开、纵向七层要素对照的广告结构矩阵",
+  "logic_type": "二维矩阵",
+  "structure": {
+   "topology": "网格",
+   "slot_count": 3,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 3,
+   "per_slot_chars": 10,
+   "total_chars": 120
+  },
+  "best_for": [
+   "三阶段×多要素的结构对照表",
+   "内容/包装/效果的阶段性拆解",
+   "带时间轴的分环节方法论"
+  ],
+  "avoid_for": [
+   "无层级的并列要点",
+   "组织架构图"
+  ],
+  "scenes": [
+   "产品介绍",
+   "方案说明",
+   "教学课件"
+  ],
+  "placeholders": [
+   "情境目标",
+   "用户视角",
+   "短广结构",
+   "娱乐化包装",
+   "内容力增强",
+   "极致获得感",
+   "预期效果",
+   "用短视频让更多用户感到价值"
+  ],
+  "fill_hint": "3列（前/中/后）对应7行标签（情境目标→预期效果），中段含时间轴与三色气泡，底层为渐变底；slot_count 取3列，行数写进 hierarchy_depth",
+  "confidence": 0.6
+ },
+ {
+  "page": 125,
+  "page_title": "产品功能矩阵",
+  "summary": "从数据源、数据后台到数据中台、业务前台的纵向分层架构",
+  "logic_type": "层级金字塔",
+  "structure": {
+   "topology": "层叠",
+   "slot_count": 4,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": false,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 10,
+   "total_chars": 120
+  },
+  "best_for": [
+   "数据平台分层架构说明",
+   "自下而上的能力支撑关系",
+   "中台能力模块罗列"
+  ],
+  "avoid_for": [
+   "时间顺序流程",
+   "并列无层级的卡片墙"
+  ],
+  "scenes": [
+   "产品介绍",
+   "技术方案",
+   "架构说明"
+  ],
+  "placeholders": [
+   "业务前台",
+   "智能分析",
+   "标签系统",
+   "用户画像",
+   "统一查询服务",
+   "数据治理平台",
+   "数据标准体系建设",
+   "数据中台"
+  ],
+  "fill_hint": "自下而上4层：数据源(4项)→数据后台→数据中台(含左侧中台图标+6模块)→顶层7个业务前台模块；中台内嵌套子块，slot_count 取顶层4层",
+  "confidence": 0.6
+ },
+ {
+  "page": 126,
+  "page_title": "产品功能矩阵",
+  "summary": "行业场景、应用服务、平台服务、数据服务四层产品能力矩阵",
+  "logic_type": "二维矩阵",
+  "structure": {
+   "topology": "层叠",
+   "slot_count": 4,
+   "ordered": false,
+   "has_arrows": false,
+   "has_connectors": false,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 10,
+   "total_chars": 130
+  },
+  "best_for": [
+   "产品能力全景分层展示",
+   "行业场景×服务能力的矩阵对照",
+   "SaaS/SDK/小程序多端能力罗列"
+  ],
+  "avoid_for": [
+   "带推进顺序的流程",
+   "单一结论页"
+  ],
+  "scenes": [
+   "产品介绍",
+   "方案说明",
+   "年度总结"
+  ],
+  "placeholders": [
+   "行业/场景",
+   "金融",
+   "家电",
+   "零售",
+   "O2O",
+   "物流快递",
+   "智能分析",
+   "应用服务"
+  ],
+  "fill_hint": "4行自上而下：行业/场景(6列，每列1标题+3小项)、应用服务(5项带图标)、平台服务(4组各含4子块)、数据服务(5项)；slot_count 取顶层4行",
+  "confidence": 0.6
+ },
+ {
+  "page": 127,
+  "page_title": "提供的私域流量运营方法及工具",
+  "summary": "私域流量运营全流程：按阶段分列，行内分运营方法/系统工具/组织分工",
+  "logic_type": "二维矩阵",
+  "structure": {
+   "topology": "网格",
+   "slot_count": 6,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 6,
+   "per_slot_chars": 50,
+   "total_chars": 400
+  },
+  "best_for": [
+   "私域/社群运营六阶段方法论拆解",
+   "一项工作的阶段×角色分工表",
+   "运营流程配套工具清单的横向铺陈"
+  ],
+  "avoid_for": [
+   "单一概念的三点说明",
+   "需要强因果推导的内容"
+  ],
+  "scenes": [
+   "工作汇报",
+   "方案评审",
+   "培训课件"
+  ],
+  "placeholders": [
+   "用户路径",
+   "运营方法",
+   "系统工具",
+   "组织分工",
+   "新客引入历史客户迁入",
+   "活动运营",
+   "客户沉淀",
+   "人群包运营"
+  ],
+  "fill_hint": "左侧4行是行标题（路径/方法/工具/分工），列才是并列槽位；每列下含多个小卡（标签建群/群直播/话术库等3-5个），字多需删减",
+  "confidence": 0.6
+ },
+ {
+  "page": 128,
+  "page_title": "运营引擎 为用户提供终端顾问式服务 打造融合营销闭环",
+  "summary": "四阶段闭环：流量导入→资产沉淀→促进转化→持续运营，每阶段下挂细分模块",
+  "logic_type": "顺序流程",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 4,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 120,
+   "total_chars": 480
+  },
+  "best_for": [
+   "营销/运营闭环的四阶段全景图",
+   "从获客到复购的链路拆解（每阶段挂子模块）",
+   "产品能力按业务阶段归组"
+  ],
+  "avoid_for": [
+   "并列无先后的要点罗列",
+   "少于3项的内容"
+  ],
+  "scenes": [
+   "产品介绍",
+   "方案评审",
+   "年度总结"
+  ],
+  "placeholders": [
+   "流量导入",
+   "资产沉淀",
+   "促进转化",
+   "持续运营",
+   "公域（原生关注）",
+   "商城（推广广告）",
+   "私域流量",
+   "关系管理工具"
+  ],
+  "fill_hint": "顶部4框是阶段主轴，下方虚线大框为阶段内子模块群（二/三级）；01-03序号与底部A/B/C圆点可换成小结锚点",
+  "confidence": 0.7
+ },
+ {
+  "page": 129,
+  "page_title": "系统架构图",
+  "summary": "四层系统架构：表现层/应用层/服务层/系统层，层间上下箭头调用",
+  "logic_type": "层级金字塔",
+  "structure": {
+   "topology": "层叠",
+   "slot_count": 4,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 40,
+   "total_chars": 500
+  },
+  "best_for": [
+   "IT系统/平台技术架构分层说明",
+   "软件产品的模块层级总览",
+   "中台能力从界面到基础设施的纵向拆解"
+  ],
+  "avoid_for": [
+   "并列要点的罗列",
+   "业务流程或时间顺序类内容"
+  ],
+  "scenes": [
+   "产品介绍",
+   "技术方案评审",
+   "教学课件"
+  ],
+  "placeholders": [
+   "表现层",
+   "应用层",
+   "服务层",
+   "系统层",
+   "Portal（门户）",
+   "Elearning管理平台",
+   "第三方系统",
+   "数据库 mysql/sql2005/oracle"
+  ],
+  "fill_hint": "左侧4个蓝块是层标题（主槽位），每层内部含4-8个小模块框（如系统管理/培训实施/角色权限）；子项多、单块字数要短",
+  "confidence": 0.75
+ },
+ {
+  "page": 130,
+  "page_title": "企业级技术产品设计探索",
+  "summary": "左侧特征/判断/定位/编排/工具五行，横向四列维度铺开",
+  "logic_type": "二维矩阵",
+  "structure": {
+   "topology": "网格",
+   "slot_count": 4,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": false,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 60,
+   "total_chars": 500
+  },
+  "best_for": [
+   "四维度×多层次的对比铺陈（阶段性/驱动性/流程性/抽象性）",
+   "设计方法论框架讲解",
+   "产品设计原则的矩阵化呈现"
+  ],
+  "avoid_for": [
+   "单线流程叙述",
+   "只有2-3项内容的简单页"
+  ],
+  "scenes": [
+   "方案评审",
+   "教学课件",
+   "产品介绍"
+  ],
+  "placeholders": [
+   "特征",
+   "判断",
+   "定位",
+   "编排",
+   "工具",
+   "阶段性",
+   "驱动性",
+   "流程性"
+  ],
+  "fill_hint": "横向4列是并列槽位，纵向5行是判断维度；每列含2-3层小框；底部工具行英文单词可整段替换",
+  "confidence": 0.65
+ },
+ {
+  "page": 131,
+  "page_title": "解决方案",
+  "summary": "智慧园区顶层设计：设计主体三层+右侧保障体系，下接云网底座与采集设备",
+  "logic_type": "层级金字塔",
+  "structure": {
+   "topology": "层叠",
+   "slot_count": 4,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 60,
+   "total_chars": 450
+  },
+  "best_for": [
+   "智慧园区/行业解决方案总体架构图",
+   "从顶层规划到基础设施的全栈方案概览",
+   "项目中台+保障体系+底座的组合呈现"
+  ],
+  "avoid_for": [
+   "并列要点的简单罗列",
+   "纯流程或时间顺序内容"
+  ],
+  "scenes": [
+   "方案评审",
+   "产品介绍",
+   "客户提案"
+  ],
+  "placeholders": [
+   "智慧园区整体顶层设计规划",
+   "价值观设计原则",
+   "设计模式",
+   "信息汇聚层",
+   "保障体系",
+   "云基础设施（政务云、5G 边缘）",
+   "光纤/4G/5G/6G/NB-IOT 数据采集设备"
+  ],
+  "fill_hint": "4个顶层组＝顶层规划条／设计主体（内含价值观、设计模式、信息汇聚层三层）／右侧保障体系／底座（云基础设施+三张覆盖网+采集设备）；保障体系含6条",
+  "confidence": 0.6
+ },
+ {
+  "page": 132,
+  "page_title": "组织现状",
+  "summary": "传统旧组织现状下，节能与增效双路径对比，落地为先进组织新生产力",
+  "logic_type": "对比",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 2,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 2,
+   "per_slot_chars": 20,
+   "total_chars": 300
+  },
+  "best_for": [
+   "改革前后的现状与目标对比",
+   "左右两条路径（节能/增效）的双线推进说明",
+   "转型动因+举措+目标的组合页"
+  ],
+  "avoid_for": [
+   "单纯多点并列",
+   "无对照关系的单向流程"
+  ],
+  "scenes": [
+   "工作汇报",
+   "年度总结",
+   "方案评审"
+  ],
+  "placeholders": [
+   "传统旧组织现状",
+   "节能",
+   "增效",
+   "先进组织的新生产力",
+   "信息技术变化",
+   "信息技术赋能",
+   "团队能力迭代",
+   "生产资源重构"
+  ],
+  "fill_hint": "主体为左右2个对比槽位（节能／增效），中部含两组变化卡（上6格、下3格），底部“新生产力”条内并列6个标签；层次较深，字要短",
+  "confidence": 0.55
+ },
+ {
+  "page": 133,
+  "page_title": "教育机构私域裂变流量",
+  "summary": "顶部4阶段流量流程条，下方4大列模块组支撑落地打法",
+  "logic_type": "并列要点",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 4,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 36,
+   "total_chars": 420
+  },
+  "best_for": [
+   "四项并列的运营板块拆解（流量入口-转化-服务-留存）",
+   "每条线上方流程+下方大列模块的双层结构",
+   "私域/营销体系全景图"
+  ],
+  "avoid_for": [
+   "单一线性步骤讲解",
+   "纯对比两方优劣"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍",
+   "方案提案"
+  ],
+  "placeholders": [
+   "传播裂变",
+   "网校管理",
+   "互动教学",
+   "用户运营",
+   "流量入口",
+   "转化裂变",
+   "教务教学管理",
+   "学生服务"
+  ],
+  "fill_hint": "顶层4列组，每列内含2-4个子模块（如『个人微信/机构公众号/微信社群/微信朋友圈』），子项数写在列内；顶部流程条另算一层，勿混入slot_count",
+  "confidence": 0.6
+ },
+ {
+  "page": 134,
+  "page_title": "AI 中台架构—算法层",
+  "summary": "左侧3点特性说明，右侧算法层自上而下分层能力栈",
+  "logic_type": "层级金字塔",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 4,
+   "ordered": false,
+   "has_arrows": false,
+   "has_connectors": true,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 4,
+   "per_slot_chars": 30,
+   "total_chars": 300
+  },
+  "best_for": [
+   "技术架构分层说明（平台层-能力层-模型层-基础算法）",
+   "左侧列3条要点+右侧架构主体的左右分栏",
+   "中台/技术底座能力清单"
+  ],
+  "avoid_for": [
+   "时间先后流程",
+   "双方对比"
+  ],
+  "scenes": [
+   "产品介绍",
+   "工作汇报",
+   "教学课件"
+  ],
+  "placeholders": [
+   "全面",
+   "开放",
+   "隐私学习",
+   "联邦学习",
+   "多模态学习",
+   "图分析",
+   "图像AI能力",
+   "文本AI能力"
+  ],
+  "fill_hint": "左侧3张特性卡+右侧架构主体共4个顶层块；右侧架构自上而下为联邦学习／多模态+图分析／三类AI能力（图像·文本·语音视频，各含3-4个能力标签）／应用模型／基础算法，子项仅入fill_hint",
+  "confidence": 0.55
+ },
+ {
+  "page": 135,
+  "page_title": "构建全链闭环能力，投放效果持续优化",
+  "summary": "5阶段投放闭环流程，每阶段下方挂子卡，底部3条能力横条",
+  "logic_type": "顺序流程",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 5,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 5,
+   "per_slot_chars": 24,
+   "total_chars": 320
+  },
+  "best_for": [
+   "五段式流程＋每段子要点（创意-定向-投放-转化-线索）",
+   "带回流箭头的闭环链路",
+   "广告/营销投放全链条讲解"
+  ],
+  "avoid_for": [
+   "无先后关系的并列清单",
+   "纯数据图表"
+  ],
+  "scenes": [
+   "工作汇报",
+   "方案提案",
+   "产品介绍"
+  ],
+  "placeholders": [
+   "创意生产",
+   "精准定向",
+   "智能投放",
+   "深度转化",
+   "线索管理",
+   "搜索场景",
+   "推荐场景",
+   "目标转化"
+  ],
+  "fill_hint": "slot_count记顶部5个蓝色阶段条；每阶段下方1-3个子卡（如『定时优化/智能创意/智能出价』）只写进fill_hint；底部3条能力横条与最底一行平台清单为汇总层",
+  "confidence": 0.55
+ },
+ {
+  "page": 136,
+  "page_title": "智慧民航解决方案",
+  "summary": "整页解决方案架构图，顶部3个并列场景条，中部能力与平台层，底部问题与价值",
+  "logic_type": "层级金字塔",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 3,
+   "ordered": false,
+   "has_arrows": false,
+   "has_connectors": true,
+   "hierarchy_depth": 4
+  },
+  "capacity": {
+   "main_slots": 3,
+   "per_slot_chars": 28,
+   "total_chars": 420
+  },
+  "best_for": [
+   "行业解决方案整体架构（能力栈+平台层+痛点价值）",
+   "多子系统汇编的技术方案页",
+   "民航/交通等复杂业务架构总览"
+  ],
+  "avoid_for": [
+   "单一流程说明",
+   "小容量单点观点页"
+  ],
+  "scenes": [
+   "产品介绍",
+   "方案提案",
+   "工作汇报"
+  ],
+  "placeholders": [
+   "旅客服务",
+   "数据与治理赋能",
+   "行业应用赋能",
+   "OneID 链接人与服务",
+   "OneID 全流程旅客服务",
+   "高舱服务",
+   "综合信息系统",
+   "集成赋能"
+  ],
+  "fill_hint": "slot_count只记顶部3个并列场景条（图面均为『旅客服务』，疑为占位未替换）；中部左『OneID』体系与右『OnePort』体系为2个并列块，平台层（API集/数据集成/策略引擎/开发平台/物联网/大数据/算法）与底部痛点·价值块均为下层，全部写入fill_hint",
+  "confidence": 0.45
+ },
+ {
+  "page": 137,
+  "page_title": "解决方案",
+  "summary": "左右两列成长要素＋中间去中心化目标协同流程，底部平台横条与要点带",
+  "logic_type": "并列要点",
+  "structure": {
+   "topology": "横排",
+   "slot_count": 3,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 3,
+   "per_slot_chars": 20,
+   "total_chars": 240
+  },
+  "best_for": [
+   "三栏式（左要点-中主体-右要点）解决方案页",
+   "中间含递进流程的协同管理机制说明",
+   "组织/管理类产品方案"
+  ],
+  "avoid_for": [
+   "单线长流程",
+   "大量数据图表"
+  ],
+  "scenes": [
+   "工作汇报",
+   "方案提案",
+   "产品介绍"
+  ],
+  "placeholders": [
+   "个体成长",
+   "去中心化组织目标协同管理系统",
+   "企业成长",
+   "组织超级个体",
+   "目标",
+   "大数据基础设施（计算和储存平台）",
+   "目标驱动",
+   "快速反馈"
+  ],
+  "fill_hint": "slot_count记顶部3个蓝条（个体成长／去中心化组织目标协同管理系统／企业成长）；中间栏内部为『组织超级个体→目标→…』的2段递进流程，子卡4-5个；底部平台横条+7个要点标签+最底汇总条均属下层",
+  "confidence": 0.65
+ },
+ {
+  "page": 138,
+  "page_title": "解决方案",
+  "summary": "上下两层各3块：上层三模块，下层三步数据流程，底部10个数据标签",
+  "logic_type": "顺序流程",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 3,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 3,
+   "per_slot_chars": 26,
+   "total_chars": 260
+  },
+  "best_for": [
+   "两段式方案：上层三模块并列＋下层三步流程",
+   "数据分析业务流程（源生成→探索分析→输出分析）",
+   "企业数据新基建方案讲解"
+  ],
+  "avoid_for": [
+   "单一要点页",
+   "强对比双栏"
+  ],
+  "scenes": [
+   "方案提案",
+   "工作汇报",
+   "产品介绍"
+  ],
+  "placeholders": [
+   "企业数据分析新基建：数据业务流程",
+   "部门及分工模式",
+   "业务流程及运营模型",
+   "组织架构及组织能力",
+   "数据源生成",
+   "数据探索式分析",
+   "数据输出分析"
+  ],
+  "fill_hint": "slot_count=3（按图中三个并列块/三列流程记）；上层三虚线块各含2-3个子标签，下层三列各含2行（如『数据源生成/工作工具及表单·应用』），底部10个数据标签（营销/销售/财务/管理/用户/内容/私域/电商/人力/售后）为数据源示例层，均写入fill_hint",
+  "confidence": 0.5
+ },
+ {
+  "page": 139,
+  "page_title": "解决方案",
+  "summary": "数据汇集→集成应用→数据应用三层架构，右侧标注数据源与开放共享",
+  "logic_type": "层级金字塔",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 3,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 2
+  },
+  "capacity": {
+   "main_slots": 3,
+   "per_slot_chars": 8,
+   "total_chars": 120
+  },
+  "best_for": [
+   "三层技术架构总览",
+   "数据能力分层论述",
+   "解决方案能力栈"
+  ],
+  "avoid_for": [
+   "强调并行对比的要点",
+   "纯时间顺序流程"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍"
+  ],
+  "placeholders": [
+   "数据汇集—数据洞察—业务重塑",
+   "BI工具",
+   "智能应用",
+   "泛CIS",
+   "泛HIS",
+   "其他",
+   "数据仓库",
+   "数据源生成"
+  ],
+  "fill_hint": "顶层3层（数据汇集/集成应用/数据应用），每层右侧挂2–4个子项卡；顶部蓝条为主标题条，不计入slot",
+  "confidence": 0.62
+ },
+ {
+  "page": 140,
+  "page_title": "解决方案",
+  "summary": "行业化应用→通用场景→在线化签约平台三层，每层内并列场景与系统卡",
+  "logic_type": "层级金字塔",
+  "structure": {
+   "topology": "混合",
+   "slot_count": 3,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 3,
+   "per_slot_chars": 6,
+   "total_chars": 120
+  },
+  "best_for": [
+   "三层业务架构总览",
+   "行业-场景-平台分层说明",
+   "生态能力全景图"
+  ],
+  "avoid_for": [
+   "单一维度的并列要点",
+   "简单两步流程"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍"
+  ],
+  "placeholders": [
+   "行业化应用",
+   "通用场景",
+   "在线化签约平台",
+   "人力资源场景",
+   "采购供应链场景",
+   "数据汇集",
+   "企业业务系统",
+   "可信电子签约平台"
+  ],
+  "fill_hint": "顶层3层；第一层7个行业列每列4个子项，第二层3组各含4步箭头链，第三层左右两大块",
+  "confidence": 0.6
+ },
+ {
+  "page": 141,
+  "page_title": "设计优化",
+  "summary": "用户接入门户→流程运营平台→业务集成平台三层，左接敏捷应用、右接流程监控",
+  "logic_type": "层级金字塔",
+  "structure": {
+   "topology": "层叠",
+   "slot_count": 3,
+   "ordered": true,
+   "has_arrows": true,
+   "has_connectors": true,
+   "hierarchy_depth": 3
+  },
+  "capacity": {
+   "main_slots": 3,
+   "per_slot_chars": 10,
+   "total_chars": 130
+  },
+  "best_for": [
+   "平台分层架构说明",
+   "门户-运营-集成的集成架构",
+   "IT 系统集成方案总览"
+  ],
+  "avoid_for": [
+   "并列要点的简单罗列",
+   "时间流程叙述"
+  ],
+  "scenes": [
+   "工作汇报",
+   "产品介绍"
+  ],
+  "placeholders": [
+   "全方位用户接入",
+   "统一信息门户（单点登录、审批集成、消息推送）",
+   "统一流程运营平台",
+   "统一业务集成平台",
+   "敏捷开发平台应用",
+   "流程监控预警平台（BI）"
+  ],
+  "fill_hint": "纵向三层（接入门户/流程运营/业务集成），中间层最宽；左右两侧各有辅助面板（敏捷应用6项、流程监控3项），不计入顶层slot",
+  "confidence": 0.55
+ }
+]

@@ -1,0 +1,11 @@
+# 临时文件
+*.tmp
+*.log
+
+# 调研报告草稿
+drafts/
+reports/
+
+# 系统文件
+.DS_Store
+Thumbs.db
