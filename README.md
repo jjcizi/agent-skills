@@ -11,6 +11,7 @@
 | [teaching-plan](teaching-plan/) | 把知识点或教材章节转成"综艺思维"教案——用悬念/身份/反转/站队/盲盒/复盘六机制设计课堂节奏，输出教案 Word、投屏 PPT、打印材料包与材料清单 | `.agents/skills/teaching-plan/` |
 | [logic-diagram](logic-diagram/) | 把一段文字内容套进 141 页专业逻辑图模板（孔雀蓝），按内容逻辑匹配候选版式，替换文字后输出 PPTX/PDF/PNG | `.agents/skills/logic-diagram/` |
 | [person-investigation](person-investigation/) | 人物背景尽调——消歧锚定、8 维度调研、并行子 Agent、来源可信度分级与结构化尽调报告 | `.agents/skills/person-investigation/` |
+| [bid-price-calc](bid-price-calc/) | 投标报价测算——自动识别评标基准价方法与算分规则，蒙特卡洛模拟报价概率，输出手机版式 PDF 测算报告与最终报价目标范围 | `.agents/skills/bid-price-calc/` |
 
 ## 安装方法
 
@@ -60,6 +61,11 @@ pip install python-pptx pymupdf pillow
 字体已随包放在 `logic-diagram/assets/fonts/`（**Noto Sans SC**，SIL OFL 1.1，
 可自由再分发），首次出图会自动装入用户字体目录，无需手动下载。
 
+
+**bid-price-calc（报价测算）**
+
+- **Node.js ≥ 18** —— 运行 `scripts/run_calc.js` 蒙特卡洛测算
+- Python 脚本仅用标准库，无需 pip 安装
 ## 添加新技能
 
 ```bash
