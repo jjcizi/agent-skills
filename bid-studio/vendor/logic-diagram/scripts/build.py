@@ -19,6 +19,8 @@ import json
 import os
 import subprocess
 import sys
+import tempfile
+from pathlib import Path
 
 import fitz
 from PIL import Image, ImageChops, ImageFont
@@ -343,12 +345,18 @@ def trim_outputs(doc, page, png_path, pad_ratio=PAD_RATIO, tol=6):
 
 
 def render(pptx_path, out_dir, trim=True, pad_ratio=PAD_RATIO, keep_full=False):
-    subprocess.run(
-        [SOFFICE, '-env:UserInstallation=file:///tmp/lo_profile',
-         '--headless', '--norestore', '--convert-to', 'pdf',
-         pptx_path, '--outdir', out_dir],
-        check=True, capture_output=True, timeout=300,
-    )
+    # 独立 profile，避免并发/残留状态；Windows 上 file:///tmp 无效，必须用平台临时目录
+    profile = Path(tempfile.mkdtemp(prefix='lo_profile_'))
+    try:
+        subprocess.run(
+            [SOFFICE, f'-env:UserInstallation={profile.as_uri()}',
+             '--headless', '--norestore', '--convert-to', 'pdf',
+             pptx_path, '--outdir', out_dir],
+            check=True, capture_output=True, timeout=300,
+        )
+    except subprocess.CalledProcessError as e:
+        sys.exit(f'✗ LibreOffice 转 PDF 失败（exit {e.returncode}）：\n'
+                 f'{(e.stderr or b"").decode("utf-8", "replace")[-2000:]}')
     pdf = os.path.splitext(pptx_path)[0] + '.pdf'
     png = os.path.splitext(pptx_path)[0] + '.png'
     doc = fitz.open(pdf)

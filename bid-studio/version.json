@@ -1,6 +1,6 @@
 {
-  "version": "2.7.1",
-  "updatedAt": "2026-10-06",
+  "version": "2.7.2",
+  "updatedAt": "2026-10-16",
   "name": "bid-studio",
   "displayName": "标书超级工坊",
   "upgradedFrom": "tender-master@1.0.0",
@@ -17,6 +17,9 @@
     "logic-diagram（v2.6.0 起替代 Mermaid 承担逻辑图绘制，141 页模板库）"
   ],
   "changelog": [
+    "**异步绘图机制（v2.7.2）**：新增 scripts/diagram_async.py——写正文时放占位锚点、add 登记、run 后台渲染（不阻塞主流程）、worker 完成后自动回填图片、sync 汇合确认；解决 logic-diagram build.py 经 LibreOffice 渲染 5~10 分钟导致正文撰写被阻塞/跳过、图片缺失或不完整的问题",
+    "修复 vendor/logic-diagram/scripts/build.py 的 Windows 兼容性：LibreOffice 渲染 profile 由硬编码 file:///tmp/lo_profile 改为平台临时目录（tempfile.mkdtemp），避免 Windows 下渲染超时",
+    "SKILL.md 同步：P6.9 逻辑图渲染改为异步调用，新增「八、异步绘图机制」，P8.3 校验前先 sync 汇合异步绘图",
     "**字体分发分层（v2.7.1）**：开源字体（思源宋体 SC ×2，SIL OFL 1.1）随仓库分发；商业字体仓耳今楷 02（W04/W05，各约 18MB）**不入库**，改由 `scripts/ensure-fonts.sh` 在本地按需自动下载，下载失败则打印手动获取指引",
     "新增 `scripts/ensure-fonts.sh`：字体就绪检查——开源字体核对存在性，仓耳今楷缺失时自动下载（支持 `BIDSTUDIO_FONT_DIR` 指定可写目录）。实测下载源走 tw93/Kami 的 jsdelivr / jsdmirror 镜像，下载文件与本机字体 sha256 逐字节一致；**官方 tsanger.cn 直链已 404，不作为自动下载源**",
     "文档同步：`assets/fonts/README.md` 重写为「分发策略 + 一键准备 + 清单 + 手动获取 + 授权」；SKILL.md「本地字体资产」段改为「开源内置 · 商业按需下载」并附准备脚本用法；使用说明「七、内置字体」段分层说明并加入 `scripts/ensure-fonts.sh` 目录条目；明确**字体缺失不阻断交付**（中文回退思源宋体 SC，报告如实说明）",
