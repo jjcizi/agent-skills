@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+    background: #F5F7FB; color: #16233B; width: 1200px;
+    -webkit-font-smoothing: antialiased; font-size: 16px; line-height: 1.7;
+  }
+  .num { font-family: "Bahnschrift", "Segoe UI", sans-serif; font-variant-numeric: tabular-nums; }
+  .wrap { width: 1080px; margin: 0 auto; padding-bottom: 48px; }
+
+  .hero {
+    background:
+      radial-gradient(600px 300px at 88% -10%, rgba(37,99,235,.12), transparent 60%),
+      radial-gradient(500px 260px at 0% 0%, rgba(14,159,110,.10), transparent 55%),
+      linear-gradient(180deg, #EEF3FB, #F5F7FB);
+    padding: 44px 48px 30px; border-bottom: 1px solid #E2E8F4;
+  }
+  .hero-inner { width: 1080px; margin: 0 auto; }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .brand-mark {
+    width: 46px; height: 46px; border-radius: 13px;
+    background: linear-gradient(135deg, #2563EB, #10B981); color: #fff;
+    display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 700;
+    box-shadow: 0 6px 18px rgba(37,99,235,.30);
+  }
+  .brand-name { font-size: 20px; font-weight: 700; letter-spacing: .06em; }
+  .brand-sub { font-size: 11px; color: #5D6C87; letter-spacing: .3em; }
+  .brand-meta { margin-left: auto; text-align: right; font-size: 13px; color: #8B98AE; }
+  .brand-meta b { color: #B7791F; }
+  .kicker { margin-top: 22px; font-size: 13px; letter-spacing: .4em; color: #2563EB; }
+  .hero h1 { margin-top: 10px; font-size: 34px; font-weight: 700; line-height: 1.4; }
+  .chips { margin-top: 14px; display: flex; gap: 10px; flex-wrap: wrap; }
+  .chip { font-size: 13px; padding: 6px 14px; border-radius: 999px; border: 1px solid #E2E8F4;
+    background: rgba(255,255,255,.85); color: #3D4C66; }
+  .chip b { color: #B7791F; }
+
+  .kpis { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 28px; }
+  .kpi { border: 1px solid #E2E8F4; border-radius: 18px; padding: 20px 22px; background: #fff;
+    box-shadow: 0 2px 6px rgba(22,35,59,.06); position: relative; overflow: hidden; }
+  .kpi::after { content: ""; position: absolute; left: 0; top: 0; height: 4px; width: 100%;
+    background: linear-gradient(90deg, var(--a, #2563EB), transparent 75%); }
+  .kpi .label { font-size: 13px; color: #5D6C87; letter-spacing: .14em; }
+  .kpi .value { margin-top: 8px; font-size: 46px; font-weight: 700; line-height: 1.1; color: var(--a, #16233B); }
+  .kpi .value small { font-size: 16px; color: #5D6C87; font-weight: 500; margin-left: 6px; }
+  .kpi .sub { margin-top: 8px; font-size: 12.5px; color: #8B98AE; line-height: 1.6; }
+
+  .stat-note { margin-top: 16px; padding: 14px 18px; border-radius: 14px;
+    border: 1px dashed rgba(183,121,31,.55); background: rgba(183,121,31,.07);
+    font-size: 13px; line-height: 1.7; color: #7A5B1E; }
+  .stat-note b { color: #92400E; }
+
+  .sec { margin-top: 40px; }
+  .sec-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; }
+  .sec-head .idx { font-size: 14px; color: #B7791F; font-weight: 700; letter-spacing: .14em; }
+  .sec-head h2 { font-size: 24px; font-weight: 700; }
+  .card { border: 1px solid #E2E8F4; border-radius: 18px; background: #fff; padding: 24px 26px;
+    box-shadow: 0 2px 6px rgba(22,35,59,.05); }
+
+  .ranges { display: flex; flex-direction: column; gap: 14px; }
+  .rrow { display: flex; align-items: center; gap: 12px; }
+  .rlabel { flex: none; width: 110px; font-size: 14px; color: #5D6C87; }
+  .rtrack { flex: 1; position: relative; height: 22px; border-radius: 999px; background: #EDF1F8;
+    box-shadow: inset 0 0 0 1px rgba(22,35,59,.05); }
+  .rfill { position: absolute; top: 0; bottom: 0; border-radius: 999px; }
+  .rpin { position: absolute; top: -5px; bottom: -5px; width: 4px; background: #DC2626;
+    transform: translateX(-2px); border-radius: 3px; box-shadow: 0 0 8px rgba(220,38,38,.55); }
+  .rval { flex: none; width: 130px; text-align: right; font-size: 15px; font-weight: 700; }
+  .axis-row { display: flex; justify-content: space-between; font-size: 12px; color: #8B98AE;
+    padding-left: 122px; padding-right: 130px; }
+
+  .funnel { display: flex; flex-direction: column; gap: 12px; margin-top: 18px; }
+  .fstep { display: flex; align-items: center; gap: 12px; font-size: 14px; }
+  .fno { flex: none; width: 26px; height: 26px; border-radius: 8px; color: #fff; font-size: 13px;
+    font-weight: 700; display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, #2563EB, #10B981); }
+  .ftitle { flex: none; width: 250px; color: #3D4C66; }
+  .ftrack { flex: 1; position: relative; height: 14px; border-radius: 999px; background: #EDF1F8; }
+  .ffill { position: absolute; top: 0; bottom: 0; border-radius: 999px; }
+  .fpin { position: absolute; top: -4px; bottom: -4px; width: 3px; background: #DC2626;
+    transform: translateX(-1.5px); }
+  .fval { flex: none; width: 150px; text-align: right; font-weight: 700; font-size: 14px; }
+
+  .comps { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 26px; }
+  .comp-row { display: flex; align-items: center; gap: 8px; }
+  .comp-name { flex: none; width: 150px; font-size: 13px; color: #3D4C66; overflow: hidden;
+    text-overflow: ellipsis; white-space: nowrap; }
+  .comp-track { flex: 1; position: relative; height: 12px; border-radius: 999px; background: #EDF1F8; }
+  .comp-fill { position: absolute; top: 0; bottom: 0; border-radius: 999px;
+    background: linear-gradient(90deg, #93C5FD, #60A5FA); }
+  .comp-bid { position: absolute; top: -2px; bottom: -2px; width: 2px; background: #2563EB;
+    transform: translateX(-1px); }
+  .comp-val { flex: none; width: 88px; text-align: right; font-size: 12px; color: #5D6C87; }
+
+  .heat { margin-top: 16px; text-align: center; }
+  .heat img { width: 100%; border-radius: 14px; border: 1px solid #E2E8F4; }
+  .heat .cap { margin-top: 10px; font-size: 13px; color: #8B98AE; }
+
+  .verdict { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .vcard { border-radius: 18px; padding: 24px 26px; border: 1px solid #E2E8F4; background: #fff;
+    box-shadow: 0 2px 6px rgba(22,35,59,.05); }
+  .vcard.primary { border-color: rgba(14,159,110,.5);
+    background: linear-gradient(135deg, rgba(14,159,110,.10), #fff 65%); }
+  .vcard .who { font-size: 14px; color: #5D6C87; letter-spacing: .18em; }
+  .vcard .big { margin-top: 8px; font-size: 52px; font-weight: 700; line-height: 1.1; }
+  .vcard.primary .big { color: #0E9F6E; }
+  .vcard .big small { font-size: 18px; color: #5D6C87; font-weight: 500; margin-left: 8px; }
+  .vcard .sub { margin-top: 8px; font-size: 13px; color: #8B98AE; line-height: 1.65; }
+  .note { margin-top: 16px; border: 1px solid #E2E8F4; border-radius: 16px; background: #fff;
+    padding: 20px 24px; font-size: 14.5px; line-height: 1.9; color: #4A5B78; }
+  .note b { color: #16233B; }
+
+  .disc { margin-top: 24px; padding: 16px 20px; border-radius: 14px;
+    border: 1px dashed rgba(220,38,38,.40); background: rgba(220,38,38,.05);
+    font-size: 13px; line-height: 1.8; color: #7F1D1D; }
+  .disc b { color: #B91C1C; }
+  .foot { margin-top: 22px; padding-top: 14px; border-top: 1px solid #E2E8F4;
+    display: flex; justify-content: space-between; font-size: 12.5px; color: #8B98AE; }
+  .foot b { color: #5D6C87; letter-spacing: .12em; }
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="hero-inner">
+    <div class="brand">
+      <div class="brand-mark">史</div>
+      <div>
+        <div class="brand-name">历史评估法 · HISTORY EVAL</div>
+        <div class="brand-sub">BID PRICE BY HISTORY</div>
+      </div>
+      <div class="brand-meta">测算日期　<b>${date}</b><br><b>${participants}家×${scenario_count}情景</b></div>
+    </div>
+    <div class="kicker">投标报价测算 · 信息分享图</div>
+    <h1>${project}</h1>
+    <div class="chips">
+      <span class="chip">评分方法　<b>${rule_label}</b></span>
+      <span class="chip">最高限价　<b>${ceiling} 元</b></span>
+      <span class="chip">目标区间　<b>${target_interval}</b></span>
+      <span class="chip">并列带　<b>${tie_txt}</b></span>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi" style="--a:#0E9F6E">
+        <div class="label">目标报价折扣率</div>
+        <div class="value num">${optimal_pct}</div>
+        <div class="sub">${kpi1_sub}</div>
+      </div>
+      <div class="kpi" style="--a:#2563EB">
+        <div class="label">目标报价金额</div>
+        <div class="value num">${optimal_price}<small>元</small></div>
+        <div class="sub">${kpi2_sub}</div>
+      </div>
+      <div class="kpi" style="--a:#B7791F">
+        <div class="label">模拟表现</div>
+        <div class="value num">${avg_score}<small>分</small></div>
+        <div class="sub">${kpi3_sub}</div>
+      </div>
+    </div>
+    <div class="stat-note"><b>统计口径</b>：结果基于各参与单位历史/近期中标折扣估计与三档市场情景假设推演，
+      未纳入对手临场策略与非价格评分，<b>不是</b>最优/最终报价，<b>不构成中标承诺</b>。</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="sec">
+    <div class="sec-head"><span class="idx">01</span><h2>四步区间收敛</h2></div>
+    <div class="card">
+      <div class="funnel">${funnel_html}</div>
+      <div class="axis-row" style="padding-left:300px;padding-right:150px">
+        <span>${axis_min}</span><span>${axis_mid}</span><span>${axis_max}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="idx">02</span><h2>参与单位历史折扣区间（证据）</h2></div>
+    <div class="card"><div class="comps">${comps_html}</div></div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="idx">03</span><h2>折扣×折扣得分矩阵（圈定报价窗口）</h2></div>
+    <div class="card">
+      <div class="heat">
+        ${heatmap_img}
+        <div class="cap">红框=我方目标区间 · 蓝虚框=对手历史折扣区间 · 红色阴影=最终圈定报价窗口；单元格=我方价格得分</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="idx">04</span><h2>报价建议</h2></div>
+    <div class="verdict">
+      <div class="vcard primary">
+        <div class="who">目 标 报 价</div>
+        <div class="big num">${optimal_price}<small>元</small></div>
+        <div class="sub">折扣 <b style="color:#0E9F6E">${optimal_pct}</b> · 并列带 ${tie_txt} 内取偏低<br>
+          = 限价 ${ceiling} 元 × ${optimal_pct} · 平均得分 ${avg_score} 分</div>
+      </div>
+      <div class="vcard">
+        <div class="who">备 选 报 价</div>
+        <div class="big num" style="color:#16233B">${secondary_price}<small>元</small></div>
+        <div class="sub">折扣 ${secondary_pct} · 模拟均分更高但让利<br>适用"市场偏热、抢排名"场景</div>
+      </div>
+    </div>
+    <div class="note">${suggest_note}</div>
+  </div>
+
+  <div class="disc">* 本图基于历史折扣数据与情景模拟生成，仅供报价决策参考，<b>不构成中标承诺</b>；
+    对手折扣估计与情景平移量的偏差会显著影响结论，取得更近中标数据后应更新重算。</div>
+  <div class="foot"><span><b>HISTORY EVAL · SKILL</b></span><span>${date} · 历史数据评估法</span></div>
+</div>
+</body>
+</html>

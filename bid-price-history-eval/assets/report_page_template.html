@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #F5F7FB;
+    --panel: #FFFFFF;
+    --line: #E2E8F4;
+    --ink: #16233B;
+    --muted: #5D6C87;
+    --faint: #8B98AE;
+    --gold: #B7791F;
+    --green: #0E9F6E;
+    --yellow: #D97706;
+    --red: #DC2626;
+    --blue: #2563EB;
+  }
+  @page { size: 414px 896px; margin: 0; }
+  html, body { width: 414px; }
+  body {
+    font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    font-size: 15px;
+    line-height: 1.75;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+  .ev, .note, .limits, .disc, .step-reason, .kpi .sub, .chip, .comp-ev, .hero h1 {
+    text-align: justify;
+    text-justify: inter-ideograph;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .num { font-family: "Bahnschrift", "Segoe UI", "Microsoft YaHei", sans-serif;
+         font-variant-numeric: tabular-nums; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    background:
+      radial-gradient(420px 240px at 85% -10%, rgba(37, 99, 235, 0.10), transparent 60%),
+      radial-gradient(380px 220px at 0% 0%, rgba(14, 159, 110, 0.08), transparent 55%),
+      linear-gradient(180deg, #EEF3FB, var(--bg));
+    padding: 22px 24px 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand-mark {
+    width: 30px; height: 30px; border-radius: 9px;
+    background: linear-gradient(135deg, #2563EB, #10B981);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 14px; color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.30);
+  }
+  .brand-name { font-size: 13.5px; font-weight: 700; letter-spacing: 0.08em; color: var(--ink); }
+  .brand-sub { font-size: 9.5px; color: var(--muted); letter-spacing: 0.26em; white-space: nowrap; }
+  .brand-meta { margin-left: auto; text-align: right; font-size: 10.5px; color: var(--faint); line-height: 1.6; }
+  .brand-meta b { color: var(--gold); font-weight: 600; }
+  .kicker {
+    margin-top: 15px; display: inline-flex; align-items: center; gap: 8px;
+    font-size: 11px; letter-spacing: 0.36em; color: var(--blue);
+  }
+  .kicker::before { content: ""; width: 26px; height: 1px; background: var(--blue); }
+  .hero h1 { margin-top: 10px; font-size: 22px; line-height: 1.4; font-weight: 700; color: var(--ink); }
+  .chips { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 7px; }
+  .chip {
+    font-size: 11px; padding: 5px 10px; border-radius: 999px;
+    border: 1px solid var(--line); color: #3D4C66;
+    background: rgba(255, 255, 255, 0.85);
+  }
+  .chip b { color: var(--gold); font-weight: 600; }
+
+  /* ---------- 主体 ---------- */
+  .body { padding: 15px 20px 30px; }
+  .sec { margin-top: 26px; }
+  .sec:first-child { margin-top: 0; }
+  .sec.keep { break-inside: avoid; page-break-inside: avoid; }
+  .sec-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px; }
+  .sec-head .idx { font-size: 11.5px; color: var(--gold); letter-spacing: 0.14em; font-weight: 700; }
+  .sec-head h2 { font-size: 17px; font-weight: 700; letter-spacing: 0.04em; }
+  .card {
+    border: 1px solid var(--line); border-radius: 16px;
+    background: #FFFFFF;
+    box-shadow: 0 1px 3px rgba(22, 35, 59, 0.05);
+    padding: 16px 18px;
+    break-inside: avoid; page-break-inside: avoid;
+  }
+
+  /* ---------- KPI ---------- */
+  .kpis { display: flex; flex-direction: column; gap: 9px; }
+  .kpi {
+    border: 1px solid var(--line); border-radius: 16px; padding: 12px 16px;
+    background: #FFFFFF;
+    box-shadow: 0 1px 3px rgba(22, 35, 59, 0.05);
+    position: relative; overflow: hidden;
+    break-inside: avoid; page-break-inside: avoid;
+  }
+  .kpi::after {
+    content: ""; position: absolute; left: 0; top: 0; height: 3px; width: 100%;
+    background: linear-gradient(90deg, var(--accent, var(--blue)), transparent 75%);
+    opacity: 0.85;
+  }
+  .kpi .label {
+    font-size: 12px; color: var(--muted); letter-spacing: 0.14em;
+    display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  }
+  .badge {
+    flex: none; font-size: 11px; font-weight: 700; letter-spacing: 0.02em;
+    color: #FFFFFF; background: var(--accent, var(--blue));
+    padding: 3px 9px; border-radius: 999px;
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+  }
+  .kpi .value {
+    margin-top: 6px; font-size: 33px; font-weight: 700; line-height: 1.1;
+    color: var(--accent, var(--ink));
+  }
+  .kpi .value.range { font-size: 26px; }
+  .kpi .value .unit { font-size: 14px; font-weight: 500; color: var(--muted); margin-left: 6px; }
+  .kpi .sub { margin-top: 6px; font-size: 11px; color: var(--faint); line-height: 1.55; }
+  .kpi-hero {
+    background:
+      radial-gradient(320px 150px at 92% 0%, rgba(14, 159, 110, 0.10), transparent 70%),
+      linear-gradient(180deg, #F6FCF9, #FFFFFF);
+  }
+
+  /* ---------- 统计口径备注 ---------- */
+  .stat-note {
+    margin-top: 10px; padding: 10px 13px; border-radius: 12px;
+    border: 1px dashed rgba(183, 121, 31, 0.55);
+    background: rgba(183, 121, 31, 0.07);
+    font-size: 11px; line-height: 1.6; color: #7A5B1E;
+    break-inside: avoid; page-break-inside: avoid;
+    text-align: justify; text-justify: inter-ideograph; overflow-wrap: anywhere;
+  }
+  .stat-note b { color: #92400E; }
+
+  /* ---------- 区间轴（基础/对手/目标 三行 + 最优点） ---------- */
+  .ranges { display: flex; flex-direction: column; gap: 10px; }
+  .rrow { display: flex; align-items: center; gap: 8px; }
+  .rlabel { flex: none; width: 74px; font-size: 11.5px; color: var(--muted); }
+  .rtrack {
+    flex: 1; position: relative; height: 16px; border-radius: 999px;
+    background: #EDF1F8; box-shadow: 0 0 0 1px rgba(22, 35, 59, 0.05) inset;
+  }
+  .rfill { position: absolute; top: 0; bottom: 0; border-radius: 999px; }
+  .rpin {
+    position: absolute; top: -4px; bottom: -4px; width: 3px; background: var(--red);
+    transform: translateX(-1.5px); border-radius: 2px;
+    box-shadow: 0 0 6px rgba(220, 38, 38, 0.55);
+  }
+  .rval { flex: none; width: 84px; text-align: right; font-size: 11.5px; font-weight: 700; }
+  .axis-row {
+    display: flex; justify-content: space-between; font-size: 10px; color: var(--faint);
+    margin-top: 2px; padding-left: 82px; padding-right: 84px;
+  }
+
+  /* ---------- 对手折扣区间明细 ---------- */
+  .comps { margin-top: 14px; display: flex; flex-direction: column; gap: 6px; }
+  .comp-row { display: flex; align-items: center; gap: 7px; break-inside: avoid; }
+  .comp-name {
+    flex: none; width: 88px; font-size: 10.5px; color: #3D4C66;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .comp-track {
+    flex: 1; position: relative; height: 11px; border-radius: 999px; background: #EDF1F8;
+  }
+  .comp-fill {
+    position: absolute; top: 0; bottom: 0; border-radius: 999px;
+    background: linear-gradient(90deg, #93C5FD, #60A5FA);
+  }
+  .comp-bid {
+    position: absolute; top: -2px; bottom: -2px; width: 2px; background: var(--blue);
+    transform: translateX(-1px);
+  }
+  .comp-val { flex: none; width: 74px; text-align: right; font-size: 10px; color: var(--muted); }
+
+  /* ---------- 折扣×折扣矩阵（原生表格） ---------- */
+  .mtx-wrap { margin-top: 6px; overflow: hidden; }
+  .mtx-note { font-size: 10.5px; color: var(--faint); margin-bottom: 7px; line-height: 1.6; }
+  table.mtx { border-collapse: collapse; width: 100%; table-layout: fixed; }
+  table.mtx th, table.mtx td {
+    border: 1px solid #E8EDF6; font-size: 9px; text-align: center;
+    padding: 3px 0; color: #16233B; font-family: "Bahnschrift", "Segoe UI", sans-serif;
+    font-variant-numeric: tabular-nums;
+  }
+  table.mtx th { background: #F1F5FB; color: var(--muted); font-weight: 600; }
+  table.mtx th.tgt { background: rgba(220, 38, 38, 0.10); color: var(--red); font-weight: 700; }
+  table.mtx th.opt { background: var(--red); color: #FFF; font-weight: 700; }
+  table.mtx td.tgt { box-shadow: inset 0 0 0 1px rgba(220, 38, 38, 0.35); }
+  table.mtx td.opt { box-shadow: inset 0 0 0 2px var(--red); font-weight: 700; }
+  table.mtx th.corner { font-size: 8.5px; line-height: 1.3; }
+
+  /* ---------- 评分方法原文公式 ---------- */
+  .formula {
+    border: 1px solid rgba(37, 99, 235, 0.35); border-radius: 16px;
+    background: linear-gradient(180deg, rgba(37, 99, 235, 0.06), #FFFFFF 70%);
+    padding: 14px 16px; margin-bottom: 12px;
+    break-inside: avoid; page-break-inside: avoid;
+  }
+  .formula .f-title {
+    font-size: 11px; letter-spacing: 0.2em; color: var(--blue); font-weight: 700;
+  }
+  .formula .f-body {
+    margin-top: 8px; font-size: 12.5px; line-height: 1.85; color: var(--ink);
+    white-space: pre-wrap; overflow-wrap: anywhere; font-weight: 600;
+    text-align: justify; text-justify: inter-ideograph;
+  }
+  .method {
+    border: 1px solid var(--line); border-radius: 16px; padding: 14px 16px;
+    background: #FFFFFF; box-shadow: 0 1px 3px rgba(22, 35, 59, 0.05);
+    break-inside: avoid; page-break-inside: avoid;
+  }
+  .method .tag { font-size: 10px; letter-spacing: 0.26em; color: var(--muted); }
+  .method h3 { margin-top: 6px; font-size: 17px; font-weight: 700; color: var(--ink); }
+  .method .ev {
+    margin-top: 10px; font-size: 12px; line-height: 1.8; color: #4A5B78;
+    border-left: 2px solid var(--blue); padding-left: 12px;
+  }
+
+  /* ---------- 证据列表 ---------- */
+  .ev-list { display: flex; flex-direction: column; gap: 8px; }
+  .ev-item {
+    border: 1px solid var(--line); border-radius: 12px; padding: 9px 12px;
+    background: #FFFFFF; box-shadow: 0 1px 2px rgba(22, 35, 59, 0.04);
+    break-inside: avoid;
+  }
+  .ev-head { display: flex; align-items: center; gap: 8px; }
+  .ev-name { font-size: 12.5px; font-weight: 700; color: var(--ink); }
+  .ev-badge {
+    margin-left: auto; flex: none; font-size: 10.5px; font-weight: 700;
+    color: var(--blue); background: rgba(37, 99, 235, 0.08);
+    border: 1px solid rgba(37, 99, 235, 0.30); padding: 1px 8px; border-radius: 999px;
+  }
+  .ev-badge.nodata { color: var(--yellow); background: rgba(217, 119, 6, 0.08);
+    border-color: rgba(217, 119, 6, 0.35); }
+  .comp-ev { margin-top: 5px; font-size: 11px; line-height: 1.7; color: #4A5B78; }
+
+  /* ---------- 四步推导 ---------- */
+  .steps { display: flex; flex-direction: column; gap: 10px; }
+  .step {
+    border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px;
+    background: #FFFFFF; box-shadow: 0 1px 3px rgba(22, 35, 59, 0.05);
+    break-inside: avoid; page-break-inside: avoid;
+  }
+  .step-top { display: flex; align-items: center; gap: 9px; }
+  .step-no {
+    flex: none; width: 22px; height: 22px; border-radius: 7px;
+    background: linear-gradient(135deg, #2563EB, #10B981); color: #FFF;
+    font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;
+  }
+  .step-title { font-size: 13.5px; font-weight: 700; color: var(--ink); }
+  .step-iv {
+    margin-left: auto; flex: none; font-size: 12px; font-weight: 700;
+    color: var(--gold); background: rgba(183, 121, 31, 0.08);
+    border: 1px solid rgba(183, 121, 31, 0.35); padding: 2px 9px; border-radius: 999px;
+  }
+  .step-iv.point { color: var(--red); background: rgba(220, 38, 38, 0.07);
+    border-color: rgba(220, 38, 38, 0.40); }
+  .step-reason { margin-top: 7px; font-size: 12px; line-height: 1.8; color: #4A5B78; }
+
+  /* ---------- 情景模拟表 ---------- */
+  table.sim { border-collapse: collapse; width: 100%; table-layout: fixed; }
+  table.sim th, table.sim td {
+    border: 1px solid #E8EDF6; font-size: 11px; text-align: center;
+    padding: 7px 2px; font-family: "Bahnschrift", "Segoe UI", sans-serif;
+    font-variant-numeric: tabular-nums;
+  }
+  table.sim th { background: #F1F5FB; color: var(--muted); font-weight: 600; font-size: 10.5px; }
+  table.sim td.cand { font-weight: 700; background: #FAFBFE; }
+  table.sim tr.tie td { background: rgba(183, 121, 31, 0.06); }
+  table.sim tr.opt td {
+    background: rgba(14, 159, 110, 0.10); font-weight: 700; color: #065F46;
+  }
+  table.sim .cell b { display: block; font-size: 12.5px; }
+  table.sim .cell span { font-size: 9.5px; color: var(--faint); }
+  .sim-note { font-size: 10.5px; color: var(--faint); margin-top: 8px; line-height: 1.65; }
+
+  /* ---------- 建议 ---------- */
+  .pick {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 16px; border-radius: 14px; margin-bottom: 10px;
+    border: 1px solid var(--line); background: #FFFFFF;
+    box-shadow: 0 1px 3px rgba(22, 35, 59, 0.05);
+    break-inside: avoid;
+  }
+  .pick.primary {
+    border-color: rgba(14, 159, 110, 0.45);
+    background: linear-gradient(90deg, rgba(14, 159, 110, 0.10), #FFFFFF 65%);
+  }
+  .pick .who { font-size: 12px; color: var(--muted); letter-spacing: 0.14em; line-height: 1.7; }
+  .pick .who .hit {
+    display: inline-block; margin-top: 3px; letter-spacing: 0.02em;
+    font-size: 13px; font-weight: 700; color: var(--green);
+  }
+  .pick .who .dr { display: inline-block; margin-top: 3px; font-size: 11.5px; color: var(--faint); }
+  .pick .price { font-size: 24px; font-weight: 700; text-align: right; }
+  .pick.primary .price { color: var(--green); }
+  .pick .price small { font-size: 12px; color: var(--muted); font-weight: 500; margin-left: 4px; }
+  .note { font-size: 13px; line-height: 1.85; color: #4A5B78; }
+
+  /* ---------- 限制/页脚 ---------- */
+  .limits { font-size: 12.5px; line-height: 1.9; color: #4A5B78; }
+  .limits li { margin-left: 18px; margin-bottom: 4px; }
+  .limits b { color: var(--gold); font-weight: 600; }
+  .disc {
+    margin-top: 18px; padding: 14px 16px; border-radius: 14px;
+    border: 1px dashed rgba(220, 38, 38, 0.40);
+    background: rgba(220, 38, 38, 0.05);
+    font-size: 12px; line-height: 1.8; color: #7F1D1D;
+  }
+  .disc b { color: #B91C1C; }
+  .foot {
+    margin-top: 22px; padding-top: 14px; border-top: 1px solid var(--line);
+    display: flex; justify-content: space-between; font-size: 10.5px; color: var(--faint);
+  }
+  .foot b { color: var(--muted); letter-spacing: 0.1em; }
+</style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="brand">
+      <div class="brand-mark">史</div>
+      <div>
+        <div class="brand-name">历史评估法 · HISTORY EVAL</div>
+        <div class="brand-sub">BID PRICE BY HISTORY</div>
+      </div>
+      <div class="brand-meta">测算日期　<b>${date}</b><br><b>${participants}家×${scenario_count}情景</b></div>
+    </div>
+    <div class="kicker">投标报价测算报告</div>
+    <h1>${project}</h1>
+    <div class="chips">
+      <span class="chip">评分方法　<b>${rule_label}</b></span>
+      <span class="chip">最高限价　<b>${ceiling} 元</b></span>
+      <span class="chip">目标区间　<b>${target_interval}</b></span>
+      <span class="chip">并列带　<b>${tie_txt}</b></span>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- KPI -->
+    <div class="sec">
+      <div class="kpis">
+        <div class="kpi kpi-hero" style="--accent: var(--green)">
+          <div class="label"><span>目标报价折扣率</span><span class="badge" style="--accent:var(--green)">最优锁定</span></div>
+          <div class="value num" style="color: var(--green); font-size:44px">${optimal_pct}</div>
+          <div class="sub">${kpi1_sub}</div>
+        </div>
+        <div class="kpi" style="--accent: var(--blue)">
+          <div class="label"><span>目标报价金额</span></div>
+          <div class="value num" style="font-size:30px">${optimal_price}<span class="unit">元</span></div>
+          <div class="sub">${kpi2_sub}</div>
+        </div>
+        <div class="kpi" style="--accent: var(--gold)">
+          <div class="label"><span>模拟表现</span></div>
+          <div class="value range num" style="font-size:23px;color:var(--gold)">${avg_score} 分 · 平均第 ${avg_rank} 名</div>
+          <div class="sub">${kpi3_sub}</div>
+        </div>
+      </div>
+      <div class="stat-note">
+        <b>统计口径说明（必读）</b>：以上结果基于<b>各参与单位的历史/近期中标折扣估计</b>与
+        <b>三档市场情景假设</b>推演，只反映"假设的对手报价分布"下的得分规律，
+        <b>未纳入</b>对手临场策略、成本利润约束、评标现场判断等真实风险；
+        <b>不是</b>最优、最终或理想的报价。折扣率证据可能不完备，请结合成本底线与商务判断决策，
+        完整限制见文末"限制与声明"。
+      </div>
+    </div>
+
+    <!-- 01 报价区间圈定 -->
+    <div class="sec keep">
+      <div class="sec-head"><span class="idx">01</span><h2>报价区间圈定（折扣×折扣）</h2></div>
+      <div class="card">
+        <div class="ranges">
+          <div class="rrow">
+            <span class="rlabel">① 基础区间</span>
+            <div class="rtrack"><div class="rfill" style="left:${base_left}%;width:${base_w}%;background:linear-gradient(90deg,#60A5FA,#3B82F6)"></div></div>
+            <span class="rval num" style="color:var(--blue)">${base_txt}</span>
+          </div>
+          <div class="rrow">
+            <span class="rlabel">② 对手历史</span>
+            <div class="rtrack"><div class="rfill" style="left:${valid_left}%;width:${valid_w}%;background:linear-gradient(90deg,#34D399,#10B981)"></div></div>
+            <span class="rval num" style="color:var(--green)">${valid_txt}</span>
+          </div>
+          <div class="rrow">
+            <span class="rlabel">③ 目标区间</span>
+            <div class="rtrack">
+              <div class="rfill" style="left:${target_left}%;width:${target_w}%;background:linear-gradient(90deg,#FCA5A5,#F87171)"></div>
+              <div class="rpin" style="left:${optimal_pin}%"></div>
+            </div>
+            <span class="rval num" style="color:var(--red)">${target_txt}</span>
+          </div>
+          <div class="axis-row"><span>${axis_min}</span><span>${axis_mid}</span><span>${axis_max}</span></div>
+        </div>
+        <div class="comps">${comps_html}</div>
+      </div>
+
+      <div class="card" style="margin-top:10px">
+        <div class="mtx-note">折扣×折扣得分矩阵（${matrix_span}）：单元格=我方得分，绿高红低；<b style="color:var(--red)">红框列=目标区间</b>，<b style="color:var(--red)">粗红框=选定折扣 ${optimal_pct}</b>。</div>
+        <div class="mtx-wrap">${matrix_html}</div>
+      </div>
+    </div>
+
+    <!-- 02 评分方法识别 -->
+    <div class="sec keep">
+      <div class="sec-head"><span class="idx">02</span><h2>评分方法识别</h2></div>
+      <div class="formula">
+        <div class="f-title">招标文件的报价评分方法（原文）</div>
+        <div class="f-body">${scoring_formula}</div>
+      </div>
+      <div class="method">
+        <div class="tag">PRICE SCORING RULE</div>
+        <h3>${scoring_label}</h3>
+        <div class="ev">${scoring_evidence}</div>
+      </div>
+      ${consistency_html}
+    </div>
+
+    <!-- 03 历史折扣证据 -->
+    <div class="sec keep">
+      <div class="sec-head"><span class="idx">03</span><h2>历史数据与折扣率证据</h2></div>
+      <div class="ev-list">${evidence_html}</div>
+    </div>
+
+    <!-- 04 四步区间推导 -->
+    <div class="sec keep">
+      <div class="sec-head"><span class="idx">04</span><h2>四步区间推导（推理链）</h2></div>
+      <div class="steps">${steps_html}</div>
+    </div>
+
+    <!-- 05 情景模拟 -->
+    <div class="sec keep">
+      <div class="sec-head"><span class="idx">05</span><h2>候选折扣 × 情景模拟</h2></div>
+      <div class="card">
+        ${sim_table}
+        <div class="sim-note">${sim_note}</div>
+      </div>
+    </div>
+
+    <!-- 06 报价建议 -->
+    <div class="sec keep">
+      <div class="sec-head"><span class="idx">06</span><h2>报价建议</h2></div>
+      <div class="pick primary">
+        <span class="who">目 标 报 价<span class="hit">折扣 ${optimal_pct} · 并列带 ${tie_txt} ${tie_rule_txt}</span><span class="dr">= 限价 ${ceiling} 元 × ${optimal_pct}</span></span>
+        <span class="price num">${optimal_price}<small>元</small></span>
+      </div>
+      <div class="pick">
+        <span class="who">备 选 报 价<span class="dr">折扣 ${secondary_pct} · 模拟均分更高但让利，适用"抢中标"场景</span></span>
+        <span class="price num">${secondary_price}<small>元</small></span>
+      </div>
+      <div class="card" style="margin-top:2px"><div class="note">${suggest_note}</div></div>
+    </div>
+
+    <!-- 07 限制与声明 -->
+    <div class="sec keep">
+      <div class="sec-head"><span class="idx">07</span><h2>限制与声明</h2></div>
+      <div class="card">
+        <ul class="limits">${limits_items}</ul>
+        <div class="disc">* 本报告基于历史折扣数据与情景模拟生成，仅供报价决策参考，<b>不构成中标承诺</b>。
+        对手折扣估计、情景平移量的偏差会显著影响结论；取得更近的中标数据或对手情报后应更新
+        input 重跑（同参数可复现）。</div>
+      </div>
+      <div class="foot">
+        <span><b>HISTORY EVAL · SKILL</b></span>
+        <span>${date} · 历史数据评估法</span>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
